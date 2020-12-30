@@ -4,7 +4,6 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start: default": "node ./bin/www",
     "start": "node app.js",
     "server": "nodemon app.js"
   },
