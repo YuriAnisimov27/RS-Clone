@@ -22,7 +22,16 @@ export const AuthPage = () => {
   const registerHandler = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', {...form});
-      message(data.message);
+      message(data['message']);
+      console.log('Data', data);
+    } catch (e) {
+    }
+  };
+
+  const loginHandler = async () => {
+    try {
+      const data = await request('/api/auth/login', 'POST', {...form});
+      message(data['message']);
       console.log('Data', data);
     } catch (e) {
     }
@@ -52,8 +61,21 @@ export const AuthPage = () => {
           <div className="card-action">
             <a href="https://materializecss.com/">This is a link</a>
             <hr/>
-            <button className='btn yellow darken-3' style={{marginRight: 30}} disabled={loading}>LogIn</button>
-            <button className='btn yellow darken-3' onClick={registerHandler} disabled={loading}>Registration</button>
+            <button
+              className='btn yellow darken-3'
+              style={{marginRight: 30}}
+              onClick={loginHandler}
+              disabled={loading}
+            >
+              LogIn
+            </button>
+            <button
+              className='btn yellow darken-3'
+              onClick={registerHandler}
+              disabled={loading}
+            >
+              Registration
+            </button>
           </div>
         </div>
       </div>
