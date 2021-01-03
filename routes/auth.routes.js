@@ -73,7 +73,8 @@ router.post('/login',
         {expiresIn: '2 days'}
       );
 
-      res.json({token, userId: user['id']});
+      // res.json({token, userId: user['id']});
+      res.json({token, userId: user.id});
 
     } catch (e) {
       res.status(500).json({message: 'Server Error. Try again...'});
