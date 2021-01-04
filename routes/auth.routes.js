@@ -31,7 +31,7 @@ router.post('/register',
       }
 
       const hashedPassword = await bcrypt.hash(password, 8);
-      const user = new User({email, password: hashedPassword});
+      const user = new User({email, password: hashedPassword, isAdmin: false});
       await user.save();
       res.status(201).json({message: 'User created'});
 

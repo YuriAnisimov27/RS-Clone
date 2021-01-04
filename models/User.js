@@ -1,4 +1,4 @@
-const {Schema, model, Types} = require('mongoose');
+const {Schema, model} = require('mongoose');
 
 const schema = new Schema({
   email: {
@@ -10,9 +10,24 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  data: {
-    type: Types.ObjectId,
-    ref: 'Score'
+  games: {
+    type: Number
+  },
+  totalTimePlayed: {
+    type: Number
+  },
+  topScore: {
+    type: Number
+  },
+  totalScore: {
+    type: Number
+  },
+  isAdmin: {
+    type: Boolean
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 });
 
