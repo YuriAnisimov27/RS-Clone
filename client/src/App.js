@@ -5,6 +5,7 @@ import {useAuth} from './hooks/auth.hook';
 import {Navbar} from './components/Navbar';
 import 'materialize-css';
 import './App.css';
+import {Footer} from './components/Footer';
 
 function App() {
   const {login, logout, token, userId} = useAuth();
@@ -19,6 +20,7 @@ function App() {
         <div className='container'>
           {routes}
         </div>
+        {isAuthenticated && <Footer/>}
       </BrowserRouter>
     </AuthContext.Provider>
   );

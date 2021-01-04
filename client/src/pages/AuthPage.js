@@ -53,13 +53,27 @@ export const AuthPage = () => {
             <p>I am a very simple card</p>
 
             <div className="input-field">
-              <input id="email" type="email" className="validate" name='email' onChange={changeHandler}/>
+              <input
+                id="email"
+                type="email"
+                className="validate"
+                name='email'
+                onChange={changeHandler}
+                value={form.email}
+              />
               <label htmlFor="email">Email</label>
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
             </div>
 
-            <div className="input-field ">
-              <input id="password" type="password" className="validate" name='password' onChange={changeHandler}/>
+            <div className="input-field">
+              <input
+                id="password"
+                type="password"
+                className="validate"
+                name='password'
+                onChange={changeHandler}
+                value={form.password}
+              />
               <label htmlFor="password">Password</label>
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
             </div>
