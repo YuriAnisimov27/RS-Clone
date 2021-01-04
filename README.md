@@ -5,9 +5,9 @@
 <ol>
     <li>clone this repo</li>
     <li>cd rsclone/</li>
-    <li>rm - rf .git</li>
     <li>npm i</li>
     <li>cd client/</li>
+    <li>rm - rf .git</li>
     <li>npm i</li>
 </ol>
 <hr>
