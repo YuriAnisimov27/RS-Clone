@@ -8,9 +8,14 @@ import './App.css';
 import {Footer} from './components/Footer';
 
 function App() {
-  const {login, logout, token, userId} = useAuth();
+  const {login, logout, token, userId, ready} = useAuth();
   const isAuthenticated = !!token;
   const routes = useRoutes(isAuthenticated);
+
+  if (!ready) {
+    return <Loader />
+  }
+
   return (
     <AuthContext.Provider value={{
       login, logout, token, userId, isAuthenticated
