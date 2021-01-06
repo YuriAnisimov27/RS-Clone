@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
 import {AuthContext} from '../context/AuthContext';
+import './AuthPage.css';
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
@@ -45,8 +46,9 @@ export const AuthPage = () => {
   };
 
   return (
-    <div className='row'>
-      <div className='col s6 offset-s3'>
+    <div className='row d-flex'>
+
+      <div className='col s6'>
         <div className="card blue-grey darken-1">
           <div className="card-content white-text">
             <span className="card-title">Authorization</span>
@@ -99,6 +101,21 @@ export const AuthPage = () => {
             </button>
           </div>
         </div>
+      </div>
+
+      <div className="icons">
+        <i className="material-icons">queue_music</i>
+        <i className="material-icons">volume_up</i>
+        <i className="material-icons">volume_off</i>
+        <i className="material-icons">person_add</i>
+        <i className="material-icons">g_translate</i>
+        <i className="material-icons">build</i>
+        <i className="material-icons">help</i>
+        <i className="material-icons">close</i>
+      </div>
+
+      <div className='AuthPage'>
+        hello world
       </div>
     </div>
   );
