@@ -600,17 +600,11 @@ export const AuthPage = () => {
   });
 
 
-
-
   // const backgroundImage = game.newImageObject({
   //   file: background,
   //   x: 0,
   //   y: 0,
   // });
-
-
-
-
 
 
   const generateBarriers = () => {
@@ -636,8 +630,6 @@ export const AuthPage = () => {
 
   game.newLoop('menu', function () {
     player.draw();
-
-
     pjs.brush.drawText({
       text: "Click to start game",
       x: 20,
@@ -647,7 +639,7 @@ export const AuthPage = () => {
     });
 
     if (mouse.isDown('LEFT')) {
-      arrayOfBarriers = generateBarriers()
+      arrayOfBarriers = generateBarriers();
       game.setLoop('game');
     }
   })
@@ -657,19 +649,30 @@ export const AuthPage = () => {
 
 
 
-
+  let k = -1;
   game.newLoop('game', function () {
 
-    if (player.y < 250) {
-      player.y += 4;
+    player.y += 4 * k;
+
+    if (player.y < 0) {
+      k = 1;
+    }
+
+    if (player.y > 248) {
+      player.y = 250;
+      k = 0;
+    }
+
+    if (mouse.isPress('LEFT')) {
+      k = -1;
     }
 
 
-    if (mouse.isDown('LEFT')) {
-      if (player.y > 0) { //TODO: setTimeout / Interval??
-        player.y -= 14;
-      }
-    }
+
+
+
+
+
 
     //pjs.presets.bgCycle(backgroundImage, -2);
     //backgroundImage.draw();
@@ -678,9 +681,7 @@ export const AuthPage = () => {
       item.x -= 3;
       item.draw();
 
-
       if (player.isStaticIntersect(item.getStaticBox())) {
-        //alert('You lose! \n ---Reload this page to start new game.---');
         console.log('Collision');
         game.setLoop('menu');
       }
@@ -690,11 +691,7 @@ export const AuthPage = () => {
       //     console.log('Collision');
       //   }
       // }
-
-
     })
-
-
   })
 
 
