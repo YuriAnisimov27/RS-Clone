@@ -663,7 +663,8 @@ export const AuthPage = () => {
       k = 0;
     }
 
-    if (mouse.isPress('LEFT')) {
+
+    if (mouse.isPress('LEFT') && player.y > 248) {
       k = -1;
     }
 
