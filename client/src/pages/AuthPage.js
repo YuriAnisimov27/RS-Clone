@@ -610,18 +610,25 @@ export const AuthPage = () => {
 
 
 
-  const arrayOfBarriers = [];
-  let offsetByX = 500;
 
-  for (let i = 0; i < 100; i += 1) {
-    offsetByX += getRandomNumber(300, 800);
-    const barier = game.newImageObject({
-      file: cactus,
-      x: offsetByX,
-      y: 240,
-    });
-    arrayOfBarriers.push(barier)
+
+
+  const generateBarriers = () => {
+    const arr = [];
+    let offsetByX = 500;
+    for (let i = 0; i < 100; i += 1) {
+      offsetByX += getRandomNumber(300, 800);
+      const barier = game.newImageObject({
+        file: cactus,
+        x: offsetByX,
+        y: 240,
+      });
+      arr.push(barier)
+    }
+    return arr;
   }
+
+  let arrayOfBarriers = generateBarriers();
 
 
 
@@ -640,6 +647,7 @@ export const AuthPage = () => {
     });
 
     if (mouse.isDown('LEFT')) {
+      arrayOfBarriers = generateBarriers()
       game.setLoop('game');
     }
   })
