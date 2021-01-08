@@ -1,4 +1,5 @@
-import {add} from './draft'
+import {add} from './draft';
+
 const fetch = require('isomorphic-fetch');
 
 describe('test opportunities', () => {
