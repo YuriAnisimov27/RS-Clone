@@ -22,6 +22,7 @@ router.get('/users', async (req, res) => {
     res.status(500).json({ message: 'Server Error. Try again...' });
   }
 });
+// postman GET http://localhost:5000/api/admin/users will show all Mongo collection
 
 router.delete(`/users/:email`, async (req, res) => {
   try {
@@ -32,7 +33,7 @@ router.delete(`/users/:email`, async (req, res) => {
         message: 'Error'
       });
     }
-    const email = "user email";
+    const email = "lexamart1708@gmail.com"; // in admin tools you mat accept it from form or smth
     const user = await User.findOne({ email });
     res.status(200);
     user.remove();
@@ -41,6 +42,7 @@ router.delete(`/users/:email`, async (req, res) => {
     res.status(500).json({ message: 'Server Error. Try again...' });
   }
 });
+// postman DEL http://localhost:5000/api/admin/users/:email  you will delete a user with this email
 
 router.put(`/users/:email`, async (req, res) => {
   try {
@@ -51,7 +53,7 @@ router.put(`/users/:email`, async (req, res) => {
         message: 'Error'
       });
     }
-    const email = 'putcheck@putchek.put';
+    const email = 'putcheck@putchek.put'; // in admin tools you mat accept it from form or smth
     const user = await User.findOne({ email });
     user.isAdmin = true;
     user.save();
@@ -61,5 +63,6 @@ router.put(`/users/:email`, async (req, res) => {
     res.status(500).json({ message: 'Server Error. Try again...' });
   }
 });
+// postman PUT http://localhost:5000/api/admin/users/:email user with this email will become an admin
 
 module.exports = router;

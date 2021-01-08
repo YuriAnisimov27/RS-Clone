@@ -49,17 +49,15 @@ export const AuthPage = () => {
     }
   };
 
-  const onSuccess = async (res) => { // registration of new google user
+  const onSuccess = async (res) => {
     try {
       console.log('Login Success: currentUser:', res.profileObj);
-
-      const data = await request('/api/auth/register', 'POST', { email: res.profileObj.email, password: res.profileObj.email });
-
-      // refreshTokenSetup(res);
+      const data = await request('/api/auth/register', 'POST', { email: res.profileObj.email, password: res.profileObj.email }); // registration of new google user
+      // refreshTokenSetup(res); // it is a function from refernece.  
     } catch (e) {
     }
     try {
-      const data = await request('/api/auth/login', 'POST', { email: res.profileObj.email, password: res.profileObj.email });
+      const data = await request('/api/auth/login', 'POST', { email: res.profileObj.email, password: res.profileObj.email }); // login of google user
       auth.login(data.token, data.userId);
       console.log('Data', data);
     } catch (e) {
