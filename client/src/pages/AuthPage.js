@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
+
+import { GoogleLogin } from 'react-google-login';
+// import { refreshTokenSetup } from '../auth.util/refreshToken'; // function from reference 
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
 import { AuthContext } from '../context/AuthContext';
+
+const clientId =
+  '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com'; // must be in the context
+
 import './AuthPage.css';
 
 import dragon from '../assets/images/dragon.png'
@@ -49,6 +56,29 @@ export const AuthPage = () => {
     }
   };
 
+
+  const onSuccess = async (res) => {
+    try {
+      console.log('Login Success: currentUser:', res.profileObj);
+      const data = await request('/api/auth/register', 'POST', { email: res.profileObj.email, password: res.profileObj.email }); // registration of new google user
+      // refreshTokenSetup(res); // it is a function from refernece.  
+    } catch (e) {
+    }
+    try {
+      const data = await request('/api/auth/login', 'POST', { email: res.profileObj.email, password: res.profileObj.email }); // login of google user
+      auth.login(data.token, data.userId);
+      console.log('Data', data);
+    } catch (e) {
+    }
+  }
+
+
+  const onFailure = (res) => {
+    console.log('Login failed: res:', res);
+    alert(
+      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
+    );
+  }
 
   function PointJS(Ua, Va, yb, Sc) {
     this._logo = "https://mult-uroki.ru/media/pointjs/gamedev_4.png"; var k = window, A = this, K = !1, Da = "fixed", Vb = 0, Wb = 0, zb = 100, Xb = function (a) { a = a.getBoundingClientRect(); return { y: a.top + k.pageYOffset, x: a.left + k.pageXOffset } }, Ec = function (a) { for (var b = 1; a;)b += a.style.zIndex, a = a.offsetParent; return b }; if (1 === arguments.length) { K = arguments[0]; var Yb = Xb(K); Vb = Yb.x; Wb = Yb.y; Ua = K.offsetWidth; Va = K.offsetHeight; Da = "absolute"; zb = Ec(K) } var Ea = !0, Ab = !0, Zb = !0, ja = !1, Fa = !0, m = Ua, n = Va, na = Ua, oa = Va,
@@ -700,8 +730,6 @@ export const AuthPage = () => {
   game.start();
 
 
-
-
   return (
     <div className='row d-flex'>
 
@@ -756,6 +784,18 @@ export const AuthPage = () => {
             >
               Registration
             </button>
+            <hr />
+            <div>
+              <GoogleLogin
+                clientId={clientId}
+                buttonText="Login"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={'single_host_origin'}
+                style={{ marginTop: '100px' }}
+                isSignedIn={true}
+              />
+            </div>
           </div>
         </div>
       </div>
