@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { refreshTokenSetup } from '../auth.util/refreshToken';
+import { GoogleLogin } from 'react-google-login';
+// import { refreshTokenSetup } from '../auth.util/refreshToken'; // function from reference 
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
 import { AuthContext } from '../context/AuthContext';
@@ -49,13 +49,13 @@ export const AuthPage = () => {
     }
   };
 
-  const onSuccess = async (res) => {
+  const onSuccess = async (res) => { // registration of new google user
     try {
       console.log('Login Success: currentUser:', res.profileObj);
 
       const data = await request('/api/auth/register', 'POST', { email: res.profileObj.email, password: res.profileObj.email });
 
-      refreshTokenSetup(res);
+      // refreshTokenSetup(res);
     } catch (e) {
     }
     try {

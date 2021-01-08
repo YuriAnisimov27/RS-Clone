@@ -15,9 +15,9 @@ export const Navbar = () => {
   });
   const logoutHandler = (event) => {
     event.preventDefault();
+    signOut(); // probably asynch function, cant resolve console errors
     auth.logout();
     history.push('/');
-    signOut();
   };
 
   return (
