@@ -33,7 +33,7 @@ export const AuthPage = () => {
     try {
       const data = await request('/api/auth/register', 'POST', {...form});
       message(data['message']);
-      console.log('Data', data);
+      // console.log('Data', data);
     } catch (e) {
     }
   };
@@ -43,31 +43,32 @@ export const AuthPage = () => {
       const data = await request('/api/auth/login', 'POST', {...form});
       auth.login(data.token, data.userId);
       message(data['message']);
-      console.log('Data', data);
+      // console.log('Data', data);
     } catch (e) {
     }
   };
 
   const onSuccess = async (res) => {
     try {
-      console.log('Login Success: currentUser:', res.profileObj);
+      // console.log('Login Success: currentUser:', res.profileObj);
       const data = await request('/api/auth/register', 'POST', {
         email: res.profileObj.email,
         password: res.profileObj.email
       });
-      // registration of new google user
-      // refreshTokenSetup(res);
-      // it is a function from refernece.
+      message('Created');
     } catch (e) {
+      console.log('register error', e);
     }
     try {
       const data = await request('/api/auth/login', 'POST', {
         email: res.profileObj.email,
         password: res.profileObj.email
-      }); // login of google user
+      });
       auth.login(data.token, data.userId);
-      console.log('Data', data);
+      message('Welcome back');
+      // console.log('Data', data);
     } catch (e) {
+      console.log('login error', e);
     }
   };
 
@@ -98,7 +99,7 @@ export const AuthPage = () => {
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
             </div>
 
-            <div className="input-field">
+            <form className="input-field">
               <input
                 id="password"
                 type="password"
@@ -106,10 +107,11 @@ export const AuthPage = () => {
                 name='password'
                 onChange={changeHandler}
                 value={form.password}
+                autoComplete="on"
               />
               <label htmlFor="password">Password</label>
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
-            </div>
+            </form>
 
           </div>
           <div className="card-action">
@@ -134,7 +136,7 @@ export const AuthPage = () => {
             <div>
               <GoogleLogin
                 clientId={clientId}
-                buttonText="Login"
+                buttonText="Google Sing In"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
@@ -158,7 +160,6 @@ export const AuthPage = () => {
       </div>
 
       <div className='AuthPage'>
-        hello world
       </div>
     </div>
   );
