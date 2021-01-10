@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {GoogleLogin} from 'react-google-login';
+// import {GoogleLogin} from 'react-google-login';
+import GoogleLogin from 'react-google-login'
 import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
 import {AuthContext} from '../context/AuthContext';
@@ -48,16 +49,16 @@ export const AuthPage = () => {
     }
   };
 
-  const onSuccess = async (res) => {
+  const responseGoogle = async (res) => {
     try {
       // console.log('Login Success: currentUser:', res.profileObj);
-      const data = await request('/api/auth/register', 'POST', {
+      await request('/api/auth/register', 'POST', {
         email: res.profileObj.email,
         password: res.profileObj.email
       });
       message('Created');
     } catch (e) {
-      console.log('register error', e);
+      console.log('register error');
     }
     try {
       const data = await request('/api/auth/login', 'POST', {
@@ -65,15 +66,14 @@ export const AuthPage = () => {
         password: res.profileObj.email
       });
       auth.login(data.token, data.userId);
-      message('Welcome back');
+      message('Welcome!');
       // console.log('Data', data);
     } catch (e) {
-      console.log('login error', e);
+      console.log('login error');
     }
   };
 
-  const onFailure = (res) => {
-    console.log('Login failed: res:', res);
+  const onFailure = () => {
     message(`Failed to login. 😢`);
   };
 
@@ -136,12 +136,11 @@ export const AuthPage = () => {
             <div>
               <GoogleLogin
                 clientId={clientId}
-                buttonText="Google Sing In"
-                onSuccess={onSuccess}
+                buttonText="Sing In"
+                onSuccess={responseGoogle}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
                 style={{marginTop: '100px'}}
-                isSignedIn={true}
               />
             </div>
           </div>

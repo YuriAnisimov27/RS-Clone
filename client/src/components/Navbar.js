@@ -14,10 +14,19 @@ export const Navbar = () => {
   });
 
   const logoutHandler = (event) => {
-    signOut();
-    event.preventDefault();
-    auth.logout();
-    history.push('/');
+
+    try {
+      event.preventDefault();
+      auth.logout();
+      signOut();
+      setTimeout( () => {
+        auth.logout();
+        signOut();
+      }, 100);
+      history.push('/');
+    } catch (e) {
+      console.log('catch error');
+    }
   };
 
   return (
