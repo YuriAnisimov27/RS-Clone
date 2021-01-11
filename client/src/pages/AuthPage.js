@@ -1,8 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
+import GoogleLogin from 'react-google-login'
 import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
 import {AuthContext} from '../context/AuthContext';
 import './AuthPage.css';
+
+const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
@@ -30,7 +33,7 @@ export const AuthPage = () => {
     try {
       const data = await request('/api/auth/register', 'POST', {...form});
       message(data['message']);
-      console.log('Data', data);
+      // console.log('Data', data);
     } catch (e) {
     }
   };
@@ -40,9 +43,37 @@ export const AuthPage = () => {
       const data = await request('/api/auth/login', 'POST', {...form});
       auth.login(data.token, data.userId);
       message(data['message']);
-      console.log('Data', data);
+      // console.log('Data', data);
     } catch (e) {
     }
+  };
+
+  const responseGoogle = async (res) => {
+    try {
+      // console.log('Login Success: currentUser:', res.profileObj);
+      await request('/api/auth/register', 'POST', {
+        email: res.profileObj.email,
+        password: res.profileObj.email
+      });
+      message('Created');
+    } catch (e) {
+      console.log('register error');
+    }
+    try {
+      const data = await request('/api/auth/login', 'POST', {
+        email: res.profileObj.email,
+        password: res.profileObj.email
+      });
+      auth.login(data.token, data.userId);
+      message('Welcome!');
+      // console.log('Data', data);
+    } catch (e) {
+      console.log('login error');
+    }
+  };
+
+  const onFailure = () => {
+    message(`Failed to login. 😢`);
   };
 
   return (
@@ -67,7 +98,7 @@ export const AuthPage = () => {
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
             </div>
 
-            <div className="input-field">
+            <form className="input-field">
               <input
                 id="password"
                 type="password"
@@ -75,10 +106,11 @@ export const AuthPage = () => {
                 name='password'
                 onChange={changeHandler}
                 value={form.password}
+                autoComplete="on"
               />
               <label htmlFor="password">Password</label>
               <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
-            </div>
+            </form>
 
           </div>
           <div className="card-action">
@@ -99,23 +131,22 @@ export const AuthPage = () => {
             >
               Registration
             </button>
+            <hr/>
+            <div>
+              <GoogleLogin
+                clientId={clientId}
+                buttonText="Sing In"
+                onSuccess={responseGoogle}
+                onFailure={onFailure}
+                cookiePolicy={'single_host_origin'}
+                style={{marginTop: '100px'}}
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="icons">
-        <i className="material-icons">queue_music</i>
-        <i className="material-icons">volume_up</i>
-        <i className="material-icons">volume_off</i>
-        <i className="material-icons">person_add</i>
-        <i className="material-icons">g_translate</i>
-        <i className="material-icons">build</i>
-        <i className="material-icons">help</i>
-        <i className="material-icons">close</i>
-      </div>
-
       <div className='AuthPage'>
-        hello world
       </div>
     </div>
   );

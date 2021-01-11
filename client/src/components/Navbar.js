@@ -1,15 +1,31 @@
 import React, {useContext} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import {AuthContext} from '../context/AuthContext';
+import {useGoogleLogout} from 'react-google-login';
+
+const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
 export const Navbar = () => {
   const auth = useContext(AuthContext);
   const history = useHistory();
 
+  const {signOut} = useGoogleLogout({
+    clientId,
+  });
+
   const logoutHandler = (event) => {
-    event.preventDefault();
-    auth.logout();
-    history.push('/');
+    try {
+      event.preventDefault();
+      auth.logout();
+      signOut();
+      setTimeout( () => {
+        auth.logout();
+        signOut();
+      }, 100);
+      history.push('/');
+    } catch (e) {
+      console.log('catch error');
+    }
   };
 
   return (

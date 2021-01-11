@@ -12,7 +12,7 @@ export const DataPage = () => {
         <div className="col s4 m4">
           <div className="card">
             <div className="card-image">
-              <img src="https://picsum.photos/1024/1024" alt="user avatar"/>
+              <img src="https://picsum.photos/1024/1024" alt="avatar"/>
                 <span className="card-title">Card Title</span>
             </div>
             <div className="card-content">
