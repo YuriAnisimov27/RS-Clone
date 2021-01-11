@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext} from 'react';
-// import {GoogleLogin} from 'react-google-login';
 import GoogleLogin from 'react-google-login'
 import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
@@ -145,17 +144,6 @@ export const AuthPage = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="icons">
-        <i className="material-icons">queue_music</i>
-        <i className="material-icons">volume_up</i>
-        <i className="material-icons">volume_off</i>
-        <i className="material-icons">person_add</i>
-        <i className="material-icons">g_translate</i>
-        <i className="material-icons">build</i>
-        <i className="material-icons">help</i>
-        <i className="material-icons">close</i>
       </div>
 
       <div className='AuthPage'>

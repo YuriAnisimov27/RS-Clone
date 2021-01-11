@@ -14,7 +14,6 @@ export const Navbar = () => {
   });
 
   const logoutHandler = (event) => {
-
     try {
       event.preventDefault();
       auth.logout();
