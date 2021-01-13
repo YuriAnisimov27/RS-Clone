@@ -8,6 +8,10 @@ const app = express();
 app.use(express.json({extended: true}));
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
+app.get("/", function (request, response){
+
+  response.send("Hello Test");
+});
 app.use(cors());
 
 const PORT = config.get('port') || 5000;
@@ -28,3 +32,5 @@ async function start() {
 }
 
 start();
+
+module.exports = app;
