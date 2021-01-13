@@ -25,6 +25,17 @@ describe('test opportunities', () => {
 });
 
 describe('test register user', () => {
+  test('should return 404 with wrong url', (done) => {
+    request(app)
+      .post('/api/auth/reghister')
+      .send({
+        email: 'user@user.user',
+        password: 'password'
+      })
+      .expect(404)
+      .end(done);
+  });
+
   test('should return Error with Invalid Email', (done) => {
     request(app)
       .post('/api/auth/register')
@@ -41,7 +52,7 @@ describe('test register user', () => {
       .post('/api/auth/register')
       .send({
         email: 'user@user.user',
-        password: 123
+        password: 12345
       })
       .expect(400)
       .end(done);
@@ -57,5 +68,71 @@ describe('test register user', () => {
       .expect(400)
       .end(done);
   });
+
+  test('should create user for valid entries', (done) => {
+    request(app)
+      .post('/api/auth/register')
+      .send({
+        email: 'user@user.user',
+        password: 'password'
+      })
+      .expect(201)
+      .end(done);
+  });
 });
 
+describe('test login user', () => {
+  test('should return 404 with wrong url', (done) => {
+    request(app)
+      .post('/api/auth/logen')
+      .send({
+        email: 'user@user.user',
+        password: 'password'
+      })
+      .expect(404)
+      .end(done);
+  });
+
+  test('should return Error with Invalid Email', (done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user',
+        password: 123456
+      })
+      .expect(400)
+      .end(done);
+  });
+
+  test('should return Error when User not found', (done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'ussser@user.user',
+        password: 123456
+      })
+      .expect(400)
+      .end(done);
+  });
+
+  test('should return Error when No Password', (done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user@user.user'
+      })
+      .expect(400)
+      .end(done);
+  });
+
+  test('should login for valid entries', (done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user@user.user',
+        password: 'password'
+      })
+      .expect(200)
+      .end(done);
+  });
+});
