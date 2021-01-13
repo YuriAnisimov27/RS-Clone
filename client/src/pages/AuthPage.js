@@ -1,23 +1,21 @@
+import React, { useState, useEffect, useContext } from 'react';
 import logo from '../assets/UI/dinoSmall.png';
-import buble from '../assets/UI/buble.svg';
 import russia from '../assets/UI/russia.svg';
 import uk from '../assets/UI/united-kingdom.svg';
 import bel from '../assets/UI/belarus.svg';
-import rslogo from '../assets/UI/rs_school_js.svg';
 import music from '../assets/music/Super Mario.mp3';
-import cross from '../assets/UI/cross.svg';
 import emailIcon from '../assets/UI/mail.svg';
 import passwordIcon from '../assets/UI/password.svg';
 import LoginIcon from '../assets/UI/login.svg';
 import singInIcon from '../assets/UI/login auth.svg';
-import GoogleIcon from '../assets/UI/password.svg';
-
-import React, { useState, useEffect, useContext } from 'react';
 import GoogleLogin from 'react-google-login'
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
 import { AuthContext } from '../context/AuthContext';
 import './AuthPage.css';
+import { DialogPage } from './authPageElements/DialogPage';
+import {showDialog } from './authPageElements/helpers';
+import { Footer } from './authPageElements/Footer';
 
 const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
@@ -97,23 +95,6 @@ export const AuthPage = () => {
   const changeLanguage = () => {
     console.log('language changed');
   };
-  const showDialog = () => {
-    document.querySelector('.AuthPage').classList.toggle('off');
-    document.querySelector('.DialogPage').classList.toggle('off');
-    document.body.classList.toggle('scroll__off');
-  };
-  const showRegistartion = () => {
-    document.querySelector('.DialogPage').classList.toggle('off');
-    document.querySelector('.authcard').classList.toggle('off');
-    document.body.classList.toggle('scroll__off');
-  };
-  const showAbout = () => {
-    console.log('Showing about')
-  };
-  const showDonation = () => {
-    console.log('Showing Donation')
-  };
-
   return (
     <div className='row d-flex'>
 
@@ -132,7 +113,7 @@ export const AuthPage = () => {
                 onChange={changeHandler}
                 value={form.email}
               />
-              <label className='label' htmlFor="email"><img className='emailicon authicons' src={emailIcon} alt='email'/><span>Email</span></label>
+              <label className='label' htmlFor="email"><img className='emailicon authicons' src={emailIcon} alt='email' /><span>Email</span></label>
             </div>
 
             <form className="input-field">
@@ -145,7 +126,7 @@ export const AuthPage = () => {
                 value={form.password}
                 autoComplete="on"
               />
-              <label className='label' htmlFor="password"> <img className='emailicon authicons' src={passwordIcon} alt='passw'/>Password</label>
+              <label className='label' htmlFor="password"> <img className='emailicon authicons' src={passwordIcon} alt='passw' />Password</label>
             </form>
           </div>
           <div className="card-action">
@@ -154,7 +135,7 @@ export const AuthPage = () => {
               onClick={loginHandler}
               disabled={loading}
             >
-              <img className='authicons' src={LoginIcon} alt='login'/>
+              <img className='authicons' src={LoginIcon} alt='login' />
               LogIn
             </button>
             <button
@@ -162,16 +143,16 @@ export const AuthPage = () => {
               onClick={registerHandler}
               disabled={loading}
             >
-              <img className='authicons' src={singInIcon} alt='singin'/>
+              <img className='authicons' src={singInIcon} alt='singin' />
               Registration
             </button>
-              <GoogleLogin
-                clientId={clientId}
-                buttonText="Sing In"
-                onSuccess={responseGoogle}
-                onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-              />
+            <GoogleLogin
+              clientId={clientId}
+              buttonText="Sing In"
+              onSuccess={responseGoogle}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+            />
 
           </div>
         </div>
@@ -211,49 +192,9 @@ export const AuthPage = () => {
             </audio>
           </div>
         </div>
-        <footer>
-          <div className='rslogo'>
-            <a href='https://rs.school/'>
-              <img className='rsimg' src={rslogo} alt='rslogo' />
-            </a>
-          </div>
-          <div className='materials'>
-            <h5>2020</h5>
-            <hr />
-            <ul className='materials-ul'>
-              <li className='material-ul__li'><a className='materials__link youtube' href='/'>YOUTUBE</a></li>
-              <li className='material-ul__li'><a className='materials__link' href='/'>MEDIUM</a></li>
-            </ul>
-          </div>
-          <div className='developers'>
-            <h5>DEVELOPERS</h5>
-            <hr />
-            <ul className='developers-ul'>
-              <li className='developers-ul__li'><a className='developers__link' href='/'>Yuri Anisimov</a></li>
-              <li className='developers-ul__li'><a className='developers__link' href='/'>Alexander Kovbenya</a></li>
-              <li className='developers-ul__li'><a className='developers__link' href='/'>Alex Martinkevich</a></li>
-              <li className='developers-ul__li'><a className='developers__link' href='/'>Alexander Alexander</a></li>
-            </ul>
-          </div>
-        </footer>
+        <Footer />
       </div>
-      <div className='DialogPage off'>
-        <div className='dinodialog'>
-          <img className='dinodialog-Img' src={logo} alt='dino' />
-        </div>
-        <div className='dialog-buble'>
-          <img className='bubledialog-Img' src={buble} alt='buble' />
-          <div className='dialog-nav'>
-            <div className='exitbtn' onClick={showDialog}><img className='exitimg' src={cross} alt='exit' /></div>
-            <h5 className='dialog-greeting'>HELLO!</h5>
-            <ul className='dialog-nav-ul'>
-              <li className='dialog-nav-ul__li'><a className='dialog-link signin' onClick={showRegistartion}>Sign in</a></li>
-              <li className='dialog-nav-ul__li'><a className='dialog-link' onClick={showAbout}>About</a></li>
-              <li className='dialog-nav-ul__li'><a className='dialog-link' onClick={showDonation}>Donation</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <DialogPage />
     </div>
   );
 };
