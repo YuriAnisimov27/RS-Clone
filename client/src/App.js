@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   const {login, logout, token, userId, ready} = useAuth();
-  const isAuthenticated = !!token;
+  const isAuthenticated = true;
   const routes = useRoutes(isAuthenticated);
 
   if (!ready) {
