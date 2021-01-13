@@ -122,6 +122,9 @@ h1 {
     border-radius: 15px;
     height: 57px;
 }
+.loginicon {
+    width: 37px;
+}
 
 /*------------------------------------------------------ auth card */
 
