@@ -86,6 +86,17 @@ export const AuthPage = () => {
   };
 
 
+  const dino = React.createRef();
+  document.onkeypress = function (e) {
+    console.log(e.code);
+
+    if (e.code === 'Space') {
+      alert('Space!');
+    }
+    console.log(dino);
+    // dino.innerText = 'sf';
+  }
+
   return (
     <div className='row d-flex'>
       <div className='col authcard off'>
@@ -151,6 +162,10 @@ export const AuthPage = () => {
         <MainNav />
         <div className='content'>
           <div className='game gamefullscr'>
+            <div id="game">
+              <img id="dino" alt="dino" />
+              <div ref={dino} id="cactus">addsd</div>
+            </div>
           </div>
           <MusicPlayer />
         </div>
