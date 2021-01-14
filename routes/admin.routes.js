@@ -4,6 +4,7 @@ const {validationResult} = require('express-validator');
 
 const router = Router();
 
+// postman GET http://localhost:5000/api/admin/users will show all Mongo collection
 router.get('/users', async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -20,8 +21,8 @@ router.get('/users', async (req, res) => {
     res.status(500).json({message: 'Server Error. Try again...'});
   }
 });
-// postman GET http://localhost:5000/api/admin/users will show all Mongo collection
 
+// postman DEL http://localhost:5000/api/admin/users/:email  you will delete a user with this email
 router.delete(`/users/:email`, async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -40,8 +41,8 @@ router.delete(`/users/:email`, async (req, res) => {
     res.status(500).json({message: 'Server Error. Try again...'});
   }
 });
-// postman DEL http://localhost:5000/api/admin/users/:email  you will delete a user with this email
 
+// postman PUT http://localhost:5000/api/admin/users/:email user with this email will become an admin
 router.put(`/users/:email`, async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -51,7 +52,7 @@ router.put(`/users/:email`, async (req, res) => {
         message: 'Error'
       });
     }
-    const email = 'putcheck@putchek.put'; // in admin tools you mat accept it from form or something
+    const email = 'putcheck@putchek.put'; // in admin tools you may accept it from form or something
     const user = await User.findOne({email});
     user.isAdmin = true;
     user.save();
@@ -61,6 +62,5 @@ router.put(`/users/:email`, async (req, res) => {
     res.status(500).json({message: 'Server Error. Try again...'});
   }
 });
-// postman PUT http://localhost:5000/api/admin/users/:email user with this email will become an admin
 
 module.exports = router;
