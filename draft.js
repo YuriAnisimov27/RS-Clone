@@ -15,3 +15,23 @@ function remember() {
 // a: ref="noopener noreferrer"
 
 export const add = (a, b) => a + b;
+
+
+describe('test opportunities', () => {
+  test('test to check imports', () => {
+    const sum = add(1, 2);
+    const expectedResult = 3;
+    expect(sum).toEqual(expectedResult);
+  });
+
+  test('test to check fetch', async () => {
+    let timeline;
+    const value = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((data) => data.json())
+      .then((data) => {
+        timeline = data;
+        return true;
+      });
+    expect(value).toBe(true);
+  });
+});
