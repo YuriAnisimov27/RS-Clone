@@ -66,11 +66,4 @@
   animation: cactusMovement 2s infinite linear;
 }
 
-@keyframes cactusMovement {
-  0% {
-    left: 600px;
-  }
-  100% {
-    left: -20px;
-  }
-}
+

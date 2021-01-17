@@ -85,9 +85,37 @@ export const AuthPage = () => {
     message(`Failed to login. 😢`);
   };
 
-  React.useEffect(() => {
-    const cactus = document.querySelector('#cactus');
+
+  let [scoreValue, setCounter] = useState(0);
+
+
+
+
+
+
+
+  useEffect(() => {
+    const cactus = document.querySelector('.cactus');
     const dino = document.querySelector('#dino');
+    const gameField = document.querySelector('.game-container');
+
+
+    let countInterval;
+    gameField.addEventListener('click', () => {
+      cactus.classList.add('cactus-active');
+      countInterval = setInterval(() => {
+        setCounter(scoreValue++);
+      }, 300)
+    })
+
+
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('game-container')) {
+        // console.log(e.target);
+        cactus.classList.remove('cactus-active');
+      }
+    })
 
     const jump = function () {
       if (dino.classList !== 'jump') {
@@ -105,13 +133,19 @@ export const AuthPage = () => {
       dino.src = 'https://i.ibb.co/gFbqRSH/dragon0.png';
     }, 200);
 
+
     const isAlive = setInterval(function () {
       const dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
       const cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue('left'));
 
-      if (cactusLeft < 415 && cactusLeft > 355 && dinoTop >= 50) {
-        alert('Game Over!')
+      if (cactusLeft < 415 && cactusLeft > 355 && dinoTop >= 50 && cactus.classList.contains('cactus-active')) {
+        // alert('Game Over!')
         // console.log('Game over');
+        cactus.classList.remove('cactus-active');
+        alert(--scoreValue);
+        scoreValue = 0;
+        setCounter(0);
+        clearInterval(countInterval);
       }
     }, 30)
 
@@ -189,9 +223,12 @@ export const AuthPage = () => {
         <MainNav />
         <div className='content'>
           <div className='game gamefullscr'>
-            <div id="game">
+            <div className="game-container">
+              <h6>Left click on the playing field to start new game</h6>
+              <h6>Press Space or ArrowUp to jump</h6>
+              <h4>Score: {scoreValue}</h4>
               <img id="dino" alt="dino" />
-              <div id="cactus"></div>
+              <div className="cactus"></div>
             </div>
           </div>
           <MusicPlayer />
