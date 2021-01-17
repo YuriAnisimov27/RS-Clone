@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import emailIcon from '../assets/UI/mail.svg';
 import passwordIcon from '../assets/UI/password.svg';
 import LoginIcon from '../assets/UI/login.svg';
@@ -85,17 +85,44 @@ export const AuthPage = () => {
     message(`Failed to login. 😢`);
   };
 
+  React.useEffect(() => {
+    const cactus = document.querySelector('#cactus');
+    const dino = document.querySelector('#dino');
 
-  const dino = React.createRef();
-  document.onkeypress = function (e) {
-    console.log(e.code);
-
-    if (e.code === 'Space') {
-      alert('Space!');
+    const jump = function () {
+      if (dino.classList !== 'jump') {
+        dino.classList.add('jump');
+        setTimeout(function () {
+          dino.classList.remove('jump')
+        }, 1000)
+      }
     }
-    console.log(dino);
-    // dino.innerText = 'sf';
-  }
+
+    let i = 0;
+    setInterval(() => {
+      i += 1;
+      //dino.src = `./assets/images/dragon${i % 5}.png`
+      dino.src = 'https://i.ibb.co/gFbqRSH/dragon0.png';
+    }, 200);
+
+    const isAlive = setInterval(function () {
+      const dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
+      const cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue('left'));
+
+      if (cactusLeft < 415 && cactusLeft > 355 && dinoTop >= 50) {
+        alert('Game Over!')
+        // console.log('Game over');
+      }
+    }, 30)
+
+    document.addEventListener('keydown', function (e) {
+      // e.preventDefault();
+      if (e.code === 'ArrowUp' || e.code === 'Space') {
+        jump();
+      }
+    })
+
+  }, [])
 
   return (
     <div className='row d-flex'>
@@ -164,7 +191,7 @@ export const AuthPage = () => {
           <div className='game gamefullscr'>
             <div id="game">
               <img id="dino" alt="dino" />
-              <div ref={dino} id="cactus">addsd</div>
+              <div id="cactus"></div>
             </div>
           </div>
           <MusicPlayer />
