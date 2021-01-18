@@ -1,25 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import emailIcon from '../assets/UI/mail.svg';
 import passwordIcon from '../assets/UI/password.svg';
 import LoginIcon from '../assets/UI/login.svg';
 import singInIcon from '../assets/UI/login auth.svg';
-import GoogleLogin from 'react-google-login'
-import { useHttp } from '../hooks/http.hook';
-import { useMessage } from '../hooks/message.hook';
-import { AuthContext } from '../context/AuthContext';
+import GoogleLogin from 'react-google-login';
+import {useHttp} from '../hooks/http.hook';
+import {useMessage} from '../hooks/message.hook';
+import {AuthContext} from '../context/AuthContext';
 import './AuthPage.css';
-import { DialogPage } from './authPageElements/DialogPage';
-import { Footer } from './authPageElements/Footer';
-import { Header } from './authPageElements/Header';
-import { MainNav } from './authPageElements/MainNav';
-import { MusicPlayer } from './authPageElements/MusicPlayer';
+import {DialogPage} from './authPageElements/DialogPage';
+import {Footer} from './authPageElements/Footer';
+import {Header} from './authPageElements/Header';
+import {MainNav} from './authPageElements/MainNav';
+import {MusicPlayer} from './authPageElements/MusicPlayer';
+import ChromeDinoGame from 'react-chrome-dino';
 
 const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext);
   const message = useMessage();
-  const { loading, error, request, clearError } = useHttp();
+  const {loading, error, request, clearError} = useHttp();
   const [form, setForm] = useState({
     email: '',
     password: ''
@@ -35,12 +36,12 @@ export const AuthPage = () => {
   }, []);
 
   const changeHandler = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    setForm({...form, [event.target.name]: event.target.value});
   };
 
   const registerHandler = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', { ...form });
+      const data = await request('/api/auth/register', 'POST', {...form});
       message(data['message']);
       // console.log('Data', data);
     } catch (e) {
@@ -49,7 +50,7 @@ export const AuthPage = () => {
 
   const loginHandler = async () => {
     try {
-      const data = await request('/api/auth/login', 'POST', { ...form });
+      const data = await request('/api/auth/login', 'POST', {...form});
       auth.login(data.token, data.userId);
       message(data['message']);
       // console.log('Data', data);
@@ -86,6 +87,17 @@ export const AuthPage = () => {
   };
 
 
+  // const dino = React.createRef();
+  // document.onkeypress = function (e) {
+  //   console.log(e.code);
+  //
+  //   // if (e.code === 'Space') {
+  //   //   alert('Space!');
+  //   // }
+  //   console.log(dino);
+  //   // dino.innerText = 'sf';
+  // }
+
   return (
     <div className='row d-flex'>
       <div className='col authcard off'>
@@ -103,7 +115,8 @@ export const AuthPage = () => {
                 onChange={changeHandler}
                 value={form.email}
               />
-              <label className='label' htmlFor="email"><img className='emailicon authicons' src={emailIcon} alt='email' /><span>Email</span></label>
+              <label className='label' htmlFor="email"><img className='emailicon authicons' src={emailIcon}
+                                                            alt='email'/><span>Email</span></label>
             </div>
 
             <form className="input-field">
@@ -116,7 +129,8 @@ export const AuthPage = () => {
                 value={form.password}
                 autoComplete="on"
               />
-              <label className='label' htmlFor="password"> <img className='emailicon authicons' src={passwordIcon} alt='passw' />Password</label>
+              <label className='label' htmlFor="password"> <img className='emailicon authicons' src={passwordIcon}
+                                                                alt='passw'/>Password</label>
             </form>
           </div>
           <div className="card-action">
@@ -125,7 +139,7 @@ export const AuthPage = () => {
               onClick={loginHandler}
               disabled={loading}
             >
-              <img className='authicons loginicon' src={LoginIcon} alt='login' />
+              <img className='authicons loginicon' src={LoginIcon} alt='login'/>
               LogIn
             </button>
             <button
@@ -133,7 +147,7 @@ export const AuthPage = () => {
               onClick={registerHandler}
               disabled={loading}
             >
-              <img className='authicons' src={singInIcon} alt='singin' />
+              <img className='authicons' src={singInIcon} alt='singin'/>
               Registration
             </button>
             <GoogleLogin
@@ -147,16 +161,21 @@ export const AuthPage = () => {
         </div>
       </div>
       <div className='AuthPage'>
-        <Header />
-        <MainNav />
+        <Header/>
+        <MainNav/>
         <div className='content'>
           <div className='game gamefullscr'>
+            {/*<div id="game">*/}
+            {/*  <img id="dino" alt="dino" />*/}
+            {/*  <div ref={dino} id="cactus">addsd</div>*/}
+            {/*</div>*/}
+            <ChromeDinoGame/>
           </div>
-          <MusicPlayer />
+          <MusicPlayer/>
         </div>
-        <Footer />
+        <Footer/>
       </div>
-      <DialogPage />
+      <DialogPage/>
     </div>
   );
 };
