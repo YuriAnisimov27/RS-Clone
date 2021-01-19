@@ -3,6 +3,7 @@ h5 {
 }
 
 footer {
+  transition: all 0.5s;
   padding-top: 75px;
   display: flex;
   justify-content: center;
@@ -84,5 +85,15 @@ footer {
 @media (max-width: 450px) {
   .rslogo {
     width: 100px;
+  }
+}
+@media (max-height: 720px) {
+  footer {
+    padding-top: 45px;
+  }
+}
+@media (max-height: 691px) {
+  footer {
+    padding-top: 0px;
   }
 }
