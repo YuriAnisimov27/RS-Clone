@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+}
+
+.logoImg-container {
+  background-color: #000000;
+  opacity: 0.7;
+  border-radius: 50px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.logoImg {
+  filter: invert(1);
+  width: 7rem;
+  opacity: 0.9;
+}
+
+.languages-selector {
+  display: flex;
+}
+
+.Lselector {
+  width: 25px;
+  margin: 5px;
+  transition: all 0.2s;
+}
+
+.Lselector:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media (max-width: 520px) {
+  .logo {
+    width: 50%;
+  }
+  .logoImg {
+    width: 5.8rem;
+  }
+}

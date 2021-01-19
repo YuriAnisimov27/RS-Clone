@@ -1,5 +1,6 @@
 import React from 'react';
 import {showDialog, showPlayer} from './helpers';
+import './MainNav.css';
 
 export const MainNav = () => (
   <nav className='N/A transparent'>

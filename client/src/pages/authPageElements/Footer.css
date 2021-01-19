@@ -1,0 +1,88 @@
+h5 {
+  margin: 0;
+}
+
+footer {
+  padding-top: 75px;
+  display: flex;
+  justify-content: center;
+}
+
+.rslogo {
+  width: 265px;
+}
+
+.materials {
+  width: 200px;
+}
+
+.developers {
+  width: 245px;
+  padding-left: 65px;
+}
+
+.rslogo, .materials, .developers {
+  padding-right: 25px;
+}
+
+.rsimg {
+  width: 230px;
+}
+
+.rsimg:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.developers__link, .materials__link {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+}
+
+@keyframes youtube {
+  0% {
+    color: #000000;
+  }
+  33% {
+    color: #b71c1c;
+  }
+  66% {
+    color: #ef5350;
+  }
+  100% {
+    color: #f44336;
+  }
+}
+
+.youtube:hover {
+  animation: youtube 1 0.5s linear forwards;
+}
+
+.developers-ul__li :hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 680px) {
+  .rsimg {
+    width: 170px;
+  }
+  .developers__link {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rsimg {
+    width: 135px;
+  }
+}
+
+@media (max-width: 450px) {
+  .rslogo {
+    width: 100px;
+  }
+}
