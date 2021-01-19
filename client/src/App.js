@@ -11,18 +11,24 @@ import { connect } from 'react-redux'
 
 
 function mapStateToProps(state) {
+  const currentLanguage = state.currentLanguage;
+
   return {
-    a: state.a,
-    currentLanguage: state.currentLanguage,
-    footerContent: state.en.footerContent,
+    authNavPlaylist: state[currentLanguage].authNavPlaylist,
+    authNavSettings: state[currentLanguage].authNavSettings,
+    authNavRegistration: state[currentLanguage].authNavRegistration,
+
+    footerContent: state[currentLanguage].footerContent,
+
+    setRu: state.setRu,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    ru: () => dispatch({ type: 'CHANGE_LNG', lng: 'ru' }),
-    en: () => dispatch({ type: 'CHANGE_LNG', lng: 'en' }),
-    bel: () => dispatch({ type: 'CHANGE_LNG', lng: 'bel' }),
+    setRu: () => dispatch({ type: 'CHANGE_LNG', lng: 'ru' }),
+    setEn: () => dispatch({ type: 'CHANGE_LNG', lng: 'en' }),
+    setBel: () => dispatch({ type: 'CHANGE_LNG', lng: 'bel' }),
   }
 }
 
@@ -30,8 +36,8 @@ function mapDispatchToProps(dispatch) {
 function App(props) {
   const { login, logout, token, userId, ready } = useAuth();
 
-  // const isAuthenticated = !!token;
-  const isAuthenticated = true;
+  const isAuthenticated = !!token;
+  // const isAuthenticated = true;
 
   const routes = useRoutes(isAuthenticated);
 
@@ -39,8 +45,6 @@ function App(props) {
     return <Loader />;
   }
 
-
-  console.log(props);
 
   const state = props;
 
