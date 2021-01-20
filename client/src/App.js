@@ -19,6 +19,10 @@ function mapStateToProps(state) {
     authNavRegistration: state[currentLanguage].authNavRegistration,
 
     footerContent: state[currentLanguage].footerContent,
+    footerAnisimov: state[currentLanguage].anisimov,
+    footerKovbenya: state[currentLanguage].kovbenya,
+    footerMartinkevich: state[currentLanguage].martinkevich,
+    footerChazov: state[currentLanguage].chazov,
 
     setRu: state.setRu,
   }

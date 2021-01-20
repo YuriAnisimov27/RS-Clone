@@ -26,7 +26,6 @@ export const Header = () => {
             </ul>
           </div>
         </header>
-
       )
       }
     </AuthContext.Consumer >
