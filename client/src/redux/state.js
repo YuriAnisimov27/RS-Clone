@@ -1,5 +1,13 @@
+import { storage } from '../pages/authPageElements/helpers';
+
+if (!storage('currentLanguage')) {
+  storage('currentLanguage', 'en')
+}
+
+const currentLanguage = storage('currentLanguage');
+
 export const initialState = {
-  currentLanguage: 'en',
+  currentLanguage: currentLanguage,
 
   en: {
     authNavPlaylist: 'Playlist',
