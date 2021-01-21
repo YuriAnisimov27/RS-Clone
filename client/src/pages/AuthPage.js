@@ -154,6 +154,7 @@ export const AuthPage = () => {
               Registration
             </button>
             <GoogleLogin
+              className='googlebtn'
               clientId={clientId}
               buttonText="Sing In"
               onSuccess={responseGoogle}

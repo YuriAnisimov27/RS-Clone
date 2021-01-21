@@ -14,7 +14,7 @@ export const Footer = () => (
       <hr />
       <ul className='materials-ul'>
         <li className='material-ul__li'><a className='materials__link youtube' href='/'>YOUTUBE</a></li>
-        <li className='material-ul__li'><a className='materials__link' href='/'>MEDIUM</a></li>
+        <li className='material-ul__li'><a className='materials__link medium' href='/'>MEDIUM</a></li>
       </ul>
     </div>
     <div className='developers'>

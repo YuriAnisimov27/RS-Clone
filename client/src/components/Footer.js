@@ -1,34 +1,31 @@
 import React from 'react';
+import rslogo from '../../src/assets/UI/rs_school_js.svg';
 import './Footer.css';
 
-export const Footer = () => {
-
-  return (
-    <footer className="page-footer blue-grey darken-1">
-      <div className="container">
-        <div className="row">
-          <div className="col l6 s12">
-            <h5 className="white-text">Footer Content</h5>
-            <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-              content.</p>
-          </div>
-          <div className="col l4 offset-l2 s12">
-            <h5 className="white-text">Links</h5>
-            <ul>
-              <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="footer-copyright">
-        <div className="container">
-          © 2014 Copyright Text
-          <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </footer>
-  );
-};
+export const Footer = () => (
+  <footer>
+    <div className='rslogo'>
+      <a href='https://rs.school/'>
+        <img className='rsimg' src={rslogo} alt='rslogo' />
+      </a>
+    </div>
+    <div className='materials'>
+      <h5>2021</h5>
+      <hr />
+      <ul className='materials-ul'>
+        <li className='material-ul__li'><a className='materials__link youtube' href='/'>YOUTUBE</a></li>
+        <li className='material-ul__li'><a className='materials__link medium' href='/'>MEDIUM</a></li>
+      </ul>
+    </div>
+    <div className='developers'>
+      <h5>DEVELOPERS</h5>
+      <hr />
+      <ul className='developers-ul'>
+        <li className='developers-ul__li'><a className='developers__link' href='/'>Yuri Anisimov</a></li>
+        <li className='developers-ul__li'><a className='developers__link' href='/'>Alexander Kovbenya</a></li>
+        <li className='developers-ul__li'><a className='developers__link' href='/'>Alex Martinkevich</a></li>
+        <li className='developers-ul__li'><a className='developers__link' href='/'>Alexander Chazov</a></li>
+      </ul>
+    </div>
+  </footer>
+);

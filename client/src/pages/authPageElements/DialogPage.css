@@ -62,6 +62,7 @@
 }
 
 .dialog-link:hover {
+  font-size: 22px;
   cursor: pointer;
   opacity: 0.5;
 }
@@ -75,6 +76,7 @@
 .exitbtn:hover {
   cursor: pointer;
   opacity: 0.5;
+  animation: pulse 1.3s ease-in infinite;
 }
 
 .off {
@@ -83,6 +85,18 @@
 
 .scroll__off {
   overflow: hidden;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    transform: scale(0.75) translateZ(0)
+  }
+  100% {
+    transform: scale(1) translateZ(0)
+  }
 }
 
 @media (max-width: 1220px) {
@@ -99,8 +113,8 @@
     top: 105px;
   }
   .dialog-nav {
-    left: 80px;
-    top: 20px;
+    left: 85px;
+    top: 5px;
   }
   .dialog-nav-ul {
     list-style: disc;
@@ -111,6 +125,7 @@
   }
   .exitbtn {
     left: 255px;
+    top: 17px;
   }
 }
 
@@ -131,5 +146,12 @@
   }
   .dialog-buble {
     left: 100px;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .dialog-buble {
+    left: 70px;
   }
 }
