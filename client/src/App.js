@@ -3,9 +3,9 @@ import {BrowserRouter} from 'react-router-dom';
 import {useRoutes} from './routes';
 import {useAuth} from './hooks/auth.hook';
 import {Navbar} from './components/Navbar';
-import {Footer} from './components/Footer';
+import {Footer} from './pages/authPageElements/Footer';
 import {Loader} from './components/Loader';
-import {Header} from './components/Header';
+import {Header} from './pages/authPageElements/Header';
 import 'materialize-css';
 import './App.css';
 
