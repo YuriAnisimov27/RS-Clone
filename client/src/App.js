@@ -8,33 +8,9 @@ import { Loader } from './components/Loader';
 import 'materialize-css';
 import './App.css';
 import { connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from './redux/redux-helpers'
 
 
-function mapStateToProps(state) {
-  const currentLanguage = state.currentLanguage;
-
-  return {
-    authNavPlaylist: state[currentLanguage].authNavPlaylist,
-    authNavSettings: state[currentLanguage].authNavSettings,
-    authNavRegistration: state[currentLanguage].authNavRegistration,
-
-    footerContent: state[currentLanguage].footerContent,
-    footerAnisimov: state[currentLanguage].anisimov,
-    footerKovbenya: state[currentLanguage].kovbenya,
-    footerMartinkevich: state[currentLanguage].martinkevich,
-    footerChazov: state[currentLanguage].chazov,
-
-    setRu: state.setRu,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    setRu: () => dispatch({ type: 'CHANGE_LNG', lng: 'ru' }),
-    setEn: () => dispatch({ type: 'CHANGE_LNG', lng: 'en' }),
-    setBel: () => dispatch({ type: 'CHANGE_LNG', lng: 'bel' }),
-  }
-}
 
 
 function App(props) {
@@ -49,9 +25,7 @@ function App(props) {
     return <Loader />;
   }
 
-
   const state = props;
-
 
   return (
     <AuthContext.Provider value={{
@@ -71,4 +45,3 @@ function App(props) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 // export default App;
-

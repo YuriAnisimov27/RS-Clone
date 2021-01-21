@@ -23,7 +23,7 @@ export const Footer = (props) => {
             </ul>
           </div>
           <div className='developers'>
-            <h5>DEVELOPERS</h5>
+            <h5>{context.state.developers}</h5>
             <hr />
             <ul className='developers-ul'>
               <li className='developers-ul__li'><a className='developers__link' href='/'>{context.state.footerAnisimov}</a></li>
