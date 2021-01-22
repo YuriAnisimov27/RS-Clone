@@ -30,7 +30,7 @@ export const initialState = {
     footerContent: 'Футер контент__',
     developers: 'РАЗРАБОТЧИКИ',
     kovbenya: 'Александр Ковбеня',
-    anisimov: 'Юрий Аниссимов',
+    anisimov: 'Юрий Анисимов',
     martinkevich: 'Алексей Мартинкевич',
     chazov: 'Александр Чазов',
   },
@@ -42,9 +42,9 @@ export const initialState = {
 
     footerContent: 'Футэр контэнт',
     developers: 'РАСПРАЦОУНИКI',
-    kovbenya: 'Аляксандр Каубеня',
-    anisimov: 'Юра Аниссiмау',
+    kovbenya: 'Аляксандр Каўбеня',
+    anisimov: 'Юрый Анiсiмаў',
     martinkevich: 'Аляксей Марцiнкевич',
-    chazov: 'Аляксандр Чазау',
+    chazov: 'Аляксандр Чазаў',
   }
 }
