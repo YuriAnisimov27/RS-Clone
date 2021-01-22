@@ -159,6 +159,19 @@ h1 {
   width: 100%;
 }
 
+.logreg {
+  display: flex;
+  justify-content: center;
+}
+
+.logbtn {
+  width: 50%;
+}
+
+.regbtn {
+  width: 50%;
+}
+
 .googlebtn, .googlebtn :nth-child(1) {
   border-radius: 50px !important;
   background: transparent;
@@ -171,6 +184,43 @@ h1 {
 @media (max-width: 1000px) {
   .content {
     flex-flow: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .regbtn {
+    transition: all 0.5s;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .logbtn {
+    width: 40%;
+    font-size: 10px;
+  }
+  .regbtn {
+    width: 60%;
+  }
+  .loginicon, .regicon {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 570px) {
+  .loginicon {
+    margin-right: 0px;
+  }
+  .regbtn {
+    transition: all 0.5s;
+    font-size: 8px;
+    width: 55%;
+  }
+  .logbtn {
+    width: 45%;
+  }
+  .regicon {
+    margin-right: 0px;
   }
 }
 
