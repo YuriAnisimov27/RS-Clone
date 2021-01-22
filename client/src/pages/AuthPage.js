@@ -12,7 +12,6 @@ import {DialogPage} from './authPageElements/DialogPage';
 import {Footer} from './authPageElements/Footer';
 import {Header} from './authPageElements/Header';
 import {MainNav} from './authPageElements/MainNav';
-import {MusicPlayer} from './authPageElements/MusicPlayer';
 import ChromeDinoGame from 'react-chrome-dino';
 import {showStartPage} from './authPageElements/helpers';
 import cross from '../assets/UI/cross.svg';
@@ -175,7 +174,6 @@ export const AuthPage = () => {
             {/*</div>*/}
             <ChromeDinoGame/>
           </div>
-          <MusicPlayer/>
         </div>
         <Footer/>
       </div>

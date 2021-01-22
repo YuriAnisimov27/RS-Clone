@@ -1,7 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
 import ChromeDinoGame from 'react-chrome-dino';
-import {MusicPlayer} from '../pages/authPageElements/MusicPlayer';
 
 export const AboutPage = () => {
   // const onKeyPressHandler = () => {
@@ -44,7 +43,6 @@ export const AboutPage = () => {
     <div className='AboutPage game gamefullscr'>
       <ChromeDinoGame/>
     </div>
-    <MusicPlayer />
     </div>
   );
 
