@@ -1,0 +1,101 @@
+audio {
+  width: 100px;
+  height: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cross {
+  display: none;
+  position: relative;
+  top: -15px;
+  left: 20px;
+  z-index: 1;
+  width: 10px;
+}
+
+.cross:hover {
+  transition: all 0.2;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-link {
+  color: #000000 !important;
+  font-size: 24px;
+}
+
+.nav-ul__li {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.arrow {
+  transition: all 0.2s;
+  width: 10px;
+  margin-left: 10px;
+}
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  opacity: 0;
+  height: 0px;
+  padding-top: 5px;
+  overflow: auto;
+  background: #eff1e3;
+}
+
+li:hover .dropdown {
+  transition: all 0.5s;
+  display: flex;
+  height: 150px;
+  opacity: 1;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000000;
+  white-space: nowrap;
+  height: 45px;
+}
+
+.song:hover {
+  cursor: pointer;
+}
+
+.playmusic {
+  width: 10px;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(240 242 228);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(50 56 56);
+  ;
+}
+
+@media (max-width: 550px) {
+  .nav-link {
+    font-size: 15px;
+  }
+}

@@ -3,6 +3,7 @@ import logo from '../../assets/UI/dinoSmall.png';
 import buble from '../../assets/UI/buble.svg';
 import cross from '../../assets/UI/cross.svg';
 import {showDialog, showAbout, showDonation, showRegistartion} from './helpers';
+import './DialogPage.css';
 
 export const DialogPage = () => (
   <div className='DialogPage off'>

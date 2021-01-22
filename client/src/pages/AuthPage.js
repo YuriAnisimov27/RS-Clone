@@ -12,8 +12,9 @@ import {DialogPage} from './authPageElements/DialogPage';
 import {Footer} from './authPageElements/Footer';
 import {Header} from './authPageElements/Header';
 import {MainNav} from './authPageElements/MainNav';
-import {MusicPlayer} from './authPageElements/MusicPlayer';
 import ChromeDinoGame from 'react-chrome-dino';
+import {showStartPage} from './authPageElements/helpers';
+import cross from '../assets/UI/cross.svg';
 
 const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
@@ -102,6 +103,7 @@ export const AuthPage = () => {
     <div className='row d-flex'>
       <div className='col authcard off'>
         <div className="card N/A transparent darken-1">
+        <div className='exitauth' onClick={showStartPage}><img className='exitimg' src={cross} alt='exit'/></div>
           <div className="card-content white-text">
             <span className="card-title black-text">Registration</span>
             <p className="card-paragraph black-text">Fill in all fields to create an accaunt</p>
@@ -151,6 +153,7 @@ export const AuthPage = () => {
               Registration
             </button>
             <GoogleLogin
+              className='googlebtn'
               clientId={clientId}
               buttonText="Sing In"
               onSuccess={responseGoogle}
@@ -171,7 +174,6 @@ export const AuthPage = () => {
             {/*</div>*/}
             <ChromeDinoGame/>
           </div>
-          <MusicPlayer/>
         </div>
         <Footer/>
       </div>

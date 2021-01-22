@@ -39,8 +39,10 @@ export const AboutPage = () => {
 // })
 
   return (
-    <div className='AboutPage game'>
+    <div className='gamezone'>
+    <div className='AboutPage game gamefullscr'>
       <ChromeDinoGame/>
+    </div>
     </div>
   );
 
