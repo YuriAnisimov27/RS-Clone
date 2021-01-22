@@ -12,7 +12,7 @@ app.use(cors());
 
 const PORT = config.get('port') || 5000;
 
-// REST
+// REST API
 let USERS = [
   {id: '1234', name: 'John', label: 'zeroth'},
   {id: '2468', name: 'Mary', label: 'first'},
@@ -25,6 +25,10 @@ app.get('/api/users', (req, res) => {
 
 app.post('/api/users', (req, res) => {
   // add check for the presence of a user in the list
+  const candidate = USERS.find(c => c.id === '1000');
+  if (candidate) {
+    return res.status(400).json({message: 'User with this id already exists'});
+  }
   const user = {id: '1000', name: 'Pavel', label: 'third'};
   USERS.push(user);
   res.status(201).json(user);
