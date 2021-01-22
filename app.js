@@ -13,23 +13,26 @@ app.use(cors());
 const PORT = config.get('port') || 5000;
 
 // REST
-let CONTACTS = [
-  {id: 1234, name: 'John', value: 'zeroth', marked: false},
-  {id: 2468, name: 'Mary', value: 'first', marked: false},
-  {id: 9876, name: 'Kate', value: 'second', marked: true}
+let USERS = [
+  {id: 1234, name: 'John', label: 'zeroth'},
+  {id: 2468, name: 'Mary', label: 'first'},
+  {id: 9876, name: 'Kate', label: 'second'}
 ];
 
-app.get('/api/contacts', (req, res) => {
-  res.status(200).json(CONTACTS);
+app.get('/api/users', (req, res) => {
+  res.status(200).json(USERS);
 });
 
-app.post('/api/contacts', (req, res) => {
-  const contact = {id: 1000, name: 'Pavel', value: 'third', marked: false};
-  CONTACTS.push(contact);
-  res.status(201).json(contact);
+app.post('/api/users', (req, res) => {
+  const user = {id: 1000, name: 'Pavel', label: 'third'};
+  USERS.push(user);
+  res.status(201).json(user);
 });
 
-
+app.delete('/api/users/:id', (req, res) => {
+  USERS = USERS.filter(el => el.id !== req.params.id);
+  res.status(200).json({message: 'User Removed'});
+});
 
 async function start() {
   try {
