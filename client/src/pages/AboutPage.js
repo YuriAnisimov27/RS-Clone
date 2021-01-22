@@ -1,10 +1,11 @@
 import React from 'react';
 import './AboutPage.css';
+import ChromeDinoGame from 'react-chrome-dino';
 
 export const AboutPage = () => {
-const onKeyPressHandler = () => {
-  console.log('presset');
-}
+  // const onKeyPressHandler = () => {
+  //   console.log('pressed');
+  // };
 // const dino = document.getElementById('dino_wrapper');
 // const cactus = document.getElementById('cactus');
 // const dog = document.getElementById('img');
@@ -38,15 +39,9 @@ const onKeyPressHandler = () => {
 // })
 
   return (
-    <div className='AboutPage game' onKeyUp={onKeyPressHandler}>
-        <div className="background"/>
-          <div className="dino_wrapper">
-            <div className="dino">
-              <img className="img" src="./assets/images/dog1.png" alt=""/>
-            </div>
-          </div>
-          <div className="cactus"/>
-      <div className="ground"/>
+    <div className='AboutPage game'>
+      <ChromeDinoGame/>
     </div>
   );
+
 };

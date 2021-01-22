@@ -110,7 +110,7 @@ h1 {
 }
 
 .card-action {
-    padding: 0px 24px 10px 24px !important;
+    padding: 0 24px 10px 24px !important;
 }
 
 .card-content {
@@ -199,7 +199,7 @@ header {
 
 .game {
     width: 75%;
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 .playeroff {
@@ -249,7 +249,7 @@ footer {
 }
 
 .developers__link, .materials__link {
-    font-family: Montserrat;
+    font-family: Montserrat, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -320,7 +320,7 @@ footer {
 }
 
 .dialog-greeting {
-    font-family: Montserrat;
+    font-family: Montserrat, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 48px;
@@ -337,7 +337,7 @@ footer {
 }
 
 .dialog-link {
-    font-family: Montserrat;
+    font-family: Montserrat, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
