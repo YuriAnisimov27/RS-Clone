@@ -14,9 +14,9 @@ const PORT = config.get('port') || 5000;
 
 // REST
 let USERS = [
-  {id: 1234, name: 'John', label: 'zeroth'},
-  {id: 2468, name: 'Mary', label: 'first'},
-  {id: 9876, name: 'Kate', label: 'second'}
+  {id: '1234', name: 'John', label: 'zeroth'},
+  {id: '2468', name: 'Mary', label: 'first'},
+  {id: '9876', name: 'Kate', label: 'second'}
 ];
 
 app.get('/api/users', (req, res) => {
@@ -24,14 +24,28 @@ app.get('/api/users', (req, res) => {
 });
 
 app.post('/api/users', (req, res) => {
-  const user = {id: 1000, name: 'Pavel', label: 'third'};
+  // add check for the presence of a user in the list
+  const user = {id: '1000', name: 'Pavel', label: 'third'};
+  USERS.push(user);
+  res.status(201).json(user);
+});
+
+app.put('/api/users', (req, res) => {
+  const user = {id: '1000', name: 'Pavel', label: 'third'};
   USERS.push(user);
   res.status(201).json(user);
 });
 
 app.delete('/api/users/:id', (req, res) => {
-  USERS = USERS.filter(el => el.id !== req.params.id);
+  USERS = USERS.filter(user => user.id !== req.params.id);
   res.status(200).json({message: 'User Removed'});
+});
+
+app.patch('/api/users/:id', (req, res) => {
+  let user = USERS.find(c => c.id === req.params.id);
+  user = {...user, label: 'BOSS'};
+  USERS = [...USERS.filter(user => user.id !== req.params.id), user];
+  res.status(200).json({message: 'Add admin status for selected user'});
 });
 
 async function start() {
