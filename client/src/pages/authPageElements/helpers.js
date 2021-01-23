@@ -11,9 +11,6 @@ export const showRegistartion = () => {
 export const showAbout = () => {
   console.log('Showing about')
 };
-export const showDonation = () => {
-  console.log('Showing Donation')
-};
 export const changeLanguage = () => {
   console.log('language changed');
 };
@@ -21,3 +18,4 @@ export const showStartPage = () => {
   document.querySelector('.authcard').classList.toggle('off');
   document.querySelector('.AuthPage').classList.toggle('off');
 }
+
