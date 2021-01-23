@@ -12,7 +12,6 @@ import {DialogPage} from './authPageElements/DialogPage';
 import {Footer} from './authPageElements/Footer';
 import {Header} from './authPageElements/Header';
 import {MainNav} from './authPageElements/MainNav';
-import {MusicPlayer} from './authPageElements/MusicPlayer';
 import ChromeDinoGame from 'react-chrome-dino';
 import {showStartPage} from './authPageElements/helpers';
 import cross from '../assets/UI/cross.svg';
@@ -137,8 +136,9 @@ export const AuthPage = () => {
             </form>
           </div>
           <div className="card-action">
+            <div className='logreg'>
             <button
-              className='btn N/A transparent darken-3 label '
+              className='btn N/A transparent darken-3 label logbtn '
               onClick={loginHandler}
               disabled={loading}
             >
@@ -146,14 +146,16 @@ export const AuthPage = () => {
               LogIn
             </button>
             <button
-              className='btn N/A transparent darken-3 label'
+              className='btn N/A transparent darken-3 label regbtn'
               onClick={registerHandler}
               disabled={loading}
             >
-              <img className='authicons' src={singInIcon} alt='singin'/>
+              <img className='authicons regicon' src={singInIcon} alt='singin'/>
               Registration
             </button>
+            </div>
             <GoogleLogin
+              className='googlebtn'
               clientId={clientId}
               buttonText="Sing In"
               onSuccess={responseGoogle}
@@ -174,7 +176,6 @@ export const AuthPage = () => {
             {/*</div>*/}
             <ChromeDinoGame/>
           </div>
-          <MusicPlayer/>
         </div>
         <Footer/>
       </div>

@@ -3,8 +3,7 @@ import rslogo from '../../assets/UI/rs_school_js.svg';
 import './Footer.css';
 import { AuthContext } from '../../context/AuthContext'
 
-export const Footer = (props) => {
-
+export const Footer = () => {
   return (
     <AuthContext.Consumer>
       {context => (
@@ -19,11 +18,11 @@ export const Footer = (props) => {
             <hr />
             <ul className='materials-ul'>
               <li className='material-ul__li'><a className='materials__link youtube' href='/'>YOUTUBE</a></li>
-              <li className='material-ul__li'><a className='materials__link' href='/'>MEDIUM</a></li>
+              <li className='material-ul__li'><a className='materials__link medium' href='/'>MEDIUM</a></li>
             </ul>
           </div>
           <div className='developers'>
-            <h5>{context.state.developers}</h5>
+            <h5>DEVELOPERS</h5>
             <hr />
             <ul className='developers-ul'>
               <li className='developers-ul__li'><a className='developers__link' href='/'>{context.state.footerAnisimov}</a></li>
@@ -37,5 +36,5 @@ export const Footer = (props) => {
       }
     </AuthContext.Consumer>
   )
-
 };
+
