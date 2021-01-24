@@ -6,7 +6,9 @@ import gta from '../../assets/music/GTA San-Andreas.mp3';
 
 let isPlaying = false
 
-export function playSong(name) {
+export function playSong(e) {
+  e.preventDefault();
+  const name = e.target.innerText;
   const cross = document.querySelector('.cross')
   const player = document.querySelector('.music');
   let src;

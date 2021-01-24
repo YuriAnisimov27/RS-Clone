@@ -24,11 +24,11 @@ export const MainNav = () => {
                   <img className='arrow' src={arrow} alt='arrowlist' />
                 </a>
                 <ul className='dropdown'>
-                  <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
-                  <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
-                  <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
-                  <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
-                  <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
+                  <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
+                  <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
+                  <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
+                  <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
+                  <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
                 </ul>
               </li>
               <li className='nav-ul__li'><a className='nav-link' href="/">{context.state.authNavSettings}</a></li>

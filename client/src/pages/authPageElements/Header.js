@@ -3,7 +3,6 @@ import logo from '../../assets/UI/dinoSmall.png';
 import russia from '../../assets/UI/russia.svg';
 import uk from '../../assets/UI/united-kingdom.svg';
 import bel from '../../assets/UI/belarus.svg';
-import { changeLanguage } from './helpers';
 import './Header.css';
 import { AuthContext } from '../../context/AuthContext'
 

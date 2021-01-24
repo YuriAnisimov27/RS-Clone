@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
-import {AuthContext} from '../context/AuthContext';
-import {useGoogleLogout} from 'react-google-login';
+import React, { useContext } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { useGoogleLogout } from 'react-google-login';
 import { playSong, closePlayer } from '../pages/authPageElements/musicHandler';
 import arrow from '../assets/UI/angle-arrow-down.svg';
 import playMusic from '../assets/UI/play.svg'
@@ -13,7 +13,7 @@ export const Navbar = () => {
   const auth = useContext(AuthContext);
   const history = useHistory();
 
-  const {signOut} = useGoogleLogout({
+  const { signOut } = useGoogleLogout({
     clientId,
   });
 
@@ -22,7 +22,7 @@ export const Navbar = () => {
       event.preventDefault();
       auth.logout();
       signOut();
-      setTimeout( () => {
+      setTimeout(() => {
         auth.logout();
         signOut();
       }, 100);
@@ -39,19 +39,19 @@ export const Navbar = () => {
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <li className='nav-ul__li'> <img onClick={closePlayer} className='cross' src={cross} alt='cross' /> </li>
           <li className='nav-ul__li music'>
-        </li>
+          </li>
           <li className='nav-ul__li'>
-          <a className='nav-link'>Playlist
+            <a className='nav-link'>Playlist
           <img className='arrow' src={arrow} alt='arrowlist' />
-          </a>
-          <ul className='dropdown'>
-            <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
-            <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
-            <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
-            <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
-            <li className='dropdown-li'><a onClick={(e) => playSong(e.target.innerText)} className='song'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
-          </ul>
-        </li>
+            </a>
+            <ul className='dropdown'>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
+            </ul>
+          </li>
           <li className='nav-ul__li'><NavLink className='nav-link' to='/about'>About</NavLink></li>
           <li className='nav-ul__li'><NavLink className='nav-link' to='/settings'>Settings</NavLink></li>
           <li className='nav-ul__li'><a className='nav-link' href='/' onClick={logoutHandler}>Logout</a></li>
