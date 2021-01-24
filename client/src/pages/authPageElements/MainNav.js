@@ -5,9 +5,9 @@ import { showDialog } from './helpers';
 import arrow from '../../assets/UI/angle-arrow-down.svg';
 import playMusic from '../../assets/UI/play.svg'
 import cross from '../../assets/UI/cross.svg';
+
 import './MainNav.css';
 import { AuthContext } from '../../context/AuthContext'
-
 
 export const MainNav = () => {
   return (
@@ -29,6 +29,7 @@ export const MainNav = () => {
                   <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
                   <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
                   <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
+
                 </ul>
               </li>
               <li className='nav-ul__li'><a className='nav-link' href="/">{context.state.authNavSettings}</a></li>
@@ -39,6 +40,7 @@ export const MainNav = () => {
       )
       }
     </AuthContext.Consumer >
+
   )
 };
 

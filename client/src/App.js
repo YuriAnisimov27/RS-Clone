@@ -7,7 +7,6 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './pages/authPageElements/Footer';
 import { Loader } from './components/Loader';
 import { Header } from './pages/authPageElements/Header';
-
 import 'materialize-css';
 import './App.css';
 import { connect } from 'react-redux'

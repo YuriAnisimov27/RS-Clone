@@ -4,6 +4,7 @@ import './Footer.css';
 import { AuthContext } from '../../context/AuthContext'
 
 export const Footer = () => {
+
   return (
     <AuthContext.Consumer>
       {context => (
@@ -37,4 +38,3 @@ export const Footer = () => {
     </AuthContext.Consumer>
   )
 };
-
