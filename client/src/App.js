@@ -34,6 +34,7 @@ function App(props) {
       login, logout, token, userId, isAuthenticated, state
     }}>
       <BrowserRouter>
+
         {isAuthenticated && <Header />}
         {isAuthenticated && <Navbar />}
 

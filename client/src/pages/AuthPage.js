@@ -136,8 +136,9 @@ export const AuthPage = () => {
             </form>
           </div>
           <div className="card-action">
+            <div className='logreg'>
             <button
-              className='btn N/A transparent darken-3 label '
+              className='btn N/A transparent darken-3 label logbtn '
               onClick={loginHandler}
               disabled={loading}
             >
@@ -145,13 +146,14 @@ export const AuthPage = () => {
               LogIn
             </button>
             <button
-              className='btn N/A transparent darken-3 label'
+              className='btn N/A transparent darken-3 label regbtn'
               onClick={registerHandler}
               disabled={loading}
             >
-              <img className='authicons' src={singInIcon} alt='singin'/>
+              <img className='authicons regicon' src={singInIcon} alt='singin'/>
               Registration
             </button>
+            </div>
             <GoogleLogin
               className='googlebtn'
               clientId={clientId}
