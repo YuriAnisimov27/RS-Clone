@@ -76,9 +76,21 @@ document.addEventListener('keyup', (e) => {
       decreaseTextSizeHandler();
     }
   }
-
 })
 
+const backgroundOnChangeHandler = () => {
+  const colorPicker = document.querySelector('.backgroundColorInput1');
+  const newColor = colorPicker.value;
+  document.body.style.backgroundColor = newColor;
+  storage('customBackgroundColor', newColor);
+}
+
+const textColorOnChangeHandler = () => {
+  const colorPicker = document.querySelector('.textColorInput1');
+  const newColor = colorPicker.value;
+  document.body.style.color = newColor;
+  storage('customTextColor', newColor);
+}
 
 
 export const SettingsPage = () => {
@@ -86,25 +98,36 @@ export const SettingsPage = () => {
     <div>
       <div className="backgroundColorSwitcher-container">
         <div>
-          <label className="backgroundColorInput-container-label" htmlFor="head">Background-color</label>
-          <input type="color" className="backgroundColorInput" name="head" />
-          <label className="backgroundColorInputr-container-label" htmlFor="head">SomeText</label>
+          <p>BackgroundColor-Changer</p>
+          <input type="color" className="backgroundColorInput" name="colorPicker" />
         </div>
         <button className="changeColor_btn" onClick={backgroundColorSwitcher}>Change color</button>
       </div>
+      <div className='backgroundColorSwitcher1-container'>
+        <input type="color" className="backgroundColorInput1" onChange={() => backgroundOnChangeHandler()} />
+        <p>Super-BackgroundColor-Changer</p>
+      </div>
       <div className="textColorSwitcher-container">
         <div>
-          <label className="textColorInput-label" htmlFor="head">Text-color</label>
+          <p>TextColor-Changer</p>
           <input type="color" className="textColorInput" name="head" />
-          <label className="textColorInput-label" htmlFor="head">SomeText</label>
         </div>
         <button className="changeColor_btn" onClick={textColorSwitcher}>Change color</button>
       </div>
-      <div className="textSizeSwitcher">
+      <div className="textColorSwitcher1-container">
+        <div>
+          <p>Super-TextColor-Changer</p>
+          <input type="color" className="textColorInput1" onChange={() => textColorOnChangeHandler()} />
+        </div>
+      </div>
+
+      <div className="textSizeSwitcher-container">
         <h6>You also can use <b>Shift</b>+<b>'+'</b> and <b>Shift</b>+<b>'-'</b></h6>
         <button className="decreaseTextSize" onClick={decreaseTextSizeHandler}>-</button>
         <button className="increaseTextSize" onClick={increaseTextSizeHandler}> +</button>
       </div>
+
+
     </div>
   )
 }
