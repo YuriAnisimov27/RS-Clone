@@ -1,8 +1,8 @@
 import React from "react";
 import ChromeDinoGame from "react-chrome-dino";
-import "./AboutPage.css";
+import "./GamePage.css";
 
-const AboutPage = () => (
+const GamePage = () => (
   <div className="">
     <div className="AboutPage">
       <ChromeDinoGame />
@@ -10,4 +10,4 @@ const AboutPage = () => (
   </div>
 );
 
-export default AboutPage;
+export default GamePage;

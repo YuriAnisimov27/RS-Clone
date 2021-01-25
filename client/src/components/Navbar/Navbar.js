@@ -87,8 +87,8 @@ const Navbar = () => {
             </ul>
           </li>
           <li className="nav-ul__li">
-            <NavLink className="nav-link" to="/about">
-              About
+            <NavLink className="nav-link" to="/game">
+              Game
             </NavLink>
           </li>
           <li className="nav-ul__li">

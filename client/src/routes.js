@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import DataPage from "./pages/DataPage/DataPage";
-import AboutPage from "./pages/AboutPage/AboutPage";
+import GamePage from "./pages/GamePage/GamePage";
 import SettingsPage from "./pages/SettingPage/SettingsPage";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
@@ -12,13 +12,13 @@ const useRoutes = (isAuthenticated) => {
         <Route path="/data/:id">
           <DataPage />
         </Route>
-        <Route path="/about" exact>
-          <AboutPage />
+        <Route path="/game" exact>
+          <GamePage />
         </Route>
         <Route path="/settings" exact>
           <SettingsPage />
         </Route>
-        <Redirect to="/about" />
+        <Redirect to="/game" />
       </Switch>
     );
   }
