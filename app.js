@@ -13,19 +13,15 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '/api/users');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
 
-  //intercepts OPTIONS method
   if ('OPTIONS' === req.method) {
-    //respond with 200
     res.send(200);
   } else {
-    //move on
     next();
   }
 });
 
 const PORT = config.get('port') || 5000;
 
-// REST API
 let USERS = [
   {id: '1234', name: 'John', label: 'zeroth'},
   {id: '2468', name: 'Mary', label: 'first'},
@@ -37,7 +33,6 @@ app.get('/api/users', (req, res) => {
 });
 
 app.post('/api/users', (req, res) => {
-  // add check for the presence of a user in the list
   const candidate = USERS.find(c => c.id === '1000');
   if (candidate) {
     return res.status(400).json({message: 'User with this id already exists'});

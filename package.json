@@ -4,7 +4,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "NODE_ENV= jest --detectOpenHandles",
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",

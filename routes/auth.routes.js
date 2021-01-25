@@ -25,7 +25,6 @@ router.post('/register',
 
       const {email, password} = req.body;
       const candidate = await User.findOne({email});
-      // check for uniqueness of username
       if (candidate) {
         return res.status(400).json({message: 'User with this email already exists'});
       }
@@ -61,7 +60,6 @@ router.post('/login',
         return res.status(400).json({message: 'User not found'});
       }
 
-      // password match check
       const isMatch = await bcrypt.compare(password, user['password']);
       if (!isMatch) {
         return res.status(400).json({message: 'Wrong password, try again'});
