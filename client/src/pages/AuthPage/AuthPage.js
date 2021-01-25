@@ -1,20 +1,20 @@
 import React, {useState, useEffect, useContext} from 'react';
-import emailIcon from '../assets/UI/mail.svg';
-import passwordIcon from '../assets/UI/password.svg';
-import LoginIcon from '../assets/UI/login.svg';
-import singInIcon from '../assets/UI/login auth.svg';
+import emailIcon from '../../assets/UI/mail.svg';
+import passwordIcon from '../../assets/UI/password.svg';
+import LoginIcon from '../../assets/UI/login.svg';
+import singInIcon from '../../assets/UI/login auth.svg';
 import GoogleLogin from 'react-google-login';
-import {useHttp} from '../hooks/http.hook';
-import {useMessage} from '../hooks/message.hook';
-import {AuthContext} from '../context/AuthContext';
+import {useHttp} from '../../hooks/http.hook';
+import {useMessage} from '../../hooks/message.hook';
+import {AuthContext} from '../../context/AuthContext';
 import './AuthPage.css';
-import {DialogPage} from './authPageElements/DialogPage';
-import {Footer} from './authPageElements/Footer';
-import {Header} from './authPageElements/Header';
-import {MainNav} from './authPageElements/MainNav';
+import {DialogPage} from '../../components/DialogPage/DialogPage';
+import {Footer} from '../../components/Footer/Footer';
+import {Header} from '../../components/Header/Header';
+import {MainNav} from '../../components/MainNav/MainNav';
 import ChromeDinoGame from 'react-chrome-dino';
 import {showStartPage} from './authPageElements/helpers';
-import cross from '../assets/UI/cross.svg';
+import cross from '../../assets/UI/cross.svg';
 
 const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 

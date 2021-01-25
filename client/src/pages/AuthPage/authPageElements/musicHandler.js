@@ -1,8 +1,8 @@
-import mario from '../../assets/music/Super Mario.mp3';
-import run from '../../assets/music/Awolnation-Run.mp3';
-import subway from '../../assets/music/OST Subway Surfers.mp3';
-import battletoads from '../../assets/music/Battle Toads.mp3';
-import gta from '../../assets/music/GTA San-Andreas.mp3';
+import mario from '../../../assets/music/Super Mario.mp3';
+import run from '../../../assets/music/Awolnation-Run.mp3';
+import subway from '../../../assets/music/OST Subway Surfers.mp3';
+import battletoads from '../../../assets/music/Battle Toads.mp3';
+import gta from '../../../assets/music/GTA San-Andreas.mp3';
 
 let isPlaying = false
 

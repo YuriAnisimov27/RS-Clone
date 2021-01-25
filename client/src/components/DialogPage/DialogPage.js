@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import logo from '../../assets/UI/dinoSmall.png';
 import buble from '../../assets/UI/buble.svg';
 import cross from '../../assets/UI/cross.svg';
-import { showDialog, showRegistartion } from './helpers';
-import {DonatMessage} from './DonatMessage';
-import {AboutMessage} from './AboutMessage';
+import { showDialog, showRegistartion } from '../../pages/AuthPage/authPageElements/helpers';
+import {DonatMessage} from '../../pages/AuthPage/authPageElements/DonatMessage';
+import {AboutMessage} from '../../pages/AuthPage/authPageElements/AboutMessage';
 import './DialogPage.css';
 
 export const DialogPage = () => {

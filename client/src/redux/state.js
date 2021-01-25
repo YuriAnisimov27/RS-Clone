@@ -1,4 +1,4 @@
-import { storage } from '../pages/authPageElements/helpers';
+import { storage } from '../pages/AuthPage/authPageElements/helpers';
 
 if (!storage('currentLanguage')) {
   storage('currentLanguage', 'en')

@@ -1,7 +1,7 @@
 import React from 'react';
 import './SettingsPage.css'
-import { storage } from './authPageElements/helpers'
-import { backgroundColorSwitcher, textColorSwitcher, decreaseTextSizeHandler, increaseTextSizeHandler, backgroundOnChangeHandler, textColorOnChangeHandler, imageSwitcherHandler } from './settings'
+import { storage } from '../AuthPage/authPageElements/helpers'
+import { backgroundColorSwitcher, textColorSwitcher, decreaseTextSizeHandler, increaseTextSizeHandler, backgroundOnChangeHandler, textColorOnChangeHandler, imageSwitcherHandler } from '../AuthPage/authPageElements/settings'
 
 // if (storage('customBackgroundColor')) {
 //   document.body.style.backgroundImage = 'none';

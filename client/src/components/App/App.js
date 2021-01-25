@@ -1,15 +1,15 @@
-import { AuthContext } from './context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
-import { useRoutes } from './routes';
-import { useAuth } from './hooks/auth.hook';
-import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './pages/authPageElements/Footer';
-import { Loader } from './components/Loader/Loader';
-import { Header } from './pages/authPageElements/Header';
+import { useRoutes } from '../../routes';
+import { useAuth } from '../../hooks/auth.hook';
+import { Navbar } from '../Navbar/Navbar';
+import { Footer } from '../Footer/Footer';
+import { Loader } from '../Loader/Loader';
+import { Header } from '../Header/Header';
 import 'materialize-css';
 import './App.css';
 import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from './redux/redux-helpers'
+import { mapStateToProps, mapDispatchToProps } from '../../redux/redux-helpers'
 
 
 function App(props) {

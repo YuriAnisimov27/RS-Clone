@@ -1,5 +1,5 @@
 import { initialState } from './state'
-import { storage } from '../pages/authPageElements/helpers';
+import { storage } from '../pages/AuthPage/authPageElements/helpers';
 
 export default function reducer(state = initialState, action) {
   const newState = Object.assign({}, state);

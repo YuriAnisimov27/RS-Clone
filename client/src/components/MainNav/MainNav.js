@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { playSong, closePlayer } from './musicHandler';
-import { showDialog } from './helpers';
+import { playSong, closePlayer } from '../../pages/AuthPage/authPageElements/musicHandler';
+import { showDialog } from '../../pages/AuthPage/authPageElements/helpers';
 import arrow from '../../assets/UI/angle-arrow-down.svg';
 import playMusic from '../../assets/UI/play.svg'
 import cross from '../../assets/UI/cross.svg';

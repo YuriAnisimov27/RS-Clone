@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useGoogleLogout } from 'react-google-login';
-import { playSong, closePlayer } from '../../pages/authPageElements/musicHandler';
+import { playSong, closePlayer } from '../../pages/AuthPage/authPageElements/musicHandler';
 import arrow from '../../assets/UI/angle-arrow-down.svg';
 import playMusic from '../../assets/UI/play.svg'
 import cross from '../../assets/UI/cross.svg';
