@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import { useGoogleLogout } from 'react-google-login';
-import { playSong, closePlayer } from '../pages/authPageElements/musicHandler';
-import arrow from '../assets/UI/angle-arrow-down.svg';
-import playMusic from '../assets/UI/play.svg'
-import cross from '../assets/UI/cross.svg';
+import { playSong, closePlayer } from '../../pages/authPageElements/musicHandler';
+import arrow from '../../assets/UI/angle-arrow-down.svg';
+import playMusic from '../../assets/UI/play.svg'
+import cross from '../../assets/UI/cross.svg';
 
 const clientId = '573054707008-n6gc2nku822ale1dagf6m6d8go5emrpa.apps.googleusercontent.com';
 
@@ -45,11 +45,11 @@ export const Navbar = () => {
           <img className='arrow' src={arrow} alt='arrowlist' />
             </a>
             <ul className='dropdown'>
-              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
-              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
-              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
-              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
-              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='./'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='..'>Super Mario <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='..'>Awolnation-Run <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='..'>OST Subway Surfers <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='..'>Battle Toads <img className='playmusic' src={playMusic} alt='play' /></a></li>
+              <li className='dropdown-li'><a onClick={(e) => playSong(e)} className='song' href='..'>GTA San-Andreas <img className='playmusic' src={playMusic} alt='play' /></a></li>
             </ul>
           </li>
           <li className='nav-ul__li'><NavLink className='nav-link' to='/about'>About</NavLink></li>
