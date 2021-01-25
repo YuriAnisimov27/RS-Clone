@@ -1,16 +1,16 @@
 import React from 'react';
 import './SettingsPage.css'
 import { storage } from './authPageElements/helpers'
-import { backgroundColorSwitcher, textColorSwitcher, decreaseTextSizeHandler, increaseTextSizeHandler, backgroundOnChangeHandler, textColorOnChangeHandler } from './settings'
+import { backgroundColorSwitcher, textColorSwitcher, decreaseTextSizeHandler, increaseTextSizeHandler, backgroundOnChangeHandler, textColorOnChangeHandler, imageSwitcherHandler } from './settings'
 
-if (storage('customBackgroundColor')) {
-  document.body.style.backgroundImage = 'none';
-  document.body.style.backgroundColor = storage('customBackgroundColor');
-}
+// if (storage('customBackgroundColor')) {
+//   document.body.style.backgroundImage = 'none';
+//   document.body.style.backgroundColor = storage('customBackgroundColor');
+// }
 
-if (storage('customTextColor')) {
-  document.body.style.color = storage('customTextColor');
-}
+// if (storage('customTextColor')) {
+//   document.body.style.color = storage('customTextColor');
+// }
 
 
 let isShiftDown = false;
@@ -37,6 +37,8 @@ document.addEventListener('keyup', (e) => {
     }
   }
 })
+
+
 
 
 export const SettingsPage = () => {
@@ -66,13 +68,14 @@ export const SettingsPage = () => {
           <input type="color" className="textColorInput1" onChange={(e) => textColorOnChangeHandler(e)} />
         </div>
       </div>
-
       <div className="textSizeSwitcher-container">
         <h6>You also can use <b>Shift</b>+<b>'+'</b> and <b>Shift</b>+<b>'-'</b></h6>
         <button className="decreaseTextSize" onClick={decreaseTextSizeHandler}>-</button>
         <button className="increaseTextSize" onClick={increaseTextSizeHandler}> +</button>
       </div>
-
+      <div className="backGroundImgSwitcher">
+        <button onClick={imageSwitcherHandler}>Switch backGround image</button>
+      </div>
 
     </div>
   )
