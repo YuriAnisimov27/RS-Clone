@@ -11,11 +11,11 @@ export const showRegistration = () => {
 };
 
 export const showAbout = () => {
-  console.log("Showing about");
+  // console.log("Showing about");
 };
 
 export const changeLanguage = () => {
-  console.log("language changed");
+  // console.log("language changed");
 };
 
 export const showStartPage = () => {
