@@ -1,9 +1,10 @@
-import {useCallback} from 'react';
+import { useCallback } from "react";
 
-export const useMessage = () => {
-  return useCallback((text) => {
+const useMessage = () =>
+  useCallback((text) => {
     if (window.M && text) {
-      window.M.toast({html: text});
+      window.M.toast({ html: text });
     }
   }, []);
-};
+
+export default useMessage;

@@ -1,4 +1,4 @@
-.donatmes {
+.donat-mes {
   display: flex;
   flex-flow: column;
   height: 1080px;
@@ -16,14 +16,14 @@
   padding: 30px 10px 10px 10px;
 }
 
-.donatlink {
+.donat-link {
   align-self: center;
   width: 109px !important;
   height: 109px !important;
   line-height: 109px !important;
 }
 
-.dimg {
+.d-img {
   font-size: 2rem !important;
 }
 

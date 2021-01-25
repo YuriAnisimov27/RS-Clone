@@ -1,23 +1,27 @@
 export const showDialog = () => {
-  document.querySelector('.AuthPage').classList.toggle('off');
-  document.querySelector('.DialogPage').classList.toggle('off');
-  document.body.classList.toggle('scroll__off');
+  document.querySelector(".AuthPage").classList.toggle("off");
+  document.querySelector(".DialogPage").classList.toggle("off");
+  document.body.classList.toggle("scroll__off");
 };
-export const showRegistartion = () => {
-  document.querySelector('.DialogPage').classList.toggle('off');
-  document.querySelector('.authcard').classList.toggle('off');
-  document.body.classList.toggle('scroll__off');
+
+export const showRegistration = () => {
+  document.querySelector(".DialogPage").classList.toggle("off");
+  document.querySelector(".auth-card").classList.toggle("off");
+  document.body.classList.toggle("scroll__off");
 };
+
 export const showAbout = () => {
-  console.log('Showing about')
+  console.log("Showing about");
 };
+
 export const changeLanguage = () => {
-  console.log('language changed');
+  console.log("language changed");
 };
+
 export const showStartPage = () => {
-  document.querySelector('.authcard').classList.toggle('off');
-  document.querySelector('.AuthPage').classList.toggle('off');
-}
+  document.querySelector(".auth-card").classList.toggle("off");
+  document.querySelector(".AuthPage").classList.toggle("off");
+};
 
 export const storage = (key, data = null) => {
   if (!data) {
@@ -25,5 +29,4 @@ export const storage = (key, data = null) => {
   }
   localStorage.setItem(key, JSON.stringify(data));
   return undefined;
-}
-
+};

@@ -6,22 +6,22 @@
   width: 100%;
 }
 
-.dinodialog {
+.dino-dialog {
   position: absolute;
   left: -143px;
   top: 100px;
   width: 690px;
 }
 
-.dinodialog-Img {
+.dino-dialog-img {
   width: 100%;
 }
 
-.bubledialog-Img {
+.bubble-dialog-Img {
   width: 550px;
 }
 
-.dialog-buble {
+.dialog-bubble {
   position: absolute;
   left: 675px;
   top: 30px;
@@ -40,7 +40,7 @@
   font-size: 48px;
   line-height: 59px;
   color: #000000;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .dialog-nav-ul__li {
@@ -66,13 +66,13 @@
   opacity: 0.5;
 }
 
-.exitbtn {
+.exit-btn {
   position: absolute;
   left: 265px;
   transition: all 0.2s;
 }
 
-.exitbtn:hover {
+.exit-btn:hover {
   cursor: pointer;
   opacity: 0.5;
   animation: pulse 1.3s ease-in infinite;
@@ -99,15 +99,15 @@
 }
 
 @media (max-width: 1220px) {
-  .dinodialog {
+  .dino-dialog {
     left: 30px;
     top: 349px;
     width: 450px;
   }
-  .bubledialog-Img {
+  .bubble-dialog-Img {
     width: 400px;
   }
-  .dialog-buble {
+  .dialog-bubble {
     left: 463px;
     top: 105px;
   }
@@ -123,34 +123,34 @@
     font-size: 35px;
     text-align: center;
   }
-  .exitbtn {
+  .exit-btn {
     left: 255px;
     top: 17px;
   }
 }
 
 @media (max-width: 865px) {
-  .dinodialog {
+  .dino-dialog {
     left: -60px;
   }
-  .dialog-buble {
+  .dialog-bubble {
     left: 310px;
   }
 }
 
 @media (max-width: 715px) {
-  .dinodialog {
+  .dino-dialog {
     top: 478px;
     width: 243px;
     left: -45px;
   }
-  .dialog-buble {
+  .dialog-bubble {
     left: 100px;
   }
 }
 
 @media (max-width: 520px) {
-  .dialog-buble {
+  .dialog-bubble {
     left: 70px;
   }
 }
