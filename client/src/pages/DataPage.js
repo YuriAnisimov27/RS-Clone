@@ -1,5 +1,5 @@
 import React from 'react';
-import {Loader} from '../components/Loader';
+import { Loader } from '../components/Loader';
 import './DataPage.css';
 
 export const DataPage = () => {
@@ -7,13 +7,13 @@ export const DataPage = () => {
 
   return (
     <div className="DataPage">
-      <Loader/>
+      <Loader />
       <div className="row">
         <div className="col s4 m4">
           <div className="card">
             <div className="card-image">
-              <img src="https://picsum.photos/1024/1024" alt="avatar"/>
-                <span className="card-title">Card Title</span>
+              <img src="https://picsum.photos/1024/1024" alt="avatar" />
+              <span className="card-title">Card Title</span>
             </div>
             <div className="card-content">
               <p>I am a very simple card.</p>

@@ -1,0 +1,12 @@
+.backgroundColorSwitcher-container, .backgroundColorSwitcher1-container, .textColorSwitcher-container, .textColorSwitcher1-container, .textSizeSwitcher-container, .backGroundImgSwitcher{
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 5px;
+}
+
+p{
+  font-weight: 900;
+}
