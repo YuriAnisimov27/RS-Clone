@@ -1,16 +1,15 @@
-import { AuthContext } from '../../context/AuthContext';
-import { BrowserRouter } from 'react-router-dom';
-import { useRoutes } from '../../routes';
-import { useAuth } from '../../hooks/auth.hook';
-import { Navbar } from '../Navbar/Navbar';
-import { Footer } from '../Footer/Footer';
-import { Loader } from '../Loader/Loader';
-import { Header } from '../Header/Header';
-import 'materialize-css';
-import './App.css';
-import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from '../../redux/redux-helpers'
-
+import { connect } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { useRoutes } from "../../routes";
+import { useAuth } from "../../hooks/auth.hook";
+import { Navbar } from "../Navbar/Navbar";
+import { Footer } from "../Footer/Footer";
+import { Loader } from "../Loader/Loader";
+import { Header } from "../Header/Header";
+import { mapStateToProps, mapDispatchToProps } from "../../redux/redux-helpers";
+import "materialize-css";
+import "./App.css";
 
 function App(props) {
   const { login, logout, token, userId, ready } = useAuth();
@@ -27,23 +26,25 @@ function App(props) {
   const state = props;
 
   return (
-    <AuthContext.Provider value={{
-      login, logout, token, userId, isAuthenticated, state
-    }}>
+    <AuthContext.Provider
+      value={{
+        login,
+        logout,
+        token,
+        userId,
+        isAuthenticated,
+        state,
+      }}
+    >
       <BrowserRouter>
-
         {isAuthenticated && <Header />}
         {isAuthenticated && <Navbar />}
 
-        <div className='container'>
-          {routes}
-        </div>
+        <div className="container">{routes}</div>
         {isAuthenticated && <Footer />}
       </BrowserRouter>
     </AuthContext.Provider>
   );
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-// export default App;
