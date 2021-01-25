@@ -31,14 +31,17 @@ const DialogPage = () => {
           <h5 className="dialog-greeting">HELLO!</h5>
           <ul className="dialog-nav-ul">
             <li className="dialog-nav-ul__li">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-              <a className="dialog-link signin" onClick={showRegistration}>
+              <a
+                href="#!"
+                className="dialog-link signin"
+                onClick={showRegistration}
+              >
                 Sign in
               </a>
             </li>
             <li className="dialog-nav-ul__li">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
               <a
+                href="#!"
                 className="dialog-link"
                 onClick={() => {
                   setActiveAbout(!activeAbout);
@@ -48,8 +51,8 @@ const DialogPage = () => {
               </a>
             </li>
             <li className="dialog-nav-ul__li">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
               <a
+                href="#!"
                 className="dialog-link"
                 onClick={() => {
                   setActiveDonat(!activeDonat);

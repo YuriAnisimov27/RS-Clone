@@ -43,7 +43,7 @@ const MainNav = () => (
                 <li className="dropdown-li">
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
                   <a onClick={(e) => playSong(e)} className="song">
-                    Awolnation-Run{" "}
+                    Awo-Run{" "}
                     <img className="play-music" src={playMusic} alt="play" />
                   </a>
                 </li>
@@ -69,11 +69,6 @@ const MainNav = () => (
                   </a>
                 </li>
               </ul>
-            </li>
-            <li className="nav-ul__li">
-              <a className="nav-link" href="/">
-                {context.state.authNavSettings}
-              </a>
             </li>
             <li className="nav-ul__li">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
