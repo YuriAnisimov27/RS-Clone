@@ -1,34 +1,34 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const schema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   games: {
-    type: Number
+    type: Number,
   },
   totalTimePlayed: {
-    type: Number
+    type: Number,
   },
   topScore: {
-    type: Number
+    type: Number,
   },
   totalScore: {
-    type: Number
+    type: Number,
   },
   isAdmin: {
-    type: Boolean
+    type: Boolean,
   },
   created: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = model('User', schema);
