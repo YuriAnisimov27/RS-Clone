@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/UI/dinoSmall.png";
 import russia from "../../assets/UI/russia.svg";
 import uk from "../../assets/UI/united-kingdom.svg";
@@ -18,17 +19,20 @@ const Header = () => (
         </div>
         <div className="languages">
           <ul className="languages-selector">
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-            <li className="Lselector" onClick={context.state.setRu}>
-              <img src={russia} alt="rus" />
+            <li className="Lselector">
+              <NavLink onClick={context.state.setRu} to="">
+                <img src={russia} alt="rus" />
+              </NavLink>
             </li>
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-            <li className="Lselector" onClick={context.state.setEn}>
-              <img src={uk} alt="uk" />
+            <li className="Lselector">
+              <NavLink onClick={context.state.setEn} to="">
+                <img src={uk} alt="uk" />
+              </NavLink>
             </li>
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-            <li className="Lselector" onClick={context.state.setBel}>
-              <img src={bel} alt="bel" />
+            <li className="Lselector">
+              <NavLink onClick={context.state.setBel} to="">
+                <img src={bel} alt="bel" />
+              </NavLink>
             </li>
           </ul>
         </div>
