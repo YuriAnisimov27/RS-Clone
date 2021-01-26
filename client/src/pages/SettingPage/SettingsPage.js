@@ -46,8 +46,8 @@ const SettingsPage = () => (
           name="colorPicker"
         />
       </div>
-      {/* eslint-disable-next-line react/button-has-type */}
       <button
+        type="button"
         className="changeColor_btn"
         onClick={(e) => {
           backgroundColorSwitcher(e);
@@ -69,7 +69,6 @@ const SettingsPage = () => (
         <p>TextColor-Changer</p>
         <input type="color" className="textColorInput" name="head" />
       </div>
-      {/* eslint-disable-next-line react/button-has-type */}
       <button
         type="button"
         className="changeColor_btn"
@@ -94,19 +93,25 @@ const SettingsPage = () => (
       <h6>
         You also can use <b>Shift</b>+<b> + </b> and <b>Shift</b>+<b> - </b>
       </h6>
-      {/* eslint-disable-next-line react/button-has-type */}
-      <button className="decreaseTextSize" onClick={decreaseTextSizeHandler}>
+      <button
+        className="decreaseTextSize"
+        onClick={decreaseTextSizeHandler}
+        type="button"
+      >
         -
       </button>
-      {/* eslint-disable-next-line react/button-has-type */}
-      <button className="increaseTextSize" onClick={increaseTextSizeHandler}>
-        {" "}
+      <button
+        className="increaseTextSize"
+        onClick={increaseTextSizeHandler}
+        type="button"
+      >
         +
       </button>
     </div>
     <div className="backGroundImgSwitcher">
-      {/* eslint-disable-next-line react/button-has-type */}
-      <button onClick={imageSwitcherHandler}>Switch backGround image</button>
+      <button onClick={imageSwitcherHandler} type="button">
+        Switch backGround image
+      </button>
     </div>
   </div>
 );
