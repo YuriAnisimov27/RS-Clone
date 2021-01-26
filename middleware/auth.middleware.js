@@ -9,14 +9,15 @@ module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
     if (!token) {
-      return res.status(401).json({message: 'No authorization'});
+      return res.status(401).json({ message: 'No authorization' });
     }
 
-    const decoded = jwt.verify(token, config.get('coder'));
-    req.user = decoded;
+    req.user = jwt.verify(token, config.get('coder'));
 
     next();
   } catch (e) {
-    res.status(401).json({message: 'No authorization'});
+    res.status(401).json({ message: 'No authorization' });
   }
+
+  return undefined;
 };

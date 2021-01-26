@@ -1,0 +1,121 @@
+h5 {
+  margin: 0;
+}
+
+.footer {
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+}
+
+.rs-logo {
+  width: 265px;
+}
+
+.materials {
+  width: 200px;
+}
+
+.developers {
+  width: 245px;
+  padding-left: 65px;
+}
+
+.rs-logo, .materials, .developers {
+  padding-right: 25px;
+}
+
+.rs-img {
+  width: 100%;
+  max-width: 230px;
+  transition: all 0.5s;
+}
+
+.rs-img:hover {
+  width: 90%;
+  transform: rotate(-5deg);
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.developers__link, .materials__link {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+  transition: all 0.5s;
+}
+
+@keyframes youtube {
+  0% {
+    color: #000000;
+  }
+  33% {
+    color: #b71c1c;
+  }
+  66% {
+    color: #ef5350;
+  }
+  100% {
+    color: #f44336;
+  }
+}
+@keyframes medium_an {
+  0% {
+    color: #000000;
+  }
+  33% {
+    color:rgb(84, 56, 2);
+  }
+  66% {
+    color: rgb(177, 119, 3);
+  }
+  100% {
+    color: rgb(240, 160, 0);
+  }
+}
+.medium:hover {
+  font-size: 16px;
+  animation: medium_an 1 0.5s linear forwards ;
+}
+.youtube:hover {
+  font-size: 16px ;
+  animation: youtube 1 0.5s linear forwards;
+}
+
+.developers-ul__li :hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 680px) {
+  .rs-img {
+    max-width: 170px;
+  }
+  .developers__link {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rs-img {
+    max-width: 135px;
+  }
+}
+
+@media (max-width: 450px) {
+  .rs-logo {
+    width: 100px;
+  }
+}
+@media (max-height: 720px) {
+  footer {
+    padding-top: 45px;
+  }
+}
+@media (max-height: 691px) {
+  footer {
+    padding-top: 0;
+  }
+}
