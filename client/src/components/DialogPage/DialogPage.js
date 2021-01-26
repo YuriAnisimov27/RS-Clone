@@ -24,10 +24,9 @@ const DialogPage = () => {
       <div className="dialog-bubble">
         <img className="bubble-dialog-Img" src={bubble} alt="bubble" />
         <div className="dialog-nav">
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-          <div className="exit-btn" onClick={showDialog}>
+          <button type="button" className="exit-btn" onClick={showDialog}>
             <img className="exit-img" src={cross} alt="exit" />
-          </div>
+          </button>
           <h5 className="dialog-greeting">HELLO!</h5>
           <ul className="dialog-nav-ul">
             <li className="dialog-nav-ul__li">
