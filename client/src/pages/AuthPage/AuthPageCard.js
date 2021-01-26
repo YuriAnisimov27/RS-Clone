@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
+import { NavLink } from "react-router-dom";
 import { showStartPage } from "./authPageElements/helpers";
 import cross from "../../assets/UI/cross.svg";
 import emailIcon from "../../assets/UI/mail.svg";
@@ -21,17 +22,16 @@ const AuthPageCard = ({
 }) => (
   <div className="col auth-card off">
     <div className="card N/A transparent darken-1">
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div className="exit-auth" onClick={showStartPage}>
+      <NavLink className="exit-auth" onClick={showStartPage} to="">
         <img className="exit-img" src={cross} alt="exit" />
-      </div>
+      </NavLink>
       <div className="card-content white-text">
         <span className="card-title black-text">Registration</span>
         <p className="card-paragraph black-text">
           Fill in all fields to create an account
         </p>
 
-        <div className="input-field">
+        <form className="input-field">
           <input
             id="email"
             type="email"
@@ -40,8 +40,8 @@ const AuthPageCard = ({
             onChange={changeHandler}
             value={form.email}
           />
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className="label" htmlFor="email">
+            {" "}
             <img
               className="email-icon auth-icons"
               src={emailIcon}
@@ -49,7 +49,7 @@ const AuthPageCard = ({
             />
             <span>Email</span>
           </label>
-        </div>
+        </form>
 
         <form className="input-field">
           <input

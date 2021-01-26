@@ -103,8 +103,14 @@ h1 {
   box-shadow: 0 1px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 }
 
+#email {
+  margin-left: 10px;
+  width: 70%;
+}
+
 .validate {
-  border: none !important
+  border: none !important;
+  padding-left: 10px !important;
 }
 
 .card-action {
