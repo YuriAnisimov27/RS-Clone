@@ -1,5 +1,6 @@
 import React from "react";
 import "./Messages.css";
+import { NavLink } from "react-router-dom";
 
 const DonatMessage = ({ active, setActive }) => (
   <>
@@ -15,9 +16,9 @@ const DonatMessage = ({ active, setActive }) => (
         <i className="material-icons d-img">$</i>
       </a>
     </div>
-    {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-    <div
+    <NavLink
       className="shadow"
+      to=""
       style={active ? { display: "block" } : { display: "none" }}
       onClick={() => {
         setActive(false);
