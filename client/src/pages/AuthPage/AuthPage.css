@@ -108,6 +108,11 @@ h1 {
   width: 70%;
 }
 
+#password {
+  margin-left: 10px;
+  width: 70%;
+}
+
 .validate {
   border: none !important;
   padding-left: 10px !important;

@@ -1,3 +1,5 @@
+import { SET_LANG_TO_BY, SET_LANG_TO_ENG, SET_LANG_TO_RUS } from "./types";
+
 export const mapStateToProps = (state) => {
   const { currentLanguage } = state;
   const {
@@ -26,7 +28,7 @@ export const mapStateToProps = (state) => {
 };
 
 export const mapDispatchToProps = (dispatch) => ({
-  setRu: () => dispatch({ type: "CHANGE_LNG", lng: "ru" }),
-  setEn: () => dispatch({ type: "CHANGE_LNG", lng: "en" }),
-  setBel: () => dispatch({ type: "CHANGE_LNG", lng: "bel" }),
+  setRu: () => dispatch({ type: SET_LANG_TO_RUS }),
+  setEn: () => dispatch({ type: SET_LANG_TO_ENG }),
+  setBel: () => dispatch({ type: SET_LANG_TO_BY }),
 });

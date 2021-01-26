@@ -29,7 +29,7 @@ const Footer = () => (
           </ul>
         </div>
         <div className="developers">
-          <h5>DEVELOPERS</h5>
+          <h5>{context.state.developers}</h5>
           <hr />
           <ul className="developers-ul">
             <li className="developers-ul__li">
