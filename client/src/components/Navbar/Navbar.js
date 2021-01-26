@@ -31,59 +31,38 @@ const Navbar = () => {
     history.push("/");
   };
 
+  const songs = [
+    "Super Mario",
+    "Awo-Run",
+    "OST Subway Surfers",
+    "Battle Toads",
+    "GTA San-Andreas",
+  ];
+
   return (
     <nav className="N/A transparent">
       <div className="nav-wrapper">
         <ul id="nav-mobile" className="right nav-ul">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <li className="nav-ul__li">
-            {" "}
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-            <img
-              onClick={closePlayer}
-              className="cross"
-              src={cross}
-              alt="cross"
-            />{" "}
+            <NavLink onClick={closePlayer} to="">
+              <img className="cross" src={cross} alt="cross" />
+            </NavLink>
           </li>
           <li className="nav-ul__li music" />
           <li className="nav-ul__li">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="nav-link">
+            <NavLink className="nav-link" to="">
               Playlist
               <img className="arrow" src={arrow} alt="arrow list" />
-            </a>
+            </NavLink>
             <ul className="dropdown">
-              <li className="dropdown-li">
-                <a onClick={(e) => playSong(e)} className="song" href="..">
-                  Super Mario{" "}
-                  <img className="play-music" src={playMusic} alt="play" />
-                </a>
-              </li>
-              <li className="dropdown-li">
-                <a onClick={(e) => playSong(e)} className="song" href="..">
-                  Awo-Run{" "}
-                  <img className="play-music" src={playMusic} alt="play" />
-                </a>
-              </li>
-              <li className="dropdown-li">
-                <a onClick={(e) => playSong(e)} className="song" href="..">
-                  OST Subway Surfers{" "}
-                  <img className="play-music" src={playMusic} alt="play" />
-                </a>
-              </li>
-              <li className="dropdown-li">
-                <a onClick={(e) => playSong(e)} className="song" href="..">
-                  Battle Toads{" "}
-                  <img className="play-music" src={playMusic} alt="play" />
-                </a>
-              </li>
-              <li className="dropdown-li">
-                <a onClick={(e) => playSong(e)} className="song" href="..">
-                  GTA San-Andreas{" "}
-                  <img className="play-music" src={playMusic} alt="play" />
-                </a>
-              </li>
+              {songs.map((el) => (
+                <li className="dropdown-li" key={el}>
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
+                    {el}
+                    <img className="play-music" src={playMusic} alt="play" />
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </li>
           <li className="nav-ul__li">
@@ -97,9 +76,14 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-ul__li">
-            <a className="nav-link" href="/" onClick={logoutHandler}>
+            <NavLink
+              className="nav-link"
+              href="/"
+              onClick={logoutHandler}
+              to=""
+            >
               Logout
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>
