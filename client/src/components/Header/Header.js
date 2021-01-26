@@ -10,7 +10,7 @@ import "./Header.css";
 const Header = () => (
   <AuthContext.Consumer>
     {(context) => (
-      <header>
+      <header className="container header">
         <div className="logo">
           <div className="logoImg-container">
             <img className="logoImg" src={logo} alt="logo" />

@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthContext";
 const Footer = () => (
   <AuthContext.Consumer>
     {(context) => (
-      <footer>
+      <footer className="footer container">
         <div className="rs-logo">
           <a href="https://rs.school/">
             <img className="rs-img" src={rslogo} alt="rslogo" />

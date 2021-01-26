@@ -2,11 +2,13 @@ h5 {
   margin: 0;
 }
 
-footer {
+.footer {
   transition: all 0.5s;
-  padding-top: 75px;
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: calc(10%);
 }
 
 .rs-logo {

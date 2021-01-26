@@ -4,7 +4,7 @@ import "./GamePage.css";
 
 const GamePage = () => (
   <div className="">
-    <div className="AboutPage">
+    <div className="GamePage container">
       <ChromeDinoGame />
     </div>
   </div>
