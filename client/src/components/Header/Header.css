@@ -3,6 +3,11 @@ header {
   justify-content: space-between;
 }
 
+header h1 {
+  margin: 20px;
+  width: 100%;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -16,11 +21,12 @@ header {
   border-radius: 50px;
   width: fit-content;
   height: fit-content;
+  margin-left: 20px;
 }
 
 .logoImg {
   filter: invert(1);
-  width: 7rem;
+  width: 5rem;
   opacity: 0.9;
 }
 

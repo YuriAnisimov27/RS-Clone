@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import playSong, {
   closePlayer,
 } from "../../pages/AuthPage/authPageElements/musicHandler";
@@ -16,65 +17,53 @@ const MainNav = () => (
         <div className="nav-wrapper">
           <ul id="nav-mobile" className="right nav-ul">
             <li className="nav-ul__li">
-              {" "}
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-              <img
-                onClick={closePlayer}
-                className="cross"
-                src={cross}
-                alt="cross"
-              />{" "}
+              <NavLink onClick={closePlayer} to="">
+                <img className="cross" src={cross} alt="cross" />
+              </NavLink>
             </li>
             <li className="nav-ul__li music" />
             <li className="nav-ul__li">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a className="nav-link">
+              <NavLink className="nav-link" to="">
                 {context.state.authNavPlaylist}
                 <img className="arrow" src={arrow} alt="arrowlist" />
-              </a>
+              </NavLink>
               <ul className="dropdown">
                 <li className="dropdown-li">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                  <a onClick={(e) => playSong(e)} className="song">
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
                     Super Mario{" "}
                     <img className="play-music" src={playMusic} alt="play" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="dropdown-li">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                  <a onClick={(e) => playSong(e)} className="song">
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
                     Awo-Run{" "}
                     <img className="play-music" src={playMusic} alt="play" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="dropdown-li">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                  <a onClick={(e) => playSong(e)} className="song">
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
                     OST Subway Surfers{" "}
                     <img className="play-music" src={playMusic} alt="play" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="dropdown-li">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                  <a onClick={(e) => playSong(e)} className="song">
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
                     Battle Toads{" "}
                     <img className="play-music" src={playMusic} alt="play" />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="dropdown-li">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                  <a onClick={(e) => playSong(e)} className="song">
+                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
                     GTA San-Andreas{" "}
                     <img className="play-music" src={playMusic} alt="play" />
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </li>
             <li className="nav-ul__li">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-              <a className="nav-link" onClick={showDialog}>
+              <NavLink className="nav-link" onClick={showDialog} to="">
                 {context.state.authNavRegistration}
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
