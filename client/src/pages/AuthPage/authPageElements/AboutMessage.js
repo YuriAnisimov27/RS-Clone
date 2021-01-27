@@ -5,7 +5,19 @@ import "./Messages.css";
 const AboutMessage = ({ active, setActive }) => (
   <>
     <div className="donat-mes" style={active ? { left: 0 } : { left: -8000 }}>
-      <p className="donation-text">Hello, we are developers of this app</p>
+      <p className="donation-text">
+        пройдя не долгую процедуру регистрации вы получите:{" "}
+      </p>
+      <p className="donation-text">
+        - доступ к ошеломительному продолжению бестселлера Google Dinosaur
+      </p>
+      <p className="donation-text">
+        - возможность кастомизировать внешний вид приложения
+      </p>
+
+      <button type="button" className="btn waves-effect waves-light purple">
+        Хотеть!
+      </button>
     </div>
     <NavLink
       className="shadow"
