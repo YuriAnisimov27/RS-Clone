@@ -33,7 +33,7 @@ class PlayGame extends Phaser.Scene {
   init() {
     // game variables
     this.score = 0;
-    this.lives = 3;
+    this.recordScore = localStorage.getItem("recordScore") || 0;
     // this.speed= 1.5;
     // this.dragon_move = 1;
     // this.score_text;
@@ -42,14 +42,19 @@ class PlayGame extends Phaser.Scene {
 
   create() {
     // add score text & game text to screen
-    this.scoreText = this.add.text(30, 30, `score: ${this.score}`, {
-      fontSize: "32px",
-      fill: "#000000",
-    });
-    this.liveText = this.add.text(
+    this.scoreText = this.add.text(
+      game.config.width - 250,
       30,
-      this.sys.game.config.height - 680,
-      `lives: ${this.lives}`,
+      `score: ${this.score}`,
+      {
+        fontSize: "32px",
+        fill: "#000000",
+      }
+    );
+    this.recordScoreText = this.add.text(
+      game.config.width - 250,
+      60,
+      `record: ${this.recordScore}`,
       {
         fontSize: "32px",
         fill: "#000",
@@ -158,6 +163,10 @@ class PlayGame extends Phaser.Scene {
         this.score += 1;
         this.scoreText.setText(`score: ${this.score}`);
         this.sound.play("coinSound");
+        if (this.score > this.recordScore) {
+          localStorage.setItem("recordScore", this.score);
+          this.recordScoreText.setText(`record: ${this.score}`);
+        }
         // this.end();
 
         this.tweens.add({
@@ -204,7 +213,7 @@ class PlayGame extends Phaser.Scene {
     if (rightmostMountain < game.config.width * 2) {
       const mountain = this.physics.add.sprite(
         rightmostMountain + Phaser.Math.Between(100, 350),
-        game.config.height + Phaser.Math.Between(0, 100),
+        game.config.height + Phaser.Math.Between(150, 400),
         "mountain"
       );
       mountain.setOrigin(0.5, 1);
@@ -373,7 +382,7 @@ class PlayGame extends Phaser.Scene {
       if (mountain.x < -mountain.displayWidth) {
         const rightmostMountain = this.getRightmostMountain();
         mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
-        mountain.y = game.config.height + Phaser.Math.Between(0, 100);
+        mountain.y = game.config.height + Phaser.Math.Between(150, 400);
         mountain.setFrame(Phaser.Math.Between(0, 3));
         if (Phaser.Math.Between(0, 1)) {
           mountain.setDepth(1);
