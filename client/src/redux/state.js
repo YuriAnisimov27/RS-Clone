@@ -13,6 +13,8 @@ const initialState = {
     authNavPlaylist: "Playlist",
     authNavSettings: "Settings",
     authNavRegistration: "Registration",
+    logout: "logout",
+    game: "Play",
 
     footerContent: "Footer Content__EN",
     developers: "DEVELOPERS",
@@ -26,6 +28,8 @@ const initialState = {
     authNavPlaylist: "Плейлист",
     authNavSettings: "Настройки",
     authNavRegistration: "Регистрация",
+    logout: "Выход",
+    game: "Игра",
 
     footerContent: "Футер контент__",
     developers: "РАЗРАБОТЧИКИ",
@@ -39,6 +43,8 @@ const initialState = {
     authNavPlaylist: "Плэйліст",
     authNavSettings: "Налады",
     authNavRegistration: "Рэгістрацыя",
+    logout: "Выхад",
+    game: "Гульня",
 
     footerContent: "Футэр контэнт",
     developers: "РАСПРАЦОУНIКI",

@@ -40,54 +40,66 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="N/A transparent">
-      <div className="nav-wrapper">
-        <ul id="nav-mobile" className="right nav-ul">
-          <li className="nav-ul__li">
-            <NavLink onClick={closePlayer} to="">
-              <img className="cross" src={cross} alt="cross" />
-            </NavLink>
-          </li>
-          <li className="nav-ul__li music" />
-          <li className="nav-ul__li">
-            <NavLink className="nav-link" to="">
-              Playlist
-              <img className="arrow" src={arrow} alt="arrow list" />
-            </NavLink>
-            <ul className="dropdown">
-              {songs.map((el) => (
-                <li className="dropdown-li" key={el}>
-                  <NavLink onClick={(e) => playSong(e)} className="song" to="">
-                    {el}
-                    <img className="play-music" src={playMusic} alt="play" />
-                  </NavLink>
-                </li>
-              ))}
+    <AuthContext.Consumer>
+      {(context) => (
+        <nav className="N/A transparent">
+          <div className="nav-wrapper">
+            <ul id="nav-mobile" className="right nav-ul">
+              <li className="nav-ul__li">
+                <NavLink onClick={closePlayer} to="">
+                  <img className="cross" src={cross} alt="cross" />
+                </NavLink>
+              </li>
+              <li className="nav-ul__li music" />
+              <li className="nav-ul__li">
+                <NavLink className="nav-link" to="">
+                  {context.state.authNavPlaylist}
+                  <img className="arrow" src={arrow} alt="arrow list" />
+                </NavLink>
+                <ul className="dropdown">
+                  {songs.map((el) => (
+                    <li className="dropdown-li" key={el}>
+                      <NavLink
+                        onClick={(e) => playSong(e)}
+                        className="song"
+                        to=""
+                      >
+                        {el}
+                        <img
+                          className="play-music"
+                          src={playMusic}
+                          alt="play"
+                        />
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li className="nav-ul__li">
+                <NavLink className="nav-link" to="/game">
+                  {context.state.game}
+                </NavLink>
+              </li>
+              <li className="nav-ul__li">
+                <NavLink className="nav-link" to="/settings">
+                  {context.state.authNavSettings}
+                </NavLink>
+              </li>
+              <li className="nav-ul__li">
+                <NavLink
+                  className="nav-link"
+                  href="/"
+                  onClick={logoutHandler}
+                  to=""
+                >
+                  {context.state.logout}
+                </NavLink>
+              </li>
             </ul>
-          </li>
-          <li className="nav-ul__li">
-            <NavLink className="nav-link" to="/game">
-              Game
-            </NavLink>
-          </li>
-          <li className="nav-ul__li">
-            <NavLink className="nav-link" to="/settings">
-              Settings
-            </NavLink>
-          </li>
-          <li className="nav-ul__li">
-            <NavLink
-              className="nav-link"
-              href="/"
-              onClick={logoutHandler}
-              to=""
-            >
-              Logout
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-    </nav>
+          </div>
+        </nav>
+      )}
+    </AuthContext.Consumer>
   );
 };
 
