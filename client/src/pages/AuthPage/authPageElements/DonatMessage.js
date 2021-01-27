@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Messages.css";
 import { NavLink } from "react-router-dom";
 
 const DonatMessage = ({ active, setActive }) => {
+  const [value, setValue] = useState("");
+
   const clickHandler = () => {
-    const text = document.querySelector(".donation-input").value;
-    if (text) {
-      window.M.toast({ html: "Done!" });
-      document.querySelector(".donation-input").value = "";
-    } else {
-      window.M.toast({ html: "first you need to write something!" });
-    }
+    setValue("");
+  };
+
+  const changeHandler = (e) => {
+    setValue(e.target.value);
   };
 
   return (
@@ -25,7 +25,12 @@ const DonatMessage = ({ active, setActive }) => {
           Вас
         </p>
 
-        <input className="donation-input" type="text" />
+        <input
+          className="donation-input"
+          type="text"
+          value={value}
+          onChange={changeHandler}
+        />
         <button
           type="button"
           className="btn waves-effect waves-light purple"

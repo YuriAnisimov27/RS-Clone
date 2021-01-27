@@ -14,6 +14,10 @@ const AboutMessage = ({ active, setActive }) => (
       <p className="donation-text">
         - возможность кастомизировать внешний вид приложения
       </p>
+
+      <button type="button" className="btn waves-effect waves-light purple">
+        Хотеть!
+      </button>
     </div>
     <NavLink
       className="shadow"
