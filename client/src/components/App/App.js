@@ -40,7 +40,7 @@ function App(props) {
         {isAuthenticated && <Header />}
         {isAuthenticated && <Navbar />}
 
-        <div className="container">{routes}</div>
+        <div>{routes}</div>
         {isAuthenticated && <Footer />}
       </BrowserRouter>
     </AuthContext.Provider>
