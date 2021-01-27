@@ -14,8 +14,8 @@ import "./App.css";
 function App(props) {
   const { login, logout, token, userId, ready } = useAuth();
 
-  const isAuthenticated = !!token;
-  // const isAuthenticated = true;
+  // const isAuthenticated = !!token;
+  const isAuthenticated = true;
 
   const routes = useRoutes(isAuthenticated);
 
@@ -40,7 +40,7 @@ function App(props) {
         {isAuthenticated && <Header />}
         {isAuthenticated && <Navbar />}
 
-        <div className="container">{routes}</div>
+        <div>{routes}</div>
         {isAuthenticated && <Footer />}
       </BrowserRouter>
     </AuthContext.Provider>

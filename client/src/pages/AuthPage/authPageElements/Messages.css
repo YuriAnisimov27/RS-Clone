@@ -11,7 +11,7 @@
 
 .donation-text {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   text-align: center;
   padding: 30px 10px 10px 10px;
 }
@@ -34,4 +34,10 @@
   background-color: #000000;
   opacity: 0.5;
   z-index: 2;
+}
+
+.donation-input {
+  margin-left: 20px;
+  color: #fff;
+  width: 80%;
 }
