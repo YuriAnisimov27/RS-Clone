@@ -44,7 +44,7 @@ const initialState = {
     developers: "РАСПРАЦОУНIКI",
     kovbenya: "Аляксандр Каўбеня",
     anisimov: "Юрый Анiсiмаў",
-    martinkevich: "Аляксей Марцiнкевич",
+    martinkevich: "Аляксей Марцiнкевiч",
     chazov: "Аляксандр Чазаў",
   },
 };
