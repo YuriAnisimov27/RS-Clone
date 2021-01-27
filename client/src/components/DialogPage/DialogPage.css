@@ -2,7 +2,7 @@
   transition: all 0.5s;
   display: flex;
   border-radius: 7px;
-  height: 100%;
+  height: 1000px;
   width: 100%;
 }
 
@@ -72,7 +72,7 @@
   position: absolute;
   border: 2px solid #000;
   border-radius: 50%;
-  left: 265px;
+  left: 310px;
   transition: all 0.2s;
   background: transparent;
 }

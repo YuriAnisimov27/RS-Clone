@@ -1,6 +1,6 @@
 body {
   background-image: url('../../assets/UI/background.svg');
-  background-size: 100%;
+  background-size: cover;
 }
 
 .container {
@@ -45,6 +45,8 @@ h1 {
 
 .auth-card {
   width: 50%;
+  position: absolute;
+  top: 115px;
 }
 
 .card-title {
@@ -200,7 +202,7 @@ h1 {
 @media (max-width: 870px) {
   .reg-btn {
     transition: all 0.5s;
-    font-size: 10px !important; 
+    font-size: 10px !important;
   }
 }
 
@@ -233,6 +235,7 @@ h1 {
     margin-right: 0;
   }
 }
+
 @media (max-width:615px) {
   .reg-btn, .log-btn {
     padding: 0 !important;

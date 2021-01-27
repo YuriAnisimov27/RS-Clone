@@ -10,7 +10,7 @@ import img7 from "../../../assets/images/backGrounds/7.png";
 import img8 from "../../../assets/images/backGrounds/8.png";
 
 export const backgroundColorSwitcher = () => {
-  const colorInput = document.querySelector(".backgroundColorInput");
+  const colorInput = document.querySelector(".background-color-input");
   const newColor = colorInput.value;
   document.body.style.backgroundImage = "none";
   document.body.style.backgroundColor = newColor;
@@ -18,7 +18,7 @@ export const backgroundColorSwitcher = () => {
 };
 
 export const textColorSwitcher = () => {
-  const colorInput = document.querySelector(".textColorInput");
+  const colorInput = document.querySelector(".text-color-input");
   const newColor = colorInput.value;
   document.body.style.color = newColor;
 

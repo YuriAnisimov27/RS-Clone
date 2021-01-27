@@ -1,12 +1,34 @@
-.backgroundColorSwitcher-container, .backgroundColorSwitcher1-container, .textColorSwitcher-container, .textColorSwitcher1-container, .textSizeSwitcher-container, .backGroundImgSwitcher {
+.background-color-switcher-container, .background-color-switcher1-container, .text-color-switcher-container, .text-color-switcher1-container, .text-size-switcher-container, .back-ground-img-switcher {
   display: flex;
   justify-content: space-around;
-  width: 500px;
+  align-items: center;
+  width: 100%;
   border: 1px solid black;
-  margin: 20px auto;
   padding: 5px;
 }
 
 p {
   font-weight: 900;
+}
+.settings-container {
+  display: flex;
+  justify-content: center;
+  max-height: 206px;
+}
+.text-color-input1 {
+  display: flex;
+}
+.color-changer-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.text-color-switcher1-container {
+  display: flex;
+}
+.background-container{
+  width: 50%;
+}
+.text-container{
+  width: 50%;
 }
