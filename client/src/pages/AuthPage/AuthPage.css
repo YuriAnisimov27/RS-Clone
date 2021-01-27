@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
 }
 
@@ -243,5 +243,11 @@ h1 {
   }
   100% {
     transform: scale(1) translateZ(0)
+  }
+}
+
+@media (max-height: 600px) {
+  .content {
+    height: 230px;
   }
 }
