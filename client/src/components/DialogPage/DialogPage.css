@@ -74,6 +74,7 @@
   border-radius: 50%;
   left: 265px;
   transition: all 0.2s;
+  background: transparent;
 }
 
 .exit-btn:hover {
@@ -119,7 +120,7 @@
   }
   .dialog-nav {
     left: 85px;
-    top: 5px;
+    top: -10px;
   }
   .dialog-nav-ul {
     list-style: disc;
@@ -131,7 +132,7 @@
   }
   .exit-btn {
     left: 255px;
-    top: 17px;
+    top: 30px;
   }
 }
 
