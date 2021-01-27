@@ -23,35 +23,58 @@ export const textColorSwitcher = () => {
   document.body.style.color = newColor;
 
   const allLinks = document.querySelectorAll("a");
-  currentFontSize++;
   allLinks.forEach((item) => {
-    // if (!item.classList.contains('nav-link')) {
     item.style.color = newColor;
-    // }
   });
   storage("customTextColor", newColor);
 };
 
-let currentFontSize = 14;
-
+let currentFontSizeFooter = 14;
+let currentFontSizeNav = 25;
 export const decreaseTextSizeHandler = () => {
   const allLinks = document.querySelectorAll("a");
-  currentFontSize--;
-  allLinks.forEach((item) => {
-    // if (!item.classList.contains('nav-link')) {
-    item.style.fontSize = `${currentFontSize}px`;
-    // }
-  });
+  if (currentFontSizeFooter > 9) {
+    currentFontSizeFooter--;
+    allLinks.forEach((item) => {
+      if (!item.classList.contains('nav-link')) {
+        item.style.fontSize = `${currentFontSizeFooter}px`;
+      }
+    });
+  }
+
+  const allLinksNav = document.querySelectorAll(".nav-link");
+
+  if (currentFontSizeNav > 20) {
+    currentFontSizeNav--;
+    allLinksNav.forEach((item) => {
+      item.style.fontSize = `${currentFontSizeNav}px`;
+    });
+  } else {
+    window.M.toast({ html: "Minimum size!" });
+  }
 };
 
 export const increaseTextSizeHandler = () => {
   const allLinks = document.querySelectorAll("a");
-  currentFontSize++;
-  allLinks.forEach((item) => {
-    // if (!item.classList.contains('nav-link')) {
-    item.style.fontSize = `${currentFontSize}px`;
-    // }
-  });
+  if (currentFontSizeFooter < 19) {
+    currentFontSizeFooter++;
+    allLinks.forEach((item) => {
+      if (!item.classList.contains('nav-link')) {
+        item.style.fontSize = `${currentFontSizeFooter}px`;
+      }
+    });
+  }
+
+  const allLinksNav = document.querySelectorAll(".nav-link");
+
+  if (currentFontSizeNav < 30) {
+    currentFontSizeNav++;
+    allLinksNav.forEach((item) => {
+      item.style.fontSize = `${currentFontSizeNav}px`;
+    });
+  } else {
+    window.M.toast({ html: "Maximum size!" });
+  }
 };
 
 export const backgroundOnChangeHandler = (e) => {
@@ -81,9 +104,8 @@ export const textColorOnChangeHandler = (e) => {
 let currentNumberOfbackground = 1;
 const arrayOfBackgrounds = [img1, img2, img3, img4, img5, img6, img7, img8];
 export const imageSwitcherHandler = () => {
-  document.body.style.backgroundImage = `url(${
-    arrayOfBackgrounds[currentNumberOfbackground++]
-  })`;
+  document.body.style.backgroundImage = `url(${arrayOfBackgrounds[currentNumberOfbackground++]
+    })`;
   if (currentNumberOfbackground === 8) {
     currentNumberOfbackground = 0;
   }

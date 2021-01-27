@@ -9,6 +9,16 @@ import {
   textColorOnChangeHandler,
   imageSwitcherHandler,
 } from "../AuthPage/authPageElements/settings";
+import { storage } from "../AuthPage/authPageElements/helpers";
+
+if (storage(`customBackgroundColor`)) {
+  document.body.style.backgroundImage = `none`;
+  document.body.style.backgroundColor = storage(`customBackgroundColor`);
+}
+
+if (storage(`customTextColor`)) {
+  // textColorSwitcher(storage(`customTextColor`));
+}
 
 let isShiftDown = false;
 document.addEventListener("keydown", (e) => {
