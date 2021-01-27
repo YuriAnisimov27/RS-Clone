@@ -197,17 +197,17 @@ h1 {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 870px) {
   .reg-btn {
     transition: all 0.5s;
-    font-size: 10px;
+    font-size: 10px !important; 
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
   .log-btn {
     width: 40%;
-    font-size: 10px;
+    font-size: 10px !important;
   }
   .reg-btn {
     width: 60%;
@@ -217,13 +217,13 @@ h1 {
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width:690px) {
   .login-icon {
     margin-right: 0;
   }
   .reg-btn {
     transition: all 0.5s;
-    font-size: 8px;
+    font-size: 8px !important;
     width: 55%;
   }
   .log-btn {
@@ -231,6 +231,11 @@ h1 {
   }
   .reg-icon {
     margin-right: 0;
+  }
+}
+@media (max-width:615px) {
+  .reg-btn, .log-btn {
+    padding: 0 !important;
   }
 }
 
