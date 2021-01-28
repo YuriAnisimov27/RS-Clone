@@ -8,6 +8,7 @@ import img5 from "../../../assets/images/backGrounds/5.png";
 import img6 from "../../../assets/images/backGrounds/6.png";
 import img7 from "../../../assets/images/backGrounds/7.png";
 import img8 from "../../../assets/images/backGrounds/8.png";
+import defaultBackground from "../../../assets/UI/background.svg";
 
 export const backgroundColorSwitcher = () => {
   const colorInput = document.querySelector(".background-color-input");
@@ -30,7 +31,7 @@ export const textColorSwitcher = () => {
 };
 
 let currentFontSizeFooter = 14;
-let currentFontSizeNav = 25;
+let currentFontSizeNav = 24;
 export const decreaseTextSizeHandler = () => {
   const allLinks = document.querySelectorAll("a");
   if (currentFontSizeFooter > 9) {
@@ -44,7 +45,7 @@ export const decreaseTextSizeHandler = () => {
 
   const allLinksNav = document.querySelectorAll(".nav-link");
 
-  if (currentFontSizeNav > 20) {
+  if (currentFontSizeNav > 19) {
     currentFontSizeNav--;
     allLinksNav.forEach((item) => {
       item.style.fontSize = `${currentFontSizeNav}px`;
@@ -67,7 +68,7 @@ export const increaseTextSizeHandler = () => {
 
   const allLinksNav = document.querySelectorAll(".nav-link");
 
-  if (currentFontSizeNav < 30) {
+  if (currentFontSizeNav < 29) {
     currentFontSizeNav++;
     allLinksNav.forEach((item) => {
       item.style.fontSize = `${currentFontSizeNav}px`;
@@ -85,19 +86,16 @@ export const backgroundOnChangeHandler = (e) => {
   storage("customBackgroundColor", newColor);
 };
 
+
+
 export const textColorOnChangeHandler = (e) => {
+  const allLinks = document.querySelectorAll("a");
   const colorPicker = e.target;
   const newColor = colorPicker.value;
   document.body.style.color = newColor;
-
-  const allLinks = document.querySelectorAll("a");
-  currentFontSize++;
   allLinks.forEach((item) => {
-    // if (!item.classList.contains('nav-link')) {
     item.style.color = newColor;
-    // }
   });
-
   storage("customTextColor", newColor);
 };
 
@@ -110,3 +108,25 @@ export const imageSwitcherHandler = () => {
     currentNumberOfbackground = 0;
   }
 };
+
+
+export const resetStyles = () => {
+  const allLinks = document.querySelectorAll("a");
+  document.body.style.color = "#000000";
+  allLinks.forEach((item) => {
+    item.style.color = "#000000";
+    if (!item.classList.contains('nav-link')) {
+      item.style.fontSize = `14px`;
+    } else {
+      item.style.fontSize = `25px`;
+    }
+  });
+
+  document.body.style.backgroundImage = `url(${defaultBackground})`;
+
+  // storage("customTextColor", null);
+  // storage("customBackgroundColor", null);
+
+  localStorage.setItem("customTextColor", null);
+  localStorage.setItem("customBackgroundColor", null);
+}
