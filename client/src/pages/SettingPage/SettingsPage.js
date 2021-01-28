@@ -13,7 +13,6 @@ import {
 import { storage } from "../AuthPage/authPageElements/helpers";
 
 if (storage(`customBackgroundColor`)) {
-  console.log(storage(`customBackgroundColor`));
   document.body.style.backgroundImage = `none`;
   document.body.style.backgroundColor = storage(`customBackgroundColor`);
 }
@@ -133,7 +132,11 @@ const SettingsPage = () => (
         </div>
       </div>
     </div>
-    <button type="button" onClick={resetStyles}>
+    <button
+      type="button"
+      onClick={resetStyles}
+      className="btn black waves-effect waves-light"
+    >
       Reset style
     </button>
   </div>
