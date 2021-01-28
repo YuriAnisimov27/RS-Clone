@@ -1,76 +1,17 @@
-.background-color-switcher-container, .background-color-switcher1-container, .text-color-switcher-container, .text-color-switcher1-container, .text-size-switcher-container, .back-ground-img-switcher {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  border: 1px solid black;
-  padding: 5px;
-  height: 90px;
-}
-
-.change-color_btn {
-  width: 40%;
-}
-
 .settings-container {
-  display: flex;
-  justify-content: center;
-  max-height: fit-content;
-}
-
-.text-color-input1 {
-  display: flex;
-}
-
-.color-changer-container {
   display: flex;
   flex-flow: column;
   align-items: center;
+  padding-top: 10px;
 }
 
-.text-color-switcher1-container {
+.setting {
+  width: 30%;
   display: flex;
+  justify-content: space-between;
 }
-
-.background-container {
-  width: 50%;
-}
-
-.text-container {
-  width: 50%;
-}
-
-.setting-p {
-  font-family: Montserrat;
-  font-style: normal;
-  font-size: 17px;
-  line-height: 29px;
-}
-
-.background-color-input, .background-color-input1, .text-color-input1, .text-color-input {
-  border: none;
-  background: none;
-}
-
-.background-color-input, .background-color-input1, .text-color-input1, .text-color-input:hover {
-  cursor: pointer;
-}
-
-.font-size-btn-handler {
-  width: 50%;
+.back-image, .color-input-container, .font-size-container {
+  width: 250px;
   display: flex;
-  justify-content: space-around;
-}
-
-@media (max-width: 800px) {
-  .setting-p {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 540px) {
-  .change-color_btn {
-    font-size: 12px !important;
-    width: 34%;
-  }
+  justify-content: center;
 }
