@@ -84,9 +84,10 @@ export const backgroundOnChangeHandler = (e) => {
   document.body.style.backgroundImage = "none";
   document.body.style.backgroundColor = newColor;
   storage("customBackgroundColor", newColor);
+  localStorage.setItem("customBackgroundImg", null);
+
+
 };
-
-
 
 export const textColorOnChangeHandler = (e) => {
   const allLinks = document.querySelectorAll("a");
@@ -99,14 +100,21 @@ export const textColorOnChangeHandler = (e) => {
   storage("customTextColor", newColor);
 };
 
-let currentNumberOfbackground = 1;
+
+let currentNumberOfbackground;
+if (storage("customBackgroundImg")) {
+  currentNumberOfbackground = storage("customBackgroundImg");
+} else {
+  currentNumberOfbackground = 0;
+}
 const arrayOfBackgrounds = [img1, img2, img3, img4, img5, img6, img7, img8];
 export const imageSwitcherHandler = () => {
-  document.body.style.backgroundImage = `url(${arrayOfBackgrounds[currentNumberOfbackground++]
-    })`;
+  document.body.style.backgroundImage = `url(${arrayOfBackgrounds[currentNumberOfbackground++]}
+    )`;
   if (currentNumberOfbackground === 8) {
     currentNumberOfbackground = 0;
   }
+  storage("customBackgroundImg", `${currentNumberOfbackground} `);
 };
 
 
@@ -118,7 +126,7 @@ export const resetStyles = () => {
     if (!item.classList.contains('nav-link')) {
       item.style.fontSize = `14px`;
     } else {
-      item.style.fontSize = `25px`;
+      item.style.fontSize = `24px`;
     }
   });
 
