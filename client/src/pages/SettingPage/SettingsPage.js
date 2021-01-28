@@ -8,10 +8,12 @@ import {
   backgroundOnChangeHandler,
   textColorOnChangeHandler,
   imageSwitcherHandler,
+  resetStyles,
 } from "../AuthPage/authPageElements/settings";
 import { storage } from "../AuthPage/authPageElements/helpers";
 
 if (storage(`customBackgroundColor`)) {
+  console.log(storage(`customBackgroundColor`));
   document.body.style.backgroundImage = `none`;
   document.body.style.backgroundColor = storage(`customBackgroundColor`);
 }
@@ -129,6 +131,9 @@ const SettingsPage = () => (
         </button>
       </div>
     </div>
+    <button type="button" onClick={resetStyles}>
+      Reset style
+    </button>
   </div>
 );
 
