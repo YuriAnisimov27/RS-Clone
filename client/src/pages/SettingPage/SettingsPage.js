@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import "./SettingsPage.css";
 import {
@@ -18,6 +17,7 @@ import img5 from "../../assets/images/backGrounds/5.png";
 import img6 from "../../assets/images/backGrounds/6.png";
 import img7 from "../../assets/images/backGrounds/7.png";
 import img8 from "../../assets/images/backGrounds/8.png";
+import arrowRight from "../../assets/UI/right-arrow.png";
 
 if (storage(`customBackgroundColor`)) {
   document.body.style.backgroundImage = `none`;
@@ -51,8 +51,9 @@ if (storage(`customTextColor`)) {
 
 const arrayOfBackgrounds = [img1, img2, img3, img4, img5, img6, img7, img8];
 if (storage("customBackgroundImg")) {
-  document.body.style.backgroundImage = `url(${arrayOfBackgrounds[storage("customBackgroundImg") - 1]
-    })`;
+  document.body.style.backgroundImage = `url(${
+    arrayOfBackgrounds[storage("customBackgroundImg") - 1]
+  })`;
 }
 
 // if (storage("footerSize") && storage("navSize")) {
@@ -95,53 +96,81 @@ document.addEventListener("keyup", (e) => {
 });
 
 const SettingsPage = () => (
-  <div className="settings-container">
-    <div className="setting">
-      <button
-        className="waves-effect waves-light btn back-image"
-        type="button"
-        onClick={imageSwitcherHandler}
-      >
-        Background image
-      </button>
-      <button type="button" className="info">
-        info
-      </button>
-    </div>
-    <div className="setting">
-      <div className="color-input-container">
-        <span className="input-name">Background color</span>
-        <input type="color" onChange={backgroundOnChangeHandler} />
-      </div>
-      <button type="button" className="info">
-        info
-      </button>
-    </div>
-    <div className="setting">
-      <div className="color-input-container">
-        <span className="input-name">Font color</span>
-        <input type="color" onChange={textColorOnChangeHandler} />
-      </div>
-      <button type="button" className="info">
-        info
-      </button>
-    </div>
-    <div className="setting">
-      <div className="font-size-container">
-        <button type="button" onClick={increaseTextSizeHandler}>
-          Font +
+  <div className="settings-wrapper">
+    <div className="settings-container">
+      <div className="setting">
+        <button
+          className="waves-effect waves-light btn grey back-image"
+          type="button"
+          onClick={imageSwitcherHandler}
+        >
+          Background image
         </button>
-        <button type="button" onClick={decreaseTextSizeHandler}>
-          Font -
+        <button
+          type="button"
+          className="info btn-floating waves-effect waves-light red"
+        >
+          info
         </button>
       </div>
-      <button type="button" className="info">
-        info
+      <div className="setting">
+        <div className="color-input-container card-panel lighten-2">
+          <p className="input-name back-name">
+            Background color
+            <img className="arrow-back" src={arrowRight} alt="arrow" />
+          </p>
+          <input type="color" onChange={backgroundOnChangeHandler} />
+        </div>
+        <button
+          type="button"
+          className="info btn-floating waves-effect waves-light red"
+        >
+          info
+        </button>
+      </div>
+      <div className="setting">
+        <div className="color-input-container card-panel lighten-2">
+          <p className="input-name">
+            Font color
+            <img className="arrow-font" src={arrowRight} alt="arrow" />
+          </p>
+          <input type="color" onChange={textColorOnChangeHandler} />
+        </div>
+        <button
+          type="button"
+          className="info btn-floating waves-effect waves-light red"
+        >
+          info
+        </button>
+      </div>
+      <div className="setting">
+        <div className="font-size-container card-panel lighten-2">
+          <button
+            className="font-handler font-pl btn grey"
+            type="button"
+            onClick={increaseTextSizeHandler}
+          >
+            Font +
+          </button>
+          <button
+            className="font-handler font-min btn grey"
+            type="button"
+            onClick={decreaseTextSizeHandler}
+          >
+            Font -
+          </button>
+        </div>
+        <button
+          type="button"
+          className="info btn-floating waves-effect waves-light red"
+        >
+          info
+        </button>
+      </div>
+      <button className="btn grey reset" type="button" onClick={resetStyles}>
+        Reset styles
       </button>
     </div>
-    <button type="button" onClick={resetStyles}>
-      Reset styles
-    </button>
   </div>
 );
 
