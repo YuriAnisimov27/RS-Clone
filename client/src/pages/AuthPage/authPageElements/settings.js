@@ -10,26 +10,6 @@ import img7 from "../../../assets/images/backGrounds/7.png";
 import img8 from "../../../assets/images/backGrounds/8.png";
 import defaultBackground from "../../../assets/UI/background.svg";
 
-export const backgroundColorSwitcher = () => {
-  const colorInput = document.querySelector(".background-color-input");
-  const newColor = colorInput.value;
-  document.body.style.backgroundImage = "none";
-  document.body.style.backgroundColor = newColor;
-  storage("customBackgroundColor", newColor);
-};
-
-export const textColorSwitcher = () => {
-  const colorInput = document.querySelector(".text-color-input");
-  const newColor = colorInput.value;
-  document.body.style.color = newColor;
-
-  const allLinks = document.querySelectorAll("a");
-  allLinks.forEach((item) => {
-    item.style.color = newColor;
-  });
-  storage("customTextColor", newColor);
-};
-
 let currentFontSizeFooter = 14;
 let currentFontSizeNav = 24;
 export const decreaseTextSizeHandler = () => {
@@ -53,6 +33,8 @@ export const decreaseTextSizeHandler = () => {
   } else {
     window.M.toast({ html: "Minimum size!" });
   }
+  storage('footerSize', currentFontSizeFooter)
+  storage('navSize', currentFontSizeNav)
 };
 
 export const increaseTextSizeHandler = () => {
@@ -76,6 +58,8 @@ export const increaseTextSizeHandler = () => {
   } else {
     window.M.toast({ html: "Maximum size!" });
   }
+  storage('footerSize', currentFontSizeFooter)
+  storage('navSize', currentFontSizeNav)
 };
 
 export const backgroundOnChangeHandler = (e) => {
@@ -83,10 +67,14 @@ export const backgroundOnChangeHandler = (e) => {
   const newColor = colorPicker.value;
   document.body.style.backgroundImage = "none";
   document.body.style.backgroundColor = newColor;
+
+  const dropDownElements = document.querySelectorAll(`.dropdown-li`);
+  dropDownElements.forEach(item => {
+    item.style.backgroundColor = newColor;
+  })
+
   storage("customBackgroundColor", newColor);
   localStorage.setItem("customBackgroundImg", null);
-
-
 };
 
 export const textColorOnChangeHandler = (e) => {
@@ -115,6 +103,12 @@ export const imageSwitcherHandler = () => {
     currentNumberOfbackground = 0;
   }
   storage("customBackgroundImg", `${currentNumberOfbackground} `);
+
+  localStorage.setItem("customBackgroundColor", null);
+  const dropDownElements = document.querySelectorAll(`.dropdown-li`);
+  dropDownElements.forEach(item => {
+    item.style.backgroundColor = "white";
+  })
 };
 
 
@@ -137,4 +131,7 @@ export const resetStyles = () => {
 
   localStorage.setItem("customTextColor", null);
   localStorage.setItem("customBackgroundColor", null);
+  localStorage.setItem("customBackgroundImg", null);
+  storage("footerSize", 14);
+  storage("navSize", 24);
 }

@@ -7,6 +7,7 @@ import {
   backgroundOnChangeHandler,
   textColorOnChangeHandler,
   imageSwitcherHandler,
+  resetStyles,
 } from "../AuthPage/authPageElements/settings";
 import { storage } from "../AuthPage/authPageElements/helpers";
 import img1 from "../../assets/images/backGrounds/1.png";
@@ -21,10 +22,24 @@ import img8 from "../../assets/images/backGrounds/8.png";
 if (storage(`customBackgroundColor`)) {
   document.body.style.backgroundImage = `none`;
   document.body.style.backgroundColor = storage(`customBackgroundColor`);
+  // const dropDownElements = document.querySelectorAll(`.dropdown-li`);
+  // dropDownElements.forEach((item) => {
+  //   const link = item;
+  //   link.style.backgroundColor = storage(`customBackgroundColor`);
+  // });
+  window.onload = function () {
+    const dropDownElements = document.querySelectorAll(`.dropdown-li`);
+    dropDownElements.forEach((item) => {
+      const link = item;
+      link.style.backgroundColor = storage(`customBackgroundColor`);
+    });
+  };
 }
 
 if (storage(`customTextColor`)) {
   window.onload = function () {
+    console.log(`+++`);
+    console.log(storage(`customTextColor`));
     const allLinks = document.querySelectorAll("a");
     document.body.style.color = storage(`customTextColor`);
     allLinks.forEach((item) => {
@@ -39,6 +54,20 @@ if (storage("customBackgroundImg")) {
   document.body.style.backgroundImage = `url(${arrayOfBackgrounds[storage("customBackgroundImg") - 1]
     })`;
 }
+
+// if (storage("footerSize") && storage("navSize")) {
+//   window.onload = function () {
+//     const allLinks = document.querySelectorAll("a");
+//     allLinks.forEach((item) => {
+//       const link = item;
+//       if (!link.classList.contains("nav-link")) {
+//         link.style.fontSize = `${storage("footerSize")}px`;
+//       } else {
+//         link.style.fontSize = `${storage("navSize")}px`;
+//       }
+//     });
+//   };
+// }
 
 let isShiftDown = false;
 document.addEventListener("keydown", (e) => {
@@ -110,6 +139,9 @@ const SettingsPage = () => (
         info
       </button>
     </div>
+    <button type="button" onClick={resetStyles}>
+      Reset styles
+    </button>
   </div>
 );
 
