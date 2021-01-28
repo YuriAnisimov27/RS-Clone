@@ -1,6 +1,7 @@
 body {
   background-image: url('../../assets/UI/background.svg');
   background-size: cover;
+  height: 100vh !important;
 }
 
 .container {
