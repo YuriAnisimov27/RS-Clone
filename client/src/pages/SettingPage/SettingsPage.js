@@ -113,20 +113,22 @@ const SettingsPage = () => (
         <p className="setting-p">
           Font-size controller <br /> &apos;Shift +&apos; and &apos;Shift-&apos;
         </p>
-        <button
-          className="decrease-text-size btn black waves-effect waves-light"
-          onClick={decreaseTextSizeHandler}
-          type="button"
-        >
-          -
-        </button>
-        <button
-          className="increase-text-size btn black waves-effect waves-light"
-          onClick={increaseTextSizeHandler}
-          type="button"
-        >
-          +
-        </button>
+        <div className="font-size-btn-handler">
+          <button
+            className="decrease-text-size btn black waves-effect waves-light"
+            onClick={decreaseTextSizeHandler}
+            type="button"
+          >
+            -
+          </button>
+          <button
+            className="increase-text-size btn black waves-effect waves-light"
+            onClick={increaseTextSizeHandler}
+            type="button"
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   </div>

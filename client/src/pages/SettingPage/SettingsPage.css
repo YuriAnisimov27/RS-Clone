@@ -56,11 +56,18 @@
   cursor: pointer;
 }
 
+.font-size-btn-handler {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
 @media (max-width: 800px) {
   .setting-p {
     font-size: 14px;
   }
 }
+
 @media (max-width: 540px) {
   .change-color_btn {
     font-size: 12px !important;
