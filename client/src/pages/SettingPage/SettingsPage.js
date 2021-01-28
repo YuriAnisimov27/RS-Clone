@@ -50,7 +50,7 @@ const SettingsPage = () => (
     <div className="background-container">
       <div className="background-color-switcher-container">
         <div className="color-changer-container">
-          <p>BackgroundColor-Changer</p>
+          <p className="setting-p">Background color switcher</p>
           <input
             type="color"
             className="background-color-input"
@@ -73,22 +73,22 @@ const SettingsPage = () => (
           className="background-color-input1"
           onChange={(e) => backgroundOnChangeHandler(e)}
         />
-        <p>Super-BackgroundColor-Changer</p>
+        <p className="setting-p">Super background color switcher</p>
       </div>
       <div className="back-ground-img-switcher">
         <button
           onClick={imageSwitcherHandler}
           type="button"
-          className="btn black waves-effect waves-light"
+          className="btn black waves-effect waves-light change-color_btn"
         >
-          Switch backGround image
+          Switch background image
         </button>
       </div>
     </div>
     <div className="text-container">
       <div className="text-color-switcher-container">
         <div className="color-changer-container">
-          <p>TextColor-Changer</p>
+          <p className="setting-p">Text color switcher</p>
           <input type="color" className="text-color-input" name="head" />
         </div>
         <button
@@ -102,7 +102,7 @@ const SettingsPage = () => (
         </button>
       </div>
       <div className="text-color-switcher1-container">
-        <p>Super-TextColor-Changer</p>
+        <p className="setting-p">Super text color switcher</p>
         <input
           type="color"
           className="text-color-input1"
@@ -110,9 +110,9 @@ const SettingsPage = () => (
         />
       </div>
       <div className="text-size-switcher-container">
-        <h6>
-          You also can use <b>Shift</b>+<b> + </b> and <b>Shift</b>+<b> - </b>
-        </h6>
+        <p className="setting-p">
+          Font-size controller <br /> &apos;Shift +&apos; and &apos;Shift-&apos;
+        </p>
         <button
           className="decrease-text-size btn black waves-effect waves-light"
           onClick={decreaseTextSizeHandler}
