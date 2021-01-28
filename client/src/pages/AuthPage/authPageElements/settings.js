@@ -124,6 +124,11 @@ export const resetStyles = () => {
     }
   });
 
+  const dropDownElements = document.querySelectorAll(`.dropdown-li`);
+  dropDownElements.forEach(item => {
+    item.style.backgroundColor = "white";
+  })
+
   document.body.style.backgroundImage = `url(${defaultBackground})`;
 
   // storage("customTextColor", null);
