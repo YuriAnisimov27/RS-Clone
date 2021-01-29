@@ -1,4 +1,3 @@
-// import Phaser, { Game } from "phaser";
 import Phaser from "phaser";
 // import mainMenu from "./mainMenu";
 import platform from "./assets/images/platformRemovebgPreview.png";

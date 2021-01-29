@@ -2,7 +2,7 @@
   transition: all 0.5s;
   display: flex;
   border-radius: 7px;
-  height: 100%;
+  height: 1000px;
   width: 100%;
 }
 
@@ -72,8 +72,9 @@
   position: absolute;
   border: 2px solid #000;
   border-radius: 50%;
-  left: 265px;
+  left: 310px;
   transition: all 0.2s;
+  background: transparent;
 }
 
 .exit-btn:hover {
@@ -119,7 +120,7 @@
   }
   .dialog-nav {
     left: 85px;
-    top: 5px;
+    top: -10px;
   }
   .dialog-nav-ul {
     list-style: disc;
@@ -131,7 +132,7 @@
   }
   .exit-btn {
     left: 255px;
-    top: 17px;
+    top: 30px;
   }
 }
 
