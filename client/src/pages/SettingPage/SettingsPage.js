@@ -100,7 +100,7 @@ const SettingsPage = () => (
     <div className="settings-container">
       <div className="setting">
         <button
-          className="waves-effect waves-light btn grey back-image"
+          className="waves-effect waves-light btn grey lighten-1 back-image"
           type="button"
           onClick={imageSwitcherHandler}
         >
@@ -114,7 +114,7 @@ const SettingsPage = () => (
         </button>
       </div>
       <div className="setting">
-        <div className="color-input-container card-panel lighten-2">
+        <div className="color-input-container card-panel lighten-2 grey lighten-1">
           <p className="input-name back-name">
             Background color
             <img className="arrow-back" src={arrowRight} alt="arrow" />
@@ -129,7 +129,7 @@ const SettingsPage = () => (
         </button>
       </div>
       <div className="setting">
-        <div className="color-input-container card-panel lighten-2">
+        <div className="color-input-container card-panel lighten-2 grey lighten-1">
           <p className="input-name">
             Font color
             <img className="arrow-font" src={arrowRight} alt="arrow" />
@@ -146,14 +146,14 @@ const SettingsPage = () => (
       <div className="setting">
         <div className="font-size-container card-panel lighten-2">
           <button
-            className="font-handler font-pl btn grey"
+            className="font-handler font-pl btn grey lighten-1"
             type="button"
             onClick={increaseTextSizeHandler}
           >
             Font +
           </button>
           <button
-            className="font-handler font-min btn grey"
+            className="font-handler font-min btn grey lighten-1"
             type="button"
             onClick={decreaseTextSizeHandler}
           >
@@ -167,7 +167,11 @@ const SettingsPage = () => (
           info
         </button>
       </div>
-      <button className="btn grey reset" type="button" onClick={resetStyles}>
+      <button
+        className="btn grey lighten-2 reset"
+        type="button"
+        onClick={resetStyles}
+      >
         Reset styles
       </button>
     </div>

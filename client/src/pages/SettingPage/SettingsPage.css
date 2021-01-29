@@ -15,15 +15,15 @@ input:hover {
 }
 
 .settings-wrapper {
-  margin-top: 5px;
+  margin-top: 2px;
   display: flex;
   flex-flow: column;
   align-items: center;
 }
 
 .settings-container {
-  background-color: #dbe1d5;
-  width: 65%;
+  background: linear-gradient(350deg, rgba(185, 195, 199, 1) 5%, rgba(236, 238, 224, 1) 78%);
+  width: 60%;
   display: flex;
   flex-flow: column;
   align-items: center;

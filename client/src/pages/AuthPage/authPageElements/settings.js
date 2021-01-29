@@ -68,7 +68,7 @@ export const backgroundOnChangeHandler = (e) => {
   document.body.style.backgroundImage = "none";
   document.body.style.backgroundColor = newColor;
   const settingsBack = document.querySelector('.settings-container');
-  settingsBack.style.backgroundColor = newColor;
+  settingsBack.style.background = newColor;
   const dropDownElements = document.querySelectorAll(`.dropdown-li`);
   dropDownElements.forEach(item => {
     item.style.backgroundColor = newColor;
@@ -111,13 +111,13 @@ export const imageSwitcherHandler = () => {
     item.style.backgroundColor = "white";
   })
   const settingsBack = document.querySelector('.settings-container');
-  settingsBack.style.backgroundColor = "transparent";
+  settingsBack.style.background = "transparent";
 };
 
 
 export const resetStyles = () => {
   const settingsBack = document.querySelector('.settings-container');
-  settingsBack.style.backgroundColor = "#dbe1d5";
+  settingsBack.style.background = "linear-gradient(350deg, rgba(185, 195, 199, 1) 5%, rgba(236, 238, 224, 1) 78%)";
   const allLinks = document.querySelectorAll("a");
   document.body.style.color = "#000000";
   allLinks.forEach((item) => {
