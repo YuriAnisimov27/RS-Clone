@@ -31,6 +31,12 @@ export const mapStateToProps = (state) => {
     password,
     logIn,
     registration,
+    changeBackgroundImg,
+    changeBackgroundColor,
+    changeFontColor,
+    incrFontSize,
+    decrFontSize,
+    resetStyle,
   } = state[currentLanguage];
 
   return {
@@ -62,6 +68,12 @@ export const mapStateToProps = (state) => {
     password,
     logIn,
     registration,
+    changeBackgroundImg,
+    changeBackgroundColor,
+    changeFontColor,
+    incrFontSize,
+    decrFontSize,
+    resetStyle,
   };
 };
 

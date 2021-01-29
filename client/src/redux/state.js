@@ -42,6 +42,12 @@ const initialState = {
     password: "Password",
     logIn: "LogIn",
     registration: "Registration",
+    changeBackgroundImg: "Change background image",
+    changeBackgroundColor: "Change background color",
+    changeFontColor: "Change font color",
+    incrFontSize: "Increase font size",
+    decrFontSize: "Decrease font size",
+    resetStyle: "Reset style",
   },
 
   ru: {
@@ -76,6 +82,12 @@ const initialState = {
     password: "Пароль",
     logIn: "Логин",
     registration: "Регистрация",
+    changeBackgroundImg: "Изменить фоновое изображение",
+    changeBackgroundColor: "Изменить цвет фона",
+    changeFontColor: "Изменить цвет шрифта",
+    incrFontSize: "Увеличить размер шрифта",
+    decrFontSize: "Уменьшить размер шрифта",
+    resetStyle: "Стандартное оформление",
   },
 
   bel: {
@@ -110,6 +122,12 @@ const initialState = {
     password: "Пароль",
     logIn: "Логiн",
     registration: "Рэгістрацыя",
+    changeBackgroundImg: "Змяніць фонавы малюнак",
+    changeBackgroundColor: "Змяніць колер фону",
+    changeFontColor: "Змяніць колер шрыфта",
+    incrFontSize: "Павялічыць памер шрыфта",
+    decrFontSize: "Паменшыць памер шрыфта",
+    resetStyle: "Стандартнае афармленне",
   },
 };
 
