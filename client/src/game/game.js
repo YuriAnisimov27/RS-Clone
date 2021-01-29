@@ -12,11 +12,11 @@ function resize() {
   const windowRatio = windowWidth / windowHeight;
   const gameRatio = game.config.width / game.config.height;
   if (windowRatio < gameRatio) {
-    canvas.style.width = `${windowWidth * 0.7}px`;
-    canvas.style.height = `${(windowWidth / gameRatio) * 0.7}px`;
+    canvas.style.width = `${windowWidth * 0.55}px`;
+    canvas.style.height = `${(windowWidth / gameRatio) * 0.55}px`;
   } else {
-    canvas.style.width = `${windowHeight * gameRatio * 0.7} px`;
-    canvas.style.height = `${windowHeight * 0.7} px`;
+    canvas.style.width = `${windowHeight * gameRatio * 0.55} px`;
+    canvas.style.height = `${windowHeight * 0.55} px`;
   }
 }
 
