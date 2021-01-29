@@ -1,7 +1,7 @@
 import Phaser from "phaser";
-
 import gameOptions from "./gameOptions";
 import preloadGame from "./preloadGame";
+import mainMenu from "./mainMenu";
 
 let game;
 
@@ -37,6 +37,11 @@ class PlayGame extends Phaser.Scene {
   }
 
   create() {
+    this.mymusic = this.sound.add("music");
+    this.jumpSound = this.sound.add("jumpSound");
+    this.fallingSound = this.sound.add("fallingSound");
+    this.mymusic.play();
+
     // add score text & game text to screen
     this.scoreText = this.add.text(
       game.config.width - 250,
@@ -329,13 +334,16 @@ class PlayGame extends Phaser.Scene {
       // stops animation
       this.player.anims.stop();
       this.player.anims.play("jump");
+      this.jumpSound.play();
     }
   }
 
   update() {
     // game over
     if (this.player.y > game.config.height) {
-      this.scene.start("PlayGame");
+      this.scene.start("mainMenu");
+      this.mymusic.stop();
+      this.fallingSound.play();
     }
 
     this.player.x = gameOptions.playerStartPosition;
@@ -423,7 +431,7 @@ window.onload = () => {
     width: 950,
     height: 400,
     parent: "game-wrapper",
-    scene: [preloadGame, PlayGame],
+    scene: [preloadGame, mainMenu, PlayGame],
     // mode: Phaser.Scale.FIT,
     backgroundColor: 0x87ceeb,
 
