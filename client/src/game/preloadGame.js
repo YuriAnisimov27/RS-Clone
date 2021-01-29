@@ -1,5 +1,6 @@
 // import Phaser, { Game } from "phaser";
 import Phaser from "phaser";
+// import mainMenu from "./mainMenu";
 import platform from "./assets/images/platformRemovebgPreview.png";
 import dino from "./assets/images/dino.png";
 import dinoJump from "./assets/images/dinoJump.png";
@@ -9,6 +10,12 @@ import coin from "./assets/images/coinSpriteRemovebgPreview.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
+import background from "./assets/images/00088750.png";
+import logo from "./assets/images/jurassicworldlogo.png";
+import dinoImage from "./assets/images/green_dino.png";
+import music from "./assets/audio/music.mp3";
+import fallingSound from "./assets/audio/laugh.mp3";
+import jumpSound from "./assets/audio/jumpSound.mp3";
 
 // preloadGame scene
 class preloadGame extends Phaser.Scene {
@@ -19,8 +26,14 @@ class preloadGame extends Phaser.Scene {
   preload() {
     this.load.audio("coinSound", coinSound);
     this.load.audio("dinoFallSound", dinoFallSound);
+    this.load.audio("music", music);
+    this.load.audio("fallingSound", fallingSound);
+    this.load.audio("jumpSound", jumpSound);
 
     this.load.image("platform", platform);
+    this.load.image("background", background);
+    this.load.image("logo", logo);
+    this.load.image("dinoImage", dinoImage);
 
     // player is a sprite sheet made by 24x48 pixels
     this.load.spritesheet("player", dino, {
@@ -112,7 +125,7 @@ class preloadGame extends Phaser.Scene {
       repeat: -1,
     });
 
-    this.scene.start("PlayGame");
+    this.scene.start("mainMenu");
   }
 }
 
