@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import logo from "../../assets/UI/dinoSmall.png";
 import russia from "../../assets/UI/russia.svg";
 import uk from "../../assets/UI/united-kingdom.svg";
@@ -20,19 +19,37 @@ const Header = () => (
         <div className="languages">
           <ul className="languages-selector-ul">
             <li className="language-selector">
-              <NavLink onClick={context.state.setRu} to="">
+              <div
+                className="changeLngBtn"
+                role="button"
+                tabIndex={0}
+                onClick={context.state.setRu}
+                to=""
+              >
                 <img src={russia} alt="rus" />
-              </NavLink>
+              </div>
             </li>
             <li className="language-selector">
-              <NavLink onClick={context.state.setEn} to="">
+              <div
+                className="changeLngBtn"
+                role="button"
+                tabIndex={0}
+                onClick={context.state.setEn}
+                to=""
+              >
                 <img src={uk} alt="uk" />
-              </NavLink>
+              </div>
             </li>
             <li className="language-selector">
-              <NavLink onClick={context.state.setBel} to="">
+              <div
+                className="changeLngBtn"
+                role="button"
+                tabIndex={0}
+                onClick={context.state.setBel}
+                to=""
+              >
                 <img src={bel} alt="bel" />
-              </NavLink>
+              </div>
             </li>
           </ul>
         </div>

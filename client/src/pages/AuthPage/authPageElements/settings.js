@@ -117,7 +117,7 @@ export const imageSwitcherHandler = () => {
 
 export const resetStyles = () => {
   const settingsBack = document.querySelector('.settings-container');
-  settingsBack.style.background = "linear-gradient(350deg, rgba(185, 195, 199, 1) 5%, rgba(236, 238, 224, 1) 78%)";
+  settingsBack.style.background = "transparent";
   const allLinks = document.querySelectorAll("a");
   document.body.style.color = "#000000";
   allLinks.forEach((item) => {
