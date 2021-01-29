@@ -146,14 +146,14 @@ const SettingsPage = () => (
       <div className="setting">
         <div className="font-size-container card-panel lighten-2">
           <button
-            className="font-handler font-pl btn grey lighten-1"
+            className="font-handler font-pl btn grey lighten-1 waves-effect waves-light"
             type="button"
             onClick={increaseTextSizeHandler}
           >
             Font +
           </button>
           <button
-            className="font-handler font-min btn grey lighten-1"
+            className="font-handler font-min btn grey lighten-1 waves-effect waves-light"
             type="button"
             onClick={decreaseTextSizeHandler}
           >
@@ -168,7 +168,7 @@ const SettingsPage = () => (
         </button>
       </div>
       <button
-        className="btn grey lighten-2 reset"
+        className="btn grey lighten-2 reset waves-effect waves-light"
         type="button"
         onClick={resetStyles}
       >
