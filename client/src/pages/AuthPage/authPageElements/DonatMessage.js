@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Messages.css";
 import { NavLink } from "react-router-dom";
+import AuthContext from "../../../context/AuthContext";
 
 const DonatMessage = ({ active, setActive }) => {
   const [value, setValue] = useState("");
@@ -14,51 +15,49 @@ const DonatMessage = ({ active, setActive }) => {
   };
 
   return (
-    <>
-      <div className="donat-mes" style={active ? { left: 0 } : { left: -8000 }}>
-        <p className="donation-text">
-          Положите денег на номер +379(**)***-**-** и мы Вам обязательно
-          перезвоним (но это не точно)
-        </p>
-        <p className="donation-text">
-          Также Вы можете оставить отзыв - и помните - Ваш отзыв очень важен для
-          Вас
-        </p>
+    <AuthContext.Consumer>
+      {(context) => (
+        <>
+          <div
+            className="donat-mes"
+            style={active ? { left: 0 } : { left: -8000 }}
+          >
+            <p className="donation-text">{context.state.donationInfo}</p>
+            <p className="donation-text">{context.state.comment}</p>
 
-        <input
-          className="donation-input"
-          type="text"
-          value={value}
-          onChange={changeHandler}
-        />
-        <button
-          type="button"
-          className="btn waves-effect waves-light purple"
-          onClick={clickHandler}
-        >
-          Отправить Send Адправіць
-        </button>
+            <input
+              className="donation-input"
+              type="text"
+              value={value}
+              onChange={changeHandler}
+            />
+            <button
+              type="button"
+              className="btn waves-effect waves-light purple"
+              onClick={clickHandler}
+            >
+              {context.state.send}
+            </button>
 
-        <p className="donation-text">
-          We are pleased that you have pressed this button. If you really want
-          to donate use this link.
-        </p>
-        <a
-          className="btn-floating btn-large waves-effect waves-light green donat-link"
-          href="https://opencollective.com/rsschool#section-contribute"
-        >
-          <i className="material-icons d-img">$</i>
-        </a>
-      </div>
-      <NavLink
-        className="shadow"
-        to=""
-        style={active ? { display: "block" } : { display: "none" }}
-        onClick={() => {
-          setActive(false);
-        }}
-      />
-    </>
+            <p className="donation-text">{context.state.donationText}</p>
+            <a
+              className="btn-floating btn-large waves-effect waves-light green donat-link"
+              href="https://opencollective.com/rsschool#section-contribute"
+            >
+              <i className="material-icons d-img">$</i>
+            </a>
+          </div>
+          <NavLink
+            className="shadow"
+            to=""
+            style={active ? { display: "block" } : { display: "none" }}
+            onClick={() => {
+              setActive(false);
+            }}
+          />
+        </>
+      )}
+    </AuthContext.Consumer>
   );
 };
 

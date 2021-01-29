@@ -1,8 +1,4 @@
-// import { Body } from "matter";
-// import Phaser, { Game } from "phaser";
 import Phaser from "phaser";
-// import React from "react";
-// import ReactDOM from "react-dom";
 
 import gameOptions from "./gameOptions";
 import preloadGame from "./preloadGame";

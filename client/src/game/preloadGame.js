@@ -1,4 +1,3 @@
-// import Phaser, { Game } from "phaser";
 import Phaser from "phaser";
 import platform from "./assets/images/platformRemovebgPreview.png";
 import dino from "./assets/images/dino.png";
