@@ -110,10 +110,14 @@ export const imageSwitcherHandler = () => {
   dropDownElements.forEach(item => {
     item.style.backgroundColor = "white";
   })
+  const settingsBack = document.querySelector('.settings-container');
+  settingsBack.style.backgroundColor = "transparent";
 };
 
 
 export const resetStyles = () => {
+  const settingsBack = document.querySelector('.settings-container');
+  settingsBack.style.backgroundColor = "#dbe1d5";
   const allLinks = document.querySelectorAll("a");
   document.body.style.color = "#000000";
   allLinks.forEach((item) => {
@@ -127,7 +131,7 @@ export const resetStyles = () => {
 
   const dropDownElements = document.querySelectorAll(`.dropdown-li`);
   dropDownElements.forEach(item => {
-    item.style.backgroundColor = "white";
+    item.style.backgroundColor = "#eff1e3";
   })
 
   document.body.style.backgroundImage = `url(${defaultBackground})`;
