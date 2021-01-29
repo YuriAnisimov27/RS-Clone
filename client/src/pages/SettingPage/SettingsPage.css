@@ -82,20 +82,28 @@ input:hover {
   width: 20px;
   height: 10px;
 }
+
 .arrow-back {
   margin-left: 40px;
 }
+
 .arrow-font {
   margin-left: 85px;
 }
+
 .reset {
   margin-right: 55px;
   margin-bottom: 15px;
 }
+
 .back-image, .font-handler, .reset, .input-name {
-  color:#000000 !important;
-  font-weight: bold;
+  color: #000000 !important;
+  font-family: Montserrat, serif !important;
+  font-style: normal;
+  font-weight: bold !important;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
+
 @media (max-width:502px) {
   .back-name {
     font-size: 13px;

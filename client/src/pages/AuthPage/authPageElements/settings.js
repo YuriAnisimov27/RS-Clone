@@ -67,7 +67,8 @@ export const backgroundOnChangeHandler = (e) => {
   const newColor = colorPicker.value;
   document.body.style.backgroundImage = "none";
   document.body.style.backgroundColor = newColor;
-
+  const settingsBack = document.querySelector('.settings-container');
+  settingsBack.style.backgroundColor = newColor;
   const dropDownElements = document.querySelectorAll(`.dropdown-li`);
   dropDownElements.forEach(item => {
     item.style.backgroundColor = newColor;
