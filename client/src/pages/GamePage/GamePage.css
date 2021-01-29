@@ -1,2 +1,7 @@
-.GamePage {
+#game-wrapper {
+  display: flex;
+}
+
+canvas {
+  margin: 0 auto;
 }

@@ -9,7 +9,7 @@ audio {
   display: none;
   position: relative;
   top: -15px;
-  left: 20px;
+  left: 35px;
   z-index: 1;
   width: 10px;
 }
@@ -53,6 +53,7 @@ audio {
   padding-top: 5px;
   overflow: auto;
   background: #eff1e3;
+  z-index: 3;
 }
 
 li:hover .dropdown {

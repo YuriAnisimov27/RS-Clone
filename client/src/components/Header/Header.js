@@ -12,24 +12,24 @@ const Header = () => (
     {(context) => (
       <header className="container header">
         <div className="logo">
-          <div className="logoImg-container">
-            <img className="logoImg" src={logo} alt="logo" />
+          <div className="logoimg-container">
+            <img className="logo-img" src={logo} alt="logo" />
           </div>
-          <h1> Game </h1>
+          <h1 className="game-name"> Game </h1>
         </div>
         <div className="languages">
-          <ul className="languages-selector">
-            <li className="Lselector">
+          <ul className="languages-selector-ul">
+            <li className="language-selector">
               <NavLink onClick={context.state.setRu} to="">
                 <img src={russia} alt="rus" />
               </NavLink>
             </li>
-            <li className="Lselector">
+            <li className="language-selector">
               <NavLink onClick={context.state.setEn} to="">
                 <img src={uk} alt="uk" />
               </NavLink>
             </li>
-            <li className="Lselector">
+            <li className="language-selector">
               <NavLink onClick={context.state.setBel} to="">
                 <img src={bel} alt="bel" />
               </NavLink>

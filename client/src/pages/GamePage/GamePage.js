@@ -1,13 +1,11 @@
 import React from "react";
-import ChromeDinoGame from "react-chrome-dino";
 import "./GamePage.css";
+import PlayGame from "../../game/game";
 
-const GamePage = () => (
-  <div className="">
-    <div className="GamePage container">
-      <ChromeDinoGame />
-    </div>
-  </div>
-);
+const GamePage = () => {
+  const gameStart = new PlayGame();
+  gameStart.init();
+  return <div id="game-wrapper" />;
+};
 
 export default GamePage;
