@@ -3,7 +3,7 @@ import Phaser from "phaser";
 import platform from "./assets/images/platformRemovebgPreview.png";
 import dino from "./assets/images/dino.png";
 import dinoJump from "./assets/images/dinoJump.png";
-import dinoFall from "./assets/images/dinoFall.png";
+import dinoFall from "./assets/images/dinoFallandBurn-removebg-preview.png";
 import dinoFallSound from "./assets/audio/dinoFallSound.mp3";
 import coin from "./assets/images/coinSpriteRemovebgPreview.png";
 import coinSound from "./assets/audio/p-ping.mp3";
