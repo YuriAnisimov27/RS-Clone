@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Phaser from "phaser";
-// import Loader from "../../components/Loader/Loader";
 import "./GamePage.css";
 import Boot from "../../game/Boot";
 import PlayGame from "../../game/PlayGame";
@@ -29,10 +28,29 @@ const GamePage = () => {
     };
     const game = new Phaser.Game(config);
     game.scene.start("Boot");
+
+    function resize() {
+      const canvas = document.querySelector("canvas");
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const windowRatio = windowWidth / windowHeight;
+      const gameRatio = config.width / config.height;
+      if (windowRatio < gameRatio) {
+        canvas.style.width = `${windowWidth * 0.55}px`;
+        canvas.style.height = `${(windowWidth / gameRatio) * 0.55}px`;
+      } else {
+        canvas.style.width = `${windowHeight * gameRatio * 0.55} px`;
+        canvas.style.height = `${windowHeight * 0.55} px`;
+      }
+    }
+
+    window.focus();
+    resize();
+    window.addEventListener("resize", resize, false);
+
     // };
     return () => {
-      console.log(document.querySelector("canvas"));
-      console.log("fghfhfgh");
+      window.removeEventListener("resize", resize, false);
     };
   }, []);
 
