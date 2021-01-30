@@ -17,7 +17,7 @@ import fallingSound from "./assets/audio/laugh.mp3";
 import jumpSound from "./assets/audio/jumpSound.mp3";
 
 // preloadGame scene
-class preloadGame extends Phaser.Scene {
+class PreloadGame extends Phaser.Scene {
   constructor() {
     super("PreloadGame");
   }
@@ -124,8 +124,8 @@ class preloadGame extends Phaser.Scene {
       repeat: -1,
     });
 
-    this.scene.start("mainMenu");
+    this.scene.start("MainMenu");
   }
 }
 
-export default preloadGame;
+export default PreloadGame;
