@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Phaser from "phaser";
+// import Loader from "../../components/Loader/Loader";
 import "./GamePage.css";
 import Boot from "../../game/Boot";
 import PlayGame from "../../game/PlayGame";
 import PreloadGame from "../../game/Preloader";
 import MainMenu from "../../game/MainMenu";
-// import gameConfig from "../../game/GameConfig";
 
 const GamePage = () => {
-  window.onload = () => {
+  useEffect(() => {
+    // window.onload = () => {
     const config = {
       type: Phaser.AUTO,
       width: 950,
@@ -28,7 +29,13 @@ const GamePage = () => {
     };
     const game = new Phaser.Game(config);
     game.scene.start("Boot");
-  };
+    // };
+    return () => {
+      console.log(document.querySelector("canvas"));
+      console.log("fghfhfgh");
+    };
+  }, []);
+
   return <div id="game-wrapper" />;
 };
 
