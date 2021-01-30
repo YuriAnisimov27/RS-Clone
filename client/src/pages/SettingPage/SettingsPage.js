@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState } from "react";
 import "./SettingsPage.css";
 import {
   decreaseTextSizeHandler,
@@ -20,6 +20,7 @@ import img7 from "../../assets/images/backGrounds/7.png";
 import img8 from "../../assets/images/backGrounds/8.png";
 import arrowRight from "../../assets/UI/right-arrow.png";
 import AuthContext from "../../context/AuthContext";
+import BackgroundImgMessage from "./settingsPageElements/backgroundImgMessage"
 
 if (storage(`customBackgroundColor`)) {
   document.body.style.backgroundImage = `none`;
@@ -96,91 +97,99 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
-const SettingsPage = () => (
-  <AuthContext.Consumer>
-    {(context) => (
-      <div className="settings-wrapper">
-        <div className="settings-container">
-          <div className="setting">
-            <button
-              className="waves-effect waves-light btn grey lighten-1 back-image"
-              type="button"
-              onClick={imageSwitcherHandler}
-            >
-              {context.state.changeBackgroundImg}
-            </button>
-            <button
-              type="button"
-              className="info btn-floating waves-effect waves-light red"
-            >
-              info
-            </button>
-          </div>
-          <div className="setting">
-            <div className="color-input-container card-panel lighten-2 grey lighten-1">
-              <p className="input-name back-name">
-                {context.state.changeBackgroundColor}
-                <img className="arrow-back" src={arrowRight} alt="arrow" />
-              </p>
-              <input type="color" onChange={backgroundOnChangeHandler} />
-            </div>
-            <button
-              type="button"
-              className="info btn-floating waves-effect waves-light red"
-            >
-              info
-            </button>
-          </div>
-          <div className="setting">
-            <div className="color-input-container card-panel lighten-2 grey lighten-1">
-              <p className="input-name">
-                {context.state.changeFontColor}
-                <img className="arrow-font" src={arrowRight} alt="arrow" />
-              </p>
-              <input type="color" onChange={textColorOnChangeHandler} />
-            </div>
-            <button
-              type="button"
-              className="info btn-floating waves-effect waves-light red"
-            >
-              info
-            </button>
-          </div>
-          <div className="setting">
-            <div className="font-size-container card-panel lighten-2">
+const SettingsPage = () => {
+  const [activeDonat, setActiveDonat] = useState(false);
+  const [activeAbout, setActiveAbout] = useState(false);
+  return (
+    <AuthContext.Consumer>
+      {(context) => (
+        <div className="settings-wrapper">
+          <BackgroundImgMessage active={activeAbout} setActive={setActiveAbout} />
+          <div className="settings-container">
+            <div className="setting">
               <button
-                className="font-handler font-pl btn grey lighten-1"
+                className="waves-effect waves-light btn grey lighten-1 back-image"
                 type="button"
-                onClick={decreaseTextSizeHandler}
+                onClick={imageSwitcherHandler}
               >
-                {context.state.decrFontSize}
+                {context.state.changeBackgroundImg}
               </button>
+              <a
+                href="#!"
+                className="dialog-link"
+                onClick={() => {
+                  setActiveAbout(!activeAbout);
+                }}
+              >
+                info
+            </a>
+            </div>
+            <div className="setting">
+              <div className="color-input-container card-panel lighten-2 grey lighten-1">
+                <p className="input-name back-name">
+                  {context.state.changeBackgroundColor}
+                  <img className="arrow-back" src={arrowRight} alt="arrow" />
+                </p>
+                <input type="color" onChange={backgroundOnChangeHandler} />
+              </div>
               <button
-                className="font-handler font-min btn grey lighten-1"
                 type="button"
-                onClick={increaseTextSizeHandler}
+                className="info btn-floating waves-effect waves-light red"
               >
-                {context.state.incrFontSize}
-              </button>
+                info
+            </button>
+            </div>
+            <div className="setting">
+              <div className="color-input-container card-panel lighten-2 grey lighten-1">
+                <p className="input-name">
+                  {context.state.changeFontColor}
+                  <img className="arrow-font" src={arrowRight} alt="arrow" />
+                </p>
+                <input type="color" onChange={textColorOnChangeHandler} />
+              </div>
+              <button
+                type="button"
+                className="info btn-floating waves-effect waves-light red"
+              >
+                info
+            </button>
+            </div>
+            <div className="setting">
+              <div className="font-size-container card-panel lighten-2">
+                <button
+                  className="font-handler font-pl btn grey lighten-1"
+                  type="button"
+                  onClick={decreaseTextSizeHandler}
+                >
+                  {context.state.decrFontSize}
+                </button>
+                <button
+                  className="font-handler font-min btn grey lighten-1"
+                  type="button"
+                  onClick={increaseTextSizeHandler}
+                >
+                  {context.state.incrFontSize}
+                </button>
+              </div>
+              <button
+                type="button"
+                className="info btn-floating waves-effect waves-light red"
+              >
+                info
+            </button>
             </div>
             <button
+              className="btn grey lighten-2 reset"
               type="button"
-              className="info btn-floating waves-effect waves-light red"
+              onClick={resetStyles}
             >
-              info
+              {context.state.resetStyle}
             </button>
           </div>
-          <button
-            className="btn grey lighten-2 reset"
-            type="button"
-            onClick={resetStyles}
-          >
-            {context.state.resetStyle}
-          </button>
         </div>
-      </div>
-    )}
-  </AuthContext.Consumer>
-);
+      )}
+    </AuthContext.Consumer>
+  )
+};
 
 export default SettingsPage;
