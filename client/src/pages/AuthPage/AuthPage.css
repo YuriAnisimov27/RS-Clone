@@ -3,6 +3,10 @@ body {
   background-size: cover;
   height: 100vh !important;
 }
+.runner-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 
 .container {
   width: 100% !important;
