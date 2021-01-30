@@ -1,43 +1,24 @@
-.donat-mes {
+.settings-message {
+  position: absolute;
   display: flex;
   flex-flow: column;
-  height: 1080px;
   width: 45%;
   background-color: #1d1d1d;
   z-index: 3;
-  position: absolute;
   transition: all 0.3s;
+  left: 0;
+  top: 0;
+  height: 100vh;
 }
 
-.donation-text {
-  color: #fff;
-  font-size: 1rem;
-  text-align: center;
-  padding: 30px 10px 10px 10px;
-}
-
-.donat-link {
-  align-self: center;
-  width: 109px !important;
-  height: 109px !important;
-  line-height: 109px !important;
-}
-
-.d-img {
-  font-size: 2rem !important;
-}
-
-.shadow {
+.settings-shadow {
+  position: absolute;
   display: none;
   width: 100%;
-  height: 1000px;
+  height: 100vh;
   background-color: #000000;
   opacity: 0.5;
   z-index: 2;
-}
-
-.donation-input {
-  margin-left: 20px;
-  color: #fff;
-  width: 80%;
+  left: 0;
+  top: 0;
 }

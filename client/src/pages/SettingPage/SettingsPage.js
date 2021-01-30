@@ -114,15 +114,15 @@ const SettingsPage = () => {
               >
                 {context.state.changeBackgroundImg}
               </button>
-              <a
+              <button
                 href="#!"
-                className="dialog-link"
+                className="info btn-floating waves-effect waves-light red"
                 onClick={() => {
                   setActiveAbout(!activeAbout);
                 }}
               >
                 info
-            </a>
+            </button>
             </div>
             <div className="setting">
               <div className="color-input-container card-panel lighten-2 grey lighten-1">
