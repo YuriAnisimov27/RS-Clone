@@ -37,6 +37,11 @@ export const mapStateToProps = (state) => {
     incrFontSize,
     decrFontSize,
     resetStyle,
+    backImgMessage,
+    backColorMessage,
+    fontColorMessage,
+    fontSizeColor,
+    fontSizeColorHotkeys,
   } = state[currentLanguage];
 
   return {
@@ -74,6 +79,11 @@ export const mapStateToProps = (state) => {
     incrFontSize,
     decrFontSize,
     resetStyle,
+    backImgMessage,
+    backColorMessage,
+    fontColorMessage,
+    fontSizeColor,
+    fontSizeColorHotkeys,
   };
 };
 

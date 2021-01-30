@@ -20,7 +20,10 @@ import img7 from "../../assets/images/backGrounds/7.png";
 import img8 from "../../assets/images/backGrounds/8.png";
 import arrowRight from "../../assets/UI/right-arrow.png";
 import AuthContext from "../../context/AuthContext";
-import BackgroundImgMessage from "./settingsPageElements/backgroundImgMessage"
+import BackgroundImgMessage from "./settingsPageElements/BGroundImgMessage"
+import BackgroundColorMessage from "./settingsPageElements/BGroundColorMessage"
+import FontColorMessage from "./settingsPageElements/FontColorMessage"
+import FontSizeMessage from "./settingsPageElements/FontSizeMessage"
 
 if (storage(`customBackgroundColor`)) {
   document.body.style.backgroundImage = `none`;
@@ -98,13 +101,19 @@ document.addEventListener("keyup", (e) => {
 });
 
 const SettingsPage = () => {
-  const [activeDonat, setActiveDonat] = useState(false);
-  const [activeAbout, setActiveAbout] = useState(false);
+  const [activeBackgroundColorMessage, setActiveactiveBackgroundColorMessage] = useState(false);
+  const [activeBackgroundImgMessage, setActiveBackgroundImgMessage] = useState(false);
+  const [activeFontColorMessage, setActiveFontColorMessage] = useState(false);
+  const [activeFontSizeMessage, setActiveFontSizeMessageMessage] = useState(false);
+
   return (
     <AuthContext.Consumer>
       {(context) => (
         <div className="settings-wrapper">
-          <BackgroundImgMessage active={activeAbout} setActive={setActiveAbout} />
+          <BackgroundImgMessage active={activeBackgroundImgMessage} setActive={setActiveBackgroundImgMessage} />
+          <BackgroundColorMessage active={activeBackgroundColorMessage} setActive={setActiveactiveBackgroundColorMessage} />
+          <FontColorMessage active={activeFontColorMessage} setActive={setActiveFontColorMessage} />
+          <FontSizeMessage active={activeFontSizeMessage} setActive={setActiveFontSizeMessageMessage} />
           <div className="settings-container">
             <div className="setting">
               <button
@@ -118,7 +127,7 @@ const SettingsPage = () => {
                 href="#!"
                 className="info btn-floating waves-effect waves-light red"
                 onClick={() => {
-                  setActiveAbout(!activeAbout);
+                  setActiveBackgroundImgMessage(!activeBackgroundImgMessage);
                 }}
               >
                 info
@@ -135,6 +144,9 @@ const SettingsPage = () => {
               <button
                 type="button"
                 className="info btn-floating waves-effect waves-light red"
+                onClick={() => {
+                  setActiveactiveBackgroundColorMessage(!activeBackgroundColorMessage);
+                }}
               >
                 info
             </button>
@@ -150,6 +162,9 @@ const SettingsPage = () => {
               <button
                 type="button"
                 className="info btn-floating waves-effect waves-light red"
+                onClick={() => {
+                  setActiveFontColorMessage(!activeFontColorMessage);
+                }}
               >
                 info
             </button>
@@ -174,6 +189,9 @@ const SettingsPage = () => {
               <button
                 type="button"
                 className="info btn-floating waves-effect waves-light red"
+                onClick={() => {
+                  setActiveFontSizeMessageMessage(!activeFontSizeMessage);
+                }}
               >
                 info
             </button>

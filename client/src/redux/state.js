@@ -48,6 +48,15 @@ const initialState = {
     incrFontSize: "Increase font size",
     decrFontSize: "Decrease font size",
     resetStyle: "Reset style",
+    backImgMessage: `Change the background image.
+    After reloading the page, the selected background image is saved`,
+    backColorMessage: `Change the background color.
+    After reloading the page, the selected color is saved`,
+    fontColorMessage: `Change the color of the text.
+    After reloading the page, the selected color is saved`,
+    fontSizeColor: `Change the size of the text.
+    After reloading the page, the selected size is saved`,
+    fontSizeColorHotkeys: `You can use the key combination Shift + '+' and Shift + '-'`,
   },
 
   ru: {
@@ -88,6 +97,15 @@ const initialState = {
     incrFontSize: "Увеличить размер шрифта",
     decrFontSize: "Уменьшить размер шрифта",
     resetStyle: "Стандартное оформление",
+    backImgMessage: `Изменение фонового изображения. 
+    После перезагрузки страницы выбранное фоновое изображение сохраняется.`,
+    backColorMessage: `Изменение цвета фона. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontColorMessage: `Изменение цвета текста. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontSizeColor: `Изменение размера текста. 
+    После перезагрузки страницы выбранный размер сохраняется`,
+    fontSizeColorHotkeys: `Вы можете использовать комбинацию клавиш Shift+'+' и Shift+'-'`,
   },
 
   bel: {
@@ -128,6 +146,15 @@ const initialState = {
     incrFontSize: "Павялічыць памер шрыфта",
     decrFontSize: "Паменшыць памер шрыфта",
     resetStyle: "Стандартнае афармленне",
+    backImgMessage: `Змена фонавага малюнка.
+    Пасля перазагрузкі старонкі абранае фонавы малюнак захоўваецца`,
+    backColorMessage: `Змяненне колеру фону.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontColorMessage: `Змяненне колеру тэксту.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontSizeColor: `Змена памеру тэксту.
+    Пасля перазагрузкі старонкі абраны памер захоўваецца`,
+    fontSizeColorHotkeys: `Вы можаце выкарыстоўваць камбінацыю клавіш Shift + '+' і Shift + '-'`,
   },
 };
 
