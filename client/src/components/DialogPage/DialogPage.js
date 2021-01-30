@@ -17,7 +17,7 @@ const DialogPage = () => {
 
   return (
     <AuthContext.Consumer>
-      {(context) => (
+      {({ state }) => (
         <div className="DialogPage off">
           <DonatMessage active={activeDonat} setActive={setActiveDonat} />
           <AboutMessage active={activeAbout} setActive={setActiveAbout} />
@@ -30,7 +30,7 @@ const DialogPage = () => {
               <button type="button" className="exit-btn" onClick={showDialog}>
                 <img className="exit-img" src={cross} alt="exit" />
               </button>
-              <h5 className="dialog-greeting">{context.state.hello}</h5>
+              <h5 className="dialog-greeting">{state.hello}</h5>
               <ul className="dialog-nav-ul">
                 <li className="dialog-nav-ul__li">
                   <a
@@ -38,7 +38,7 @@ const DialogPage = () => {
                     className="dialog-link signin"
                     onClick={showRegistration}
                   >
-                    {context.state.signIn}
+                    {state.signIn}
                   </a>
                 </li>
                 <li className="dialog-nav-ul__li">
@@ -49,7 +49,7 @@ const DialogPage = () => {
                       setActiveAbout(!activeAbout);
                     }}
                   >
-                    {context.state.about}
+                    {state.about}
                   </a>
                 </li>
                 <li className="dialog-nav-ul__li">
@@ -60,7 +60,7 @@ const DialogPage = () => {
                       setActiveDonat(!activeDonat);
                     }}
                   >
-                    {context.state.donation}
+                    {state.donation}
                   </a>
                 </li>
               </ul>

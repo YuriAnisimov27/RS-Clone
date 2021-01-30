@@ -22,7 +22,7 @@ input:hover {
 }
 
 .settings-container {
-  background: linear-gradient(350deg, rgba(185, 195, 199, 1) 5%, rgba(236, 238, 224, 1) 78%);
+  /*background: linear-gradient(350deg, rgba(185, 195, 199, 1) 5%, rgba(236, 238, 224, 1) 78%);*/
   width: 60%;
   display: flex;
   flex-flow: column;
@@ -94,6 +94,7 @@ input:hover {
 .reset {
   margin-right: 55px;
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .back-image, .font-handler, .reset, .input-name {
