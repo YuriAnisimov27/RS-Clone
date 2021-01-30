@@ -22,7 +22,7 @@ class PlayGame extends Phaser.Scene {
     this.mymusic = this.sound.add("music");
     this.jumpSound = this.sound.add("jumpSound");
     this.fallingSound = this.sound.add("fallingSound");
-    this.mymusic.play();
+    this.mymusic.play({ loop: true });
 
     // add score text & game text to screen
     this.game = document.querySelector("canvas");
