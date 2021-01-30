@@ -1,24 +1,6 @@
 import Phaser from "phaser";
-
-import gameOptions from "./gameOptions";
-import preloadGame from "./preloadGame";
-
-let game;
-
-function resize() {
-  const canvas = document.querySelector("canvas");
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const windowRatio = windowWidth / windowHeight;
-  const gameRatio = game.config.width / game.config.height;
-  if (windowRatio < gameRatio) {
-    canvas.style.width = `${windowWidth * 0.7}px`;
-    canvas.style.height = `${(windowWidth / gameRatio) * 0.7}px`;
-  } else {
-    canvas.style.width = `${windowHeight * gameRatio * 0.7} px`;
-    canvas.style.height = `${windowHeight * 0.7} px`;
-  }
-}
+import GameOptions from "./GameOptions";
+import gameConfig from "./GameConfig";
 
 // PlayGame scene
 class PlayGame extends Phaser.Scene {
@@ -37,9 +19,15 @@ class PlayGame extends Phaser.Scene {
   }
 
   create() {
+    this.mymusic = this.sound.add("music");
+    this.jumpSound = this.sound.add("jumpSound");
+    this.fallingSound = this.sound.add("fallingSound");
+    this.mymusic.play();
+
     // add score text & game text to screen
+    this.game = document.querySelector("canvas");
     this.scoreText = this.add.text(
-      game.config.width - 250,
+      gameConfig.width - 250,
       30,
       `score: ${this.score}`,
       {
@@ -47,8 +35,9 @@ class PlayGame extends Phaser.Scene {
         fill: "#000000",
       }
     );
+
     this.recordScoreText = this.add.text(
-      game.config.width - 250,
+      gameConfig.width - 250,
       60,
       `record: ${this.recordScore}`,
       {
@@ -119,18 +108,18 @@ class PlayGame extends Phaser.Scene {
 
     // adding a platform to the game, the arguments are platform width, x position and y position
     this.addPlatform(
-      game.config.width,
-      game.config.width / 2,
-      game.config.height * gameOptions.platformVerticalLimit[1]
+      gameConfig.width,
+      gameConfig.width / 2,
+      gameConfig.height * GameOptions.platformVerticalLimit[1]
     );
 
     // adding the player;
     this.player = this.physics.add.sprite(
-      gameOptions.playerStartPosition,
-      game.config.height * 0.7,
+      GameOptions.playerStartPosition,
+      gameConfig.height * 0.7,
       "player"
     );
-    this.player.setGravityY(gameOptions.playerGravity);
+    this.player.setGravityY(GameOptions.playerGravity);
     this.player.setDepth(2);
 
     // the player is not dying
@@ -206,14 +195,14 @@ class PlayGame extends Phaser.Scene {
   // adding mountains
   addMountains() {
     const rightmostMountain = this.getRightmostMountain();
-    if (rightmostMountain < game.config.width * 2) {
+    if (rightmostMountain < gameConfig.width * 2) {
       const mountain = this.physics.add.sprite(
         rightmostMountain + Phaser.Math.Between(100, 350),
-        game.config.height + Phaser.Math.Between(150, 400),
+        gameConfig.height + Phaser.Math.Between(150, 400),
         "mountain"
       );
       mountain.setOrigin(0.5, 1);
-      mountain.body.setVelocityX(gameOptions.mountainSpeed * -1);
+      mountain.body.setVelocityX(GameOptions.mountainSpeed * -1);
       this.mountainGroup.add(mountain);
       if (Phaser.Math.Between(0, 1)) {
         mountain.setDepth(1);
@@ -252,21 +241,21 @@ class PlayGame extends Phaser.Scene {
       platform.body.setImmovable(true);
       platform.body.setVelocityX(
         Phaser.Math.Between(
-          gameOptions.platformSpeedRange[0],
-          gameOptions.platformSpeedRange[1]
+          GameOptions.platformSpeedRange[0],
+          GameOptions.platformSpeedRange[1]
         ) * -1
       );
       platform.setDepth(2);
       this.platformGroup.add(platform);
     }
     this.nextPlatformDistance = Phaser.Math.Between(
-      gameOptions.spawnRange[0],
-      gameOptions.spawnRange[1]
+      GameOptions.spawnRange[0],
+      GameOptions.spawnRange[1]
     );
     // if this is not the starting platform...
     if (this.addedPlatforms > 1) {
       // is there a coin over the platform?
-      if (Phaser.Math.Between(1, 100) <= gameOptions.coinPercent) {
+      if (Phaser.Math.Between(1, 100) <= GameOptions.coinPercent) {
         if (this.coinPool.getLength()) {
           const coin = this.coinPool.getFirst();
           coin.x = posX;
@@ -286,7 +275,7 @@ class PlayGame extends Phaser.Scene {
       }
 
       // is there a fire over the platform?
-      if (Phaser.Math.Between(1, 100) <= gameOptions.firePercent) {
+      if (Phaser.Math.Between(1, 100) <= GameOptions.firePercent) {
         if (this.firePool.getLength()) {
           const fire = this.firePool.getFirst();
           fire.x =
@@ -319,33 +308,36 @@ class PlayGame extends Phaser.Scene {
     if (
       !this.dying &&
       (this.player.body.touching.down ||
-        (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps))
+        (this.playerJumps > 0 && this.playerJumps < GameOptions.jumps))
     ) {
       if (this.player.body.touching.down) {
         this.playerJumps = 0;
       }
-      this.player.setVelocityY(gameOptions.jumpForce * -1);
+      this.player.setVelocityY(GameOptions.jumpForce * -1);
       this.playerJumps += 1;
       // stops animation
       this.player.anims.stop();
       this.player.anims.play("jump");
+      this.jumpSound.play();
     }
   }
 
   update() {
     // game over
-    if (this.player.y > game.config.height) {
-      this.scene.start("PlayGame");
+    if (this.player.y > gameConfig.height) {
+      this.scene.start("MainMenu");
+      this.mymusic.stop();
+      this.fallingSound.play();
     }
 
-    this.player.x = gameOptions.playerStartPosition;
+    this.player.x = GameOptions.playerStartPosition;
 
     // recycling platforms
-    let minDistance = game.config.width;
+    let minDistance = gameConfig.width;
     let rightmostPlatformHeight = 0;
     this.platformGroup.getChildren().forEach((platform) => {
       const platformDistance =
-        game.config.width - platform.x - platform.displayWidth / 2;
+        gameConfig.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
         rightmostPlatformHeight = platform.y;
@@ -378,7 +370,7 @@ class PlayGame extends Phaser.Scene {
       if (mountain.x < -mountain.displayWidth) {
         const rightmostMountain = this.getRightmostMountain();
         mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
-        mountain.y = game.config.height + Phaser.Math.Between(150, 400);
+        mountain.y = gameConfig.height + Phaser.Math.Between(150, 400);
         mountain.setFrame(Phaser.Math.Between(0, 3));
         if (Phaser.Math.Between(0, 1)) {
           mountain.setDepth(1);
@@ -389,20 +381,20 @@ class PlayGame extends Phaser.Scene {
     // adding new platforms
     if (minDistance > this.nextPlatformDistance) {
       const nextPlatformWidth = Phaser.Math.Between(
-        gameOptions.platformSizeRange[0],
-        gameOptions.platformSizeRange[1]
+        GameOptions.platformSizeRange[0],
+        GameOptions.platformSizeRange[1]
       );
       const platformRandomHeight =
-        gameOptions.platformHeighScale *
+        GameOptions.platformHeighScale *
         Phaser.Math.Between(
-          gameOptions.platformHeightRange[0],
-          gameOptions.platformHeightRange[1]
+          GameOptions.platformHeightRange[0],
+          GameOptions.platformHeightRange[1]
         );
       const nextPlatformGap = rightmostPlatformHeight + platformRandomHeight;
       const minPlatformHeight =
-        game.config.height * gameOptions.platformVerticalLimit[0];
+        gameConfig.height * GameOptions.platformVerticalLimit[0];
       const maxPlatformHeight =
-        game.config.height * gameOptions.platformVerticalLimit[1];
+        gameConfig.height * GameOptions.platformVerticalLimit[1];
       const nextPlatformHeight = Phaser.Math.Clamp(
         nextPlatformGap,
         minPlatformHeight,
@@ -410,36 +402,11 @@ class PlayGame extends Phaser.Scene {
       );
       this.addPlatform(
         nextPlatformWidth,
-        game.config.width + nextPlatformWidth / 2,
+        gameConfig.width + nextPlatformWidth / 2,
         nextPlatformHeight
       );
     }
   }
 }
-window.onload = () => {
-  // object containing configuration options
-  const gameConfig = {
-    type: Phaser.AUTO,
-    width: 950,
-    height: 400,
-    parent: "game-wrapper",
-    scene: [preloadGame, PlayGame],
-    // mode: Phaser.Scale.FIT,
-    backgroundColor: 0x87ceeb,
-
-    // physics settings
-    physics: {
-      default: "arcade",
-    },
-    audio: {
-      disableWebAudio: true,
-    },
-  };
-
-  game = new Phaser.Game(gameConfig);
-  window.focus();
-  resize();
-  window.addEventListener("resize", resize, false);
-};
 
 export default PlayGame;

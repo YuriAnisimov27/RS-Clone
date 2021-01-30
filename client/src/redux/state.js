@@ -16,7 +16,7 @@ const initialState = {
     logout: "logout",
     game: "Play",
     comment: `You can also leave a review - and remember -
-     your review is very important to us`,
+     your review is very important to you`,
     footerContent: "Footer Content__EN",
     developers: "DEVELOPERS",
     kovbenya: "Alexander Kovbenya",
@@ -51,7 +51,7 @@ const initialState = {
     logout: "Выход",
     game: "Игра",
     comment: `Также Вы можете оставить отзыв - и помните -
-     Ваш отзыв очень важен для нас`,
+     Ваш отзыв очень важен для вас`,
     footerContent: "Футер контент__",
     developers: "РАЗРАБОТЧИКИ",
     kovbenya: "Александр Ковбеня",
@@ -85,7 +85,7 @@ const initialState = {
     logout: "Выхад",
     game: "Гульня",
     comment: `Таксама Вы можаце пакінуць водгук - і памятайце -
-     Ваш водгук вельмі важны для нас`,
+     Ваш водгук вельмі важны для вас`,
     footerContent: "Футэр контэнт",
     developers: "РАСПРАЦОУНIКI",
     kovbenya: "Аляксандр Каўбеня",
