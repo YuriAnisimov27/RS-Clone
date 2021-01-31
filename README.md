@@ -1,4 +1,4 @@
-# GaaaaME
+# Google Dinosaur
 
 Useful links:<br/>
 [Deployed app](https://protected-garden-00472.herokuapp.com/#!) <br/>
@@ -103,3 +103,57 @@ install dependencies:
     "jest": "^26.6.3",
     "prettier": "^2.2.1"
 
+
+
+<hr/>
+
+### App Architecture
+
+1. That's how we see our app:
+
+![app architecture](client/src/assets/readme/App%20architecture.png)
+
+Game is heart of this application, we added beauty using Materializecss, logic by React-Redux and all this inside nodejs-exprees
+
+2. Let's go a little deeper...
+
+![backend-frontend](client/src/assets/readme/Backend-Frontend.png) 
+
+We used one programming language - JavaScript. There is no problem with this on the client. 
+On the server side, nodejs and mongodb also use JS. This way the code interacts perfectly.
+The main task of the server part is to process server requests - REST API and store data in a database.
+
+3. Registration
+
+![registration](client/src/assets/readme/Registration.png)
+
+Yes, one of the main and obvious server-client relationships is storing and receiving user data. 
+And then we did this:
+- we use email as login. and validate it. this introduces some limitations but ensures that the user does not create a 
+  login like 1234567 or login or something like that.
+- it's easier with a password - one requirement! the length limit is 6 characters. any symbols are allowed.
+- after checking the data, we send them to the server, where the password is encrypted and saved to the database. super! now such a user exists. now you can log in)
+  PS: don't worry if you enter something wrong. the hint will not be long in coming. wrong login, short password, 
+  registration of a user under an email that is already registered and much more is already provided. In addition, 
+  the whole process of work from entering data to deleting data from the database is covered by tests. See for yourself:
+  
+`npm run test`
+
+see next:
+
+![tests](client/src/assets/readme/unit-test1.png)
+
+Well, of course, registration is not the most interesting thing in the application (although if you want to get to the interesting, 
+then registration will still have to go through) inside - an improved version of the game and the ability to customize the application. 
+Initially, you have a good old google dinosaur, a player and a choice of language. after registration, you can go deeper into 
+customization and all this will not be lost after restarting the application. And of course our tips will come to you)
+
+4. MVC
+
+![mvc](client/src/assets/readme/MVC.png)
+
+this is the most interesting. technical aspects of implementation. Of course, the coolest thing is a game, but it is 
+encapsulated and embedded in the general application system and is nothing more than just a block. smart interesting 
+funny block. but how does it work?
+
+<hr/>
