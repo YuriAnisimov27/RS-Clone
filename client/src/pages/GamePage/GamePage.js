@@ -55,6 +55,6 @@ const GamePage = () => {
   }, []);
 
   return <div id="game-wrapper" />;
-};
+}
 
 export default GamePage;
