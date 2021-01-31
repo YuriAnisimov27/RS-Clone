@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import gameConfig from "./GameConfig";
+// import gameConfig from "./GameConfig";
 
 class MainMenu extends Phaser.Scene {
   constructor() {
@@ -7,26 +7,6 @@ class MainMenu extends Phaser.Scene {
   }
 
   create() {
-    function resize() {
-      // const game = document.getElementById("game-wrapper");
-      const canvas = document.querySelector("canvas");
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      const windowRatio = windowWidth / windowHeight;
-      const gameRatio = gameConfig.width / gameConfig.height;
-      if (windowRatio < gameRatio) {
-        canvas.style.width = `${windowWidth * 0.55}px`;
-        canvas.style.height = `${(windowWidth / gameRatio) * 0.55}px`;
-      } else {
-        canvas.style.width = `${windowHeight * gameRatio * 0.55} px`;
-        canvas.style.height = `${windowHeight * 0.55} px`;
-      }
-    }
-
-    window.focus();
-    resize();
-    window.addEventListener("resize", resize, false);
-
     const backgroundImage = this.add.image(400, 300, "background");
     backgroundImage.scale = 0.7;
 
