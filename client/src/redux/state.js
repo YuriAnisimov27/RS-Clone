@@ -42,6 +42,21 @@ const initialState = {
     password: "Password",
     logIn: "LogIn",
     registration: "Registration",
+    changeBackgroundImg: "Background image",
+    changeBackgroundColor: "Background color",
+    changeFontColor: "Font color",
+    incrFontSize: "Font+",
+    decrFontSize: "Font-",
+    resetStyle: "Reset",
+    backImgMessage: `Change the background image.
+    After reloading the page, the selected background image is saved`,
+    backColorMessage: `Change the background color.
+    After reloading the page, the selected color is saved`,
+    fontColorMessage: `Change the color of the text.
+    After reloading the page, the selected color is saved`,
+    fontSizeColor: `Change the size of the text.
+    After reloading the page, the selected size is saved`,
+    fontSizeColorHotkeys: `You can use the key combination Shift + '+' and Shift + '-'`,
   },
 
   ru: {
@@ -76,6 +91,21 @@ const initialState = {
     password: "Пароль",
     logIn: "Логин",
     registration: "Регистрация",
+    changeBackgroundImg: "Фоновое изображение",
+    changeBackgroundColor: "Цвет фона",
+    changeFontColor: "Цвет шрифта",
+    incrFontSize: "Шрифт+",
+    decrFontSize: "Шрифт-",
+    resetStyle: "Сброс",
+    backImgMessage: `Изменение фонового изображения. 
+    После перезагрузки страницы выбранное фоновое изображение сохраняется.`,
+    backColorMessage: `Изменение цвета фона. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontColorMessage: `Изменение цвета текста. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontSizeColor: `Изменение размера текста. 
+    После перезагрузки страницы выбранный размер сохраняется`,
+    fontSizeColorHotkeys: `Вы можете использовать комбинацию клавиш Shift+'+' и Shift+'-'`,
   },
 
   bel: {
@@ -110,6 +140,21 @@ const initialState = {
     password: "Пароль",
     logIn: "Логiн",
     registration: "Рэгістрацыя",
+    changeBackgroundImg: "Фонавы малюнак",
+    changeBackgroundColor: "Колер фону",
+    changeFontColor: "Колер шрыфта",
+    incrFontSize: "Шрыфт+",
+    decrFontSize: "Шрыфт-",
+    resetStyle: "Скід",
+    backImgMessage: `Змена фонавага малюнка.
+    Пасля перазагрузкі старонкі абранае фонавы малюнак захоўваецца`,
+    backColorMessage: `Змяненне колеру фону.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontColorMessage: `Змяненне колеру тэксту.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontSizeColor: `Змена памеру тэксту.
+    Пасля перазагрузкі старонкі абраны памер захоўваецца`,
+    fontSizeColorHotkeys: `Вы можаце выкарыстоўваць камбінацыю клавіш Shift + '+' і Shift + '-'`,
   },
 };
 
