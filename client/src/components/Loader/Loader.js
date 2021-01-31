@@ -1,16 +1,13 @@
 import React from "react";
+import "./Loader.css";
 
 const Loader = () => (
-  <div className="preloader-wrapper active">
-    <div className="spinner-layer spinner-red-only">
-      <div className="circle-clipper left">
-        <div className="circle" />
-      </div>
-      <div className="gap-patch">
-        <div className="circle" />
-      </div>
-      <div className="circle-clipper right">
-        <div className="circle" />
+  <div className="d-flex">
+    <div className="loadingio-spinner-pulse-txs6ijw9v5">
+      <div className="ldio-lz2fs42hqmm">
+        <div />
+        <div />
+        <div />
       </div>
     </div>
   </div>

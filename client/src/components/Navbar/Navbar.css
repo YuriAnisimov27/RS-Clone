@@ -1,3 +1,11 @@
+::-moz-focus-outer, ::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.player-cross-btn {
+  outline: 0 !important;
+}
+
 .nav-ul {
   display: flex;
   justify-content: center;
@@ -20,6 +28,7 @@
 .player-off {
   display: none;
 }
+
 audio {
   width: 100px;
   height: 20px;
@@ -41,6 +50,7 @@ audio {
   cursor: pointer;
   opacity: 0.5;
 }
+
 .arrow {
   transition: all 0.2s;
   width: 10px;

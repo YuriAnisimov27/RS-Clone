@@ -22,7 +22,7 @@ input:hover {
 }
 
 .settings-container {
-  background: transparent;
+  /* background: transparent;*/
   width: 60%;
   display: flex;
   flex-flow: column;
@@ -94,6 +94,7 @@ input:hover {
 .reset {
   margin-right: 55px;
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .back-image, .font-handler, .reset, .input-name {

@@ -5,11 +5,20 @@ audio {
   margin-right: 10px;
 }
 
+.player-cross-btn {
+  outline: 0 !important;
+}
+
+::-moz-focus-outer, ::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
 .cross {
   display: none;
   position: relative;
   top: -15px;
-  left: 35px;
+  left: 20px;
   z-index: 1;
   width: 10px;
 }
