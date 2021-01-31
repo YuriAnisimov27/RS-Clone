@@ -120,3 +120,8 @@ h5 {
     padding-top: 0 !important;
   }
 }
+@media (max-width: 350px) {
+  .developers {
+    padding-left: 0;
+  }
+}
