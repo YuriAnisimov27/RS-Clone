@@ -163,3 +163,18 @@
     left: 70px;
   }
 }
+@media (max-width: 470px) {
+  .dino-dialog{
+    display: none;
+  }
+  .dialog-bubble {
+    left: 1%;
+  }
+  .bubble-dialog-Img {
+    width: 365px;
+  }
+  .dialog-nav {
+    left: 45px;
+    top: -15px;
+  }
+}
