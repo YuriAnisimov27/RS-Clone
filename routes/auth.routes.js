@@ -40,6 +40,13 @@ router.post('/register',
     return undefined;
   });
 
+router.get('/getusers',
+  async (req, res) => {
+    const result = await User.find();
+    res.send(result);
+  }
+)
+
 router.post('/login',
   [
     check('email', 'Enter correct email').normalizeEmail().isEmail(),
