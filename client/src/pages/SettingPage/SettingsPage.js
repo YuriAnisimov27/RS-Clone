@@ -43,16 +43,33 @@ if (storage(`customBackgroundColor`)) {
 }
 
 if (storage(`customTextColor`)) {
+
   window.onload = function () {
-    console.log(`+++`);
-    console.log(storage(`customTextColor`));
-    const allLinks = document.querySelectorAll("a");
-    document.body.style.color = storage(`customTextColor`);
-    allLinks.forEach((item) => {
-      const link = item;
-      link.style.color = storage(`customTextColor`);
+    const newColor = storage(`customTextColor`);
+
+    document.body.style.color = newColor;
+
+    document.querySelectorAll(`p`).forEach(item => {
+      const p = item;
+      p.style.color = newColor;
+    })
+
+    document.querySelectorAll(`.input-name`).forEach(item => {
+      const p = item;
+      p.style.color = newColor;
+      p.style.setProperty("color", newColor, "important")
+    })
+
+    document.querySelectorAll("a").forEach((item) => {
+      item.style.setProperty("color", newColor, "important")
     });
-  };
+
+    document.querySelectorAll(`button`).forEach(item => {
+      const button = item;
+      button.style.setProperty("color", newColor, "important")
+    })
+  }
+
 }
 
 const arrayOfBackgrounds = [img1, img2, img3, img4, img5, img6, img7, img8];
