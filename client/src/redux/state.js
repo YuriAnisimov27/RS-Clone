@@ -13,7 +13,7 @@ const initialState = {
     authNavPlaylist: "Playlist",
     authNavSettings: "Settings",
     authNavRegistration: "Registration",
-    logout: "logout",
+    logout: "Logout",
     game: "Play",
     comment: `You can also leave a review - and remember -
      your review is very important to you`,
