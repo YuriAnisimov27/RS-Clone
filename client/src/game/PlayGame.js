@@ -12,10 +12,6 @@ class PlayGame extends Phaser.Scene {
     // game variables
     this.score = 0;
     this.recordScore = localStorage.getItem("recordScore") || 0;
-    // this.speed= 1.5;
-    // this.dragon_move = 1;
-    // this.score_text;
-    // this.lives_text;
   }
 
   create() {
@@ -198,6 +194,21 @@ class PlayGame extends Phaser.Scene {
 
     // checking for input
     this.input.on("pointerdown", this.jump, this);
+
+    // game progress ----------------------------------------------------------------------------------------
+    this.text = this.add.text(20, 20, " ", { fontSize: "20px", fill: "#fff" });
+    this.timerEvents = [];
+
+    this.timerEvents.push(
+      this.time.addEvent({
+        delay: 60000,
+        loop: false,
+      })
+    );
+
+    this.progressLine = this.add.graphics({ x: 10, y: 10 });
+    this.fullGameLine = this.add.graphics({ x: 10, y: 10 });
+    //-------------------------------------------------------------------------------------------------------
   }
 
   // adding mountains
@@ -418,6 +429,37 @@ class PlayGame extends Phaser.Scene {
         nextPlatformHeight
       );
     }
+
+    // game progress-----------------------------------------------------------------------------------------
+    const output = [];
+
+    this.progressLine.clear();
+    this.fullGameLine.clear();
+
+    this.passingPercentage = Math.round(
+      this.timerEvents[0].getProgress().toString().substr(0, 4) * 100
+    );
+
+    output.push(`progress: ${this.passingPercentage}%`);
+    this.text.setText(output);
+
+    this.fullGameLine.fillStyle("0xFFFFFF", 1);
+    this.fullGameLine.fillRect(
+      925 * this.timerEvents[0].getProgress(),
+      0,
+      925 - 925 * this.timerEvents[0].getProgress(),
+      8
+    );
+
+    this.progressLine.fillStyle("0x06799F", 1);
+    this.progressLine.fillRect(
+      0,
+      0,
+      925 * this.timerEvents[0].getProgress(),
+      8
+    );
+
+    //-------------------------------------------------------------------------------------------------------
   }
 }
 
