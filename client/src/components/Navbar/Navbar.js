@@ -46,9 +46,14 @@ const Navbar = () => {
           <div className="nav-wrapper">
             <ul id="nav-mobile" className="right nav-ul">
               <li className="nav-ul__li">
-                <NavLink onClick={closePlayer} to="">
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={closePlayer}
+                  className="player-cross-btn"
+                >
                   <img className="cross" src={cross} alt="cross" />
-                </NavLink>
+                </div>
               </li>
               <li className="nav-ul__li music" />
               <li className="nav-ul__li">

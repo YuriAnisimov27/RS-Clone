@@ -1,5 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
+import Loader from "../Loader/Loader";
+import SettingsPage from "../../pages/SettingPage/SettingsPage";
 import App from "./App";
 
 test("adds 1 + 2 to equal 3", () => {
@@ -33,10 +36,23 @@ test("testing react-test-renderer", () => {
   ]);
 });
 
+describe("Testing <Loader/>", () => {
+  it("Loader have rendered correctly", () => {
+    const element = renderer.create(<Loader />).toJSON();
+    expect(element).toMatchSnapshot();
+  });
+});
+
+describe("Testing <SettingsPage/>", () => {
+  it("SettingsPage have rendered correctly", () => {
+    const element = renderer.create(<SettingsPage />).toJSON();
+    expect(element).toMatchSnapshot();
+  });
+});
+
 describe("Testing <App/>", () => {
   it("App have rendered correctly", () => {
-    const element = renderer.create(<App />).toJSON();
-
+    const element = shallow(<App />);
     expect(element).toMatchSnapshot();
   });
 });

@@ -3,6 +3,10 @@ body {
   background-size: cover;
   height: 100vh !important;
 }
+.runner-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 
 .container {
   width: 100% !important;
@@ -47,7 +51,8 @@ h1 {
 .auth-card {
   width: 50%;
   position: absolute;
-  top: 115px;
+  top: 15%;
+  min-width: 320px;
 }
 
 .card-title {
@@ -258,5 +263,8 @@ h1 {
 @media (max-height: 600px) {
   .content {
     height: 230px;
+  }
+  .auth-card {
+    top: 5%;
   }
 }

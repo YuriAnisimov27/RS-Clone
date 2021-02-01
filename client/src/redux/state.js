@@ -16,7 +16,7 @@ const initialState = {
     logout: "logout",
     game: "Play",
     comment: `You can also leave a review - and remember -
-     your review is very important to us`,
+     your review is very important to you`,
     footerContent: "Footer Content__EN",
     developers: "DEVELOPERS",
     kovbenya: "Alexander Kovbenya",
@@ -42,6 +42,21 @@ const initialState = {
     password: "Password",
     logIn: "LogIn",
     registration: "Registration",
+    changeBackgroundImg: "Background image",
+    changeBackgroundColor: "Background color",
+    changeFontColor: "Font color",
+    incrFontSize: "Font+",
+    decrFontSize: "Font-",
+    resetStyle: "Reset",
+    backImgMessage: `Change the background image.
+    After reloading the page, the selected background image is saved`,
+    backColorMessage: `Change the background color.
+    After reloading the page, the selected color is saved`,
+    fontColorMessage: `Change the color of the text.
+    After reloading the page, the selected color is saved`,
+    fontSizeColor: `Change the size of the text.
+    After reloading the page, the selected size is saved`,
+    fontSizeColorHotkeys: `You can use the key combination Shift + '+' and Shift + '-'`,
   },
 
   ru: {
@@ -51,7 +66,7 @@ const initialState = {
     logout: "Выход",
     game: "Игра",
     comment: `Также Вы можете оставить отзыв - и помните -
-     Ваш отзыв очень важен для нас`,
+     Ваш отзыв очень важен для вас`,
     footerContent: "Футер контент__",
     developers: "РАЗРАБОТЧИКИ",
     kovbenya: "Александр Ковбеня",
@@ -76,6 +91,21 @@ const initialState = {
     password: "Пароль",
     logIn: "Логин",
     registration: "Регистрация",
+    changeBackgroundImg: "Фоновое изображение",
+    changeBackgroundColor: "Цвет фона",
+    changeFontColor: "Цвет шрифта",
+    incrFontSize: "Шрифт+",
+    decrFontSize: "Шрифт-",
+    resetStyle: "Сброс",
+    backImgMessage: `Изменение фонового изображения. 
+    После перезагрузки страницы выбранное фоновое изображение сохраняется.`,
+    backColorMessage: `Изменение цвета фона. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontColorMessage: `Изменение цвета текста. 
+    После перезагрузки страницы выбранный цвет сохраняется`,
+    fontSizeColor: `Изменение размера текста. 
+    После перезагрузки страницы выбранный размер сохраняется`,
+    fontSizeColorHotkeys: `Вы можете использовать комбинацию клавиш Shift+'+' и Shift+'-'`,
   },
 
   bel: {
@@ -85,7 +115,7 @@ const initialState = {
     logout: "Выхад",
     game: "Гульня",
     comment: `Таксама Вы можаце пакінуць водгук - і памятайце -
-     Ваш водгук вельмі важны для нас`,
+     Ваш водгук вельмі важны для вас`,
     footerContent: "Футэр контэнт",
     developers: "РАСПРАЦОУНIКI",
     kovbenya: "Аляксандр Каўбеня",
@@ -110,6 +140,21 @@ const initialState = {
     password: "Пароль",
     logIn: "Логiн",
     registration: "Рэгістрацыя",
+    changeBackgroundImg: "Фонавы малюнак",
+    changeBackgroundColor: "Колер фону",
+    changeFontColor: "Колер шрыфта",
+    incrFontSize: "Шрыфт+",
+    decrFontSize: "Шрыфт-",
+    resetStyle: "Скід",
+    backImgMessage: `Змена фонавага малюнка.
+    Пасля перазагрузкі старонкі абранае фонавы малюнак захоўваецца`,
+    backColorMessage: `Змяненне колеру фону.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontColorMessage: `Змяненне колеру тэксту.
+    Пасля перазагрузкі старонкі абраны колер захоўваецца`,
+    fontSizeColor: `Змена памеру тэксту.
+    Пасля перазагрузкі старонкі абраны памер захоўваецца`,
+    fontSizeColorHotkeys: `Вы можаце выкарыстоўваць камбінацыю клавіш Shift + '+' і Shift + '-'`,
   },
 };
 
