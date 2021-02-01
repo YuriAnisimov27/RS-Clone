@@ -5,6 +5,7 @@ import Boot from "../../game/Boot";
 import PlayGame from "../../game/PlayGame";
 import PreloadGame from "../../game/Preloader";
 import MainMenu from "../../game/MainMenu";
+import SettingsMenu from "../../game/SettingsMenu";
 
 const GamePage = () => {
   useEffect(() => {
@@ -14,7 +15,7 @@ const GamePage = () => {
       width: 950,
       height: 400,
       parent: "game-wrapper",
-      scene: [Boot, PreloadGame, MainMenu, PlayGame],
+      scene: [Boot, PreloadGame, MainMenu, SettingsMenu, PlayGame],
       // mode: Phaser.Scale.FIT,
       backgroundColor: 0x87ceeb,
 

@@ -1,20 +1,24 @@
 import Phaser from "phaser";
 // import mainMenu from "./mainMenu";
-import platform from "./assets/images/platformRemovebgPreview.png";
+import platform from "./assets/images/platform.png";
 import dino from "./assets/images/dino.png";
 import dinoJump from "./assets/images/dinoJump.png";
-import dinoFall from "./assets/images/dinoFallandBurn-removebg-preview.png";
-import dinoFallSound from "./assets/audio/dinoFallSound.mp3";
-import coin from "./assets/images/coinSpriteRemovebgPreview.png";
+import dinoFall from "./assets/images/dinoFall.png";
+import dinoRoaringSound from "./assets/audio/dinoRoaringSound.mp3";
+import coin from "./assets/images/coinSprite.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
-import background from "./assets/images/00088750.png";
+import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
-import dinoImage from "./assets/images/green_dino.png";
 import music from "./assets/audio/music.mp3";
-import fallingSound from "./assets/audio/laugh.mp3";
+import laughSound from "./assets/audio/laugh.mp3";
 import jumpSound from "./assets/audio/jumpSound.mp3";
+import clickSound from "./assets/audio/clickSound.ogg";
+import button from "./assets/images/button.png";
+import buttonPressed from "./assets/images/buttonPressed.png";
+import backButton from "./assets/images/backButton.png";
+import backButtonPressed from "./assets/images/backButtonPressed.png";
 
 // preloadGame scene
 class PreloadGame extends Phaser.Scene {
@@ -24,15 +28,19 @@ class PreloadGame extends Phaser.Scene {
 
   preload() {
     this.load.audio("coinSound", coinSound);
-    this.load.audio("dinoFallSound", dinoFallSound);
+    this.load.audio("dinoRoaringSound", dinoRoaringSound);
     this.load.audio("music", music);
-    this.load.audio("fallingSound", fallingSound);
+    this.load.audio("laughSound", laughSound);
     this.load.audio("jumpSound", jumpSound);
+    this.load.audio("clickSound", clickSound);
 
     this.load.image("platform", platform);
     this.load.image("background", background);
     this.load.image("logo", logo);
-    this.load.image("dinoImage", dinoImage);
+    this.load.image("button", button);
+    this.load.image("buttonPressed", buttonPressed);
+    this.load.image("backButton", backButton);
+    this.load.image("backButtonPressed", backButtonPressed);
 
     // player is a sprite sheet made by 24x48 pixels
     this.load.spritesheet("player", dino, {
