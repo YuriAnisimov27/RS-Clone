@@ -24,7 +24,9 @@ class PlayGame extends Phaser.Scene {
     this.laughSound = this.sound.add("laughSound", { volume: 1.0 });
     this.coinSound = this.sound.add("coinSound", { volume: 0.5 });
     this.dinoRoaringSound = this.sound.add("dinoRoaringSound", { volume: 0.5 });
-    this.mymusic.play({ loop: true });
+    if (JSON.parse(localStorage.getItem("gameSettings")).music) {
+      this.mymusic.play({ loop: true });
+    }
 
     // add score text & game text to screen
     this.game = document.querySelector("canvas");
@@ -149,7 +151,9 @@ class PlayGame extends Phaser.Scene {
       (player, coin) => {
         this.score += 1;
         this.scoreText.setText(`score: ${this.score}`);
-        this.coinSound.play();
+        if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
+          this.coinSound.play();
+        }
         if (this.score > this.recordScore) {
           localStorage.setItem("recordScore", this.score);
           this.recordScoreText.setText(`record: ${this.score}`);
@@ -180,7 +184,9 @@ class PlayGame extends Phaser.Scene {
       () => {
         this.dying = true;
         this.player.anims.stop();
-        this.dinoRoaringSound.play();
+        if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
+          this.dinoRoaringSound.play();
+        }
         // this.player.setFrame(2);
         this.player.anims.play("fall");
         this.player.body.setVelocityY(-50);
@@ -320,7 +326,9 @@ class PlayGame extends Phaser.Scene {
       // stops animation
       this.player.anims.stop();
       this.player.anims.play("jump");
-      this.jumpSound.play();
+      if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
+        this.jumpSound.play();
+      }
     }
   }
 
@@ -329,7 +337,9 @@ class PlayGame extends Phaser.Scene {
     if (this.player.y > gameConfig.height) {
       this.scene.start("MainMenu");
       this.mymusic.stop();
-      this.laughSound.play();
+      if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
+        this.laughSound.play();
+      }
     }
 
     this.player.x = GameOptions.playerStartPosition;

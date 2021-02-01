@@ -15,6 +15,11 @@ import dinoImage from "./assets/images/green_dino.png";
 import music from "./assets/audio/music.mp3";
 import laughSound from "./assets/audio/laugh.mp3";
 import jumpSound from "./assets/audio/jumpSound.mp3";
+import clickSound from "./assets/audio/clickSound.ogg";
+import button from "./assets/images/button.png";
+import buttonPressed from "./assets/images/buttonPressed.png";
+import backButton from "./assets/images/backButton.png";
+import backButtonPressed from "./assets/images/backButtonPressed.png";
 
 // preloadGame scene
 class PreloadGame extends Phaser.Scene {
@@ -28,11 +33,16 @@ class PreloadGame extends Phaser.Scene {
     this.load.audio("music", music);
     this.load.audio("laughSound", laughSound);
     this.load.audio("jumpSound", jumpSound);
+    this.load.audio("clickSound", clickSound);
 
     this.load.image("platform", platform);
     this.load.image("background", background);
     this.load.image("logo", logo);
     this.load.image("dinoImage", dinoImage);
+    this.load.image("button", button);
+    this.load.image("buttonPressed", buttonPressed);
+    this.load.image("backButton", backButton);
+    this.load.image("backButtonPressed", backButtonPressed);
 
     // player is a sprite sheet made by 24x48 pixels
     this.load.spritesheet("player", dino, {
