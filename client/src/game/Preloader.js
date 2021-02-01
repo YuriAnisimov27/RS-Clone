@@ -1,19 +1,19 @@
 import Phaser from "phaser";
 // import mainMenu from "./mainMenu";
-import platform from "./assets/images/platformRemovebgPreview.png";
+import platform from "./assets/images/platform.png";
 import dino from "./assets/images/dino.png";
 import dinoJump from "./assets/images/dinoJump.png";
-import dinoFall from "./assets/images/dinoFallandBurn-removebg-preview.png";
-import dinoFallSound from "./assets/audio/dinoFallSound.mp3";
-import coin from "./assets/images/coinSpriteRemovebgPreview.png";
+import dinoFall from "./assets/images/dinoFall.png";
+import dinoRoaringSound from "./assets/audio/dinoRoaringSound.mp3";
+import coin from "./assets/images/coinSprite.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
-import background from "./assets/images/00088750.png";
+import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
 import dinoImage from "./assets/images/green_dino.png";
 import music from "./assets/audio/music.mp3";
-import fallingSound from "./assets/audio/laugh.mp3";
+import laughSound from "./assets/audio/laugh.mp3";
 import jumpSound from "./assets/audio/jumpSound.mp3";
 
 // preloadGame scene
@@ -24,9 +24,9 @@ class PreloadGame extends Phaser.Scene {
 
   preload() {
     this.load.audio("coinSound", coinSound);
-    this.load.audio("dinoFallSound", dinoFallSound);
+    this.load.audio("dinoRoaringSound", dinoRoaringSound);
     this.load.audio("music", music);
-    this.load.audio("fallingSound", fallingSound);
+    this.load.audio("laughSound", laughSound);
     this.load.audio("jumpSound", jumpSound);
 
     this.load.image("platform", platform);

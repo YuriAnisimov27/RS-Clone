@@ -19,9 +19,11 @@ class PlayGame extends Phaser.Scene {
   }
 
   create() {
-    this.mymusic = this.sound.add("music");
-    this.jumpSound = this.sound.add("jumpSound");
-    this.fallingSound = this.sound.add("fallingSound");
+    this.mymusic = this.sound.add("music", { volume: 0.5 });
+    this.jumpSound = this.sound.add("jumpSound", { volume: 0.5 });
+    this.laughSound = this.sound.add("laughSound", { volume: 1.0 });
+    this.coinSound = this.sound.add("coinSound", { volume: 0.5 });
+    this.dinoRoaringSound = this.sound.add("dinoRoaringSound", { volume: 0.5 });
     this.mymusic.play({ loop: true });
 
     // add score text & game text to screen
@@ -147,7 +149,7 @@ class PlayGame extends Phaser.Scene {
       (player, coin) => {
         this.score += 1;
         this.scoreText.setText(`score: ${this.score}`);
-        this.sound.play("coinSound");
+        this.coinSound.play();
         if (this.score > this.recordScore) {
           localStorage.setItem("recordScore", this.score);
           this.recordScoreText.setText(`record: ${this.score}`);
@@ -178,7 +180,7 @@ class PlayGame extends Phaser.Scene {
       () => {
         this.dying = true;
         this.player.anims.stop();
-        this.sound.play("dinoFallSound");
+        this.dinoRoaringSound.play();
         // this.player.setFrame(2);
         this.player.anims.play("fall");
         this.player.body.setVelocityY(-50);
@@ -327,7 +329,7 @@ class PlayGame extends Phaser.Scene {
     if (this.player.y > gameConfig.height) {
       this.scene.start("MainMenu");
       this.mymusic.stop();
-      this.fallingSound.play();
+      this.laughSound.play();
     }
 
     this.player.x = GameOptions.playerStartPosition;
