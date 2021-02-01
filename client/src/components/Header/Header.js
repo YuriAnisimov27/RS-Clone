@@ -14,7 +14,7 @@ const Header = () => (
           <div className="logoimg-container">
             <img className="logo-img" src={logo} alt="logo" />
           </div>
-          <h1 className="game-name"> Game </h1>
+          <h1 className="game-name"> Dino Race </h1>
         </div>
         <div className="languages">
           <ul className="languages-selector-ul">

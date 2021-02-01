@@ -19,6 +19,7 @@ input:hover {
   display: flex;
   flex-flow: column;
   align-items: center;
+  min-width: 100px;
 }
 
 .settings-container {
