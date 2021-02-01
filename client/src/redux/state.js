@@ -26,7 +26,7 @@ const initialState = {
     send: "send",
     donationText: `We are pleased that you have pressed this button.
      If you really want to donate use this link.`,
-    donationInfo: "our details: +379(**)***-**-**",
+    donationInfo: "our details: rsclone.dino.2021.supp0rt@yandex.by",
     hello: "Hello!",
     signIn: "Sign in",
     about: "About",
@@ -76,7 +76,7 @@ const initialState = {
     send: "Отправить",
     donationText: `Мы рады, что вы нажали эту кнопку.
      Если вы действительно хотите сделать пожертвование, воспользуйтесь этой ссылкой.`,
-    donationInfo: "Наши реквизиты: +379(**)***-**-**",
+    donationInfo: "Наши реквизиты: rsclone.dino.2021.supp0rt@yandex.by",
     hello: "Привет!",
     signIn: "Войти",
     about: "Информация",
@@ -125,7 +125,7 @@ const initialState = {
     send: "адправіць",
     donationText: `Мы рады, што вы націснулі гэтую кнопку.
      Калі вы сапраўды хочаце зрабіць ахвяраванне, скарыстайцеся гэтай спасылкай.`,
-    donationInfo: "Нашы рэквізіты: +379(**)***-**-**",
+    donationInfo: "Нашы рэквізіты: rsclone.dino.2021.supp0rt@yandex.by",
     hello: "Прывітанне!",
     signIn: "Увайсці",
     about: "Iнфармацыя",
