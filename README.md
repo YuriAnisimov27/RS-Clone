@@ -129,11 +129,12 @@ The main task of the server part is to process server requests - REST API and st
 
 Yes, one of the main and obvious server-client relationships is storing and receiving user data. 
 And then we did this:
-- we use email as login. and validate it. this introduces some limitations but ensures that the user does not create a 
+- we use email as login. And validate it. this introduces some limitations but ensures that the user does not create a 
   login like 1234567 or login or something like that.
 - it's easier with a password - one requirement! the length limit is 6 characters. any symbols are allowed.
-- after checking the data, we send them to the server, where the password is encrypted and saved to the database. super! now such a user exists. now you can log in)
-  PS: don't worry if you enter something wrong. the hint will not be long in coming. wrong login, short password, 
+- after checking the data, we send them to the server, where the password is encrypted and saved to the database. Super! 
+  Now such a user exists. now you can log in)
+  PS: don't worry if you enter something wrong. The hint will not be long in coming. Wrong login, short password, 
   registration of a user under an email that is already registered and much more is already provided. In addition, 
   the whole process of work from entering data to deleting data from the database is covered by tests. See for yourself:
   
@@ -145,15 +146,42 @@ see next:
 
 Well, of course, registration is not the most interesting thing in the application (although if you want to get to the interesting, 
 then registration will still have to go through) inside - an improved version of the game and the ability to customize the application. 
-Initially, you have a good old google dinosaur, a player and a choice of language. after registration, you can go deeper into 
-customization and all this will not be lost after restarting the application. And of course our tips will come to you)
+Initially, you have a good old google dinosaur, a player and a choice of language. After registration, you can go deeper into 
+customization and all this will not be lost after restarting the application. And of course our tips will come to help you)
 
 4. MVC
 
 ![mvc](client/src/assets/readme/MVC.png)
 
-this is the most interesting. technical aspects of implementation. Of course, the coolest thing is a game, but it is 
-encapsulated and embedded in the general application system and is nothing more than just a block. smart interesting 
-funny block. but how does it work?
+This is the most interesting. Technical aspects of implementation. Of course, the coolest thing is a game, but it is 
+encapsulated and embedded in the general application system and is nothing more than just a block. Smart interesting 
+funny block. But how does it work?
 
 <hr/>
+
+If at this stage I start talking about the technologies, libraries and frameworks that we have used, then I am almost 
+100% sure that you will start scrolling down the page with the hope that there might be something interesting there. 
+I will not load you with boring dry information that you can easily find on Google. But if you're interested, links and 
+descriptions of dependencies are in the attached file above.
+I'll do it a little differently. I'll tell you how we did what we did.
+
+### Episode 1. Does anyone have any idea how we can do all this?
+
+We are 4 people in development. but we are not completely strangers. two had previously done one COVID19 project and 
+two another. but there the level and complexity of the application was completely different. In general, of course, 
+we started with an acquaintance. We told about ourselves about the technologies that we can help the project and how we 
+generally imagine what should turn out
+
+We started by adding tasks to JIRA and made a small layout:
+
+![layout](client/src/assets/readme/UserFlow.png)
+
+The plan was this:
+1. There will be a name for the game (which still does not exist)
+2. For some reason there will be registration
+3. There will be a game
+4. We will win
+
+### Episode 2. Details
+
+
