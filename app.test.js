@@ -13,11 +13,33 @@ describe('test registration user', () => {
       .end(done);
   }));
 
-  test('should return Error with Invalid Email', () => new Promise((done) => {
+  test('should return Error with Invalid Email (no @ in email)', () => new Promise((done) => {
     request(app)
       .post('/api/auth/register')
       .send({
         email: 'user',
+        password: 123456,
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error with Invalid Email (no . in email)', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/register')
+      .send({
+        email: 'user@user',
+        password: 123456,
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error with Invalid Email (space in email)', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/register')
+      .send({
+        email: 'user@us er.user',
         password: 123456,
       })
       .expect(400)
@@ -30,6 +52,16 @@ describe('test registration user', () => {
       .send({
         email: 'user@user.user',
         password: 12345,
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error with No Password', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/register')
+      .send({
+        email: 'user@user.user',
       })
       .expect(400)
       .end(done);
@@ -70,11 +102,33 @@ describe('test login user', () => {
       .end(done);
   }));
 
-  test('should return Error with Invalid Email', () => new Promise((done) => {
+  test('should return Error with Invalid Email (no @ in email)', () => new Promise((done) => {
     request(app)
       .post('/api/auth/login')
       .send({
         email: 'user',
+        password: 'password',
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error with Invalid Email (no . in email)', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user@user',
+        password: 'password',
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error with Invalid Email (use UpperCase except LowerCase)', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'User@user.user',
         password: 'password',
       })
       .expect(400)
@@ -97,6 +151,28 @@ describe('test login user', () => {
       .post('/api/auth/login')
       .send({
         email: 'user@user.user',
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error for Wrong Password', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user@user.user',
+        password: 'pasword',
+      })
+      .expect(400)
+      .end(done);
+  }));
+
+  test('should return Error for Wrong Password (use UpperCase except LowerCase)', () => new Promise((done) => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'user@user.user',
+        password: 'PASSWORD',
       })
       .expect(400)
       .end(done);
