@@ -79,13 +79,30 @@ export const backgroundOnChangeHandler = (e) => {
 };
 
 export const textColorOnChangeHandler = (e) => {
-  const allLinks = document.querySelectorAll("a");
   const colorPicker = e.target;
   const newColor = colorPicker.value;
+
   document.body.style.color = newColor;
-  allLinks.forEach((item) => {
-    item.style.color = newColor;
+
+  document.querySelectorAll(`p`).forEach(item => {
+    const p = item;
+    p.style.color = newColor;
+  })
+
+  document.querySelectorAll(`.input-name`).forEach(item => {
+    const p = item;
+    p.style.color = newColor;
+    p.style.setProperty("color", newColor, "important")
+  })
+
+  document.querySelectorAll("a").forEach((item) => {
+    item.style.setProperty("color", newColor, "important")
   });
+
+  document.querySelectorAll(`button`).forEach(item => {
+    const button = item;
+    button.style.setProperty("color", newColor, "important")
+  })
   storage("customTextColor", newColor);
 };
 
