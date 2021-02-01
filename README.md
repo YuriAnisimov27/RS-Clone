@@ -184,4 +184,56 @@ The plan was this:
 
 ### Episode 2. Details
 
+Considering all the requirements, we decided to use React. The ideal SPA solution. But we did not start with him. 
+We started by creating a structure for the server side of the application. So. We only know JavaScript. It is logical 
+to use technologies using this language - NODE.js and Mongodb. Excellent. Here we are developing MERN applications
 
+### Episode 3. Server
+
+Express helped a lot. Express's excellent documentation and uncomplicated organization helped to set up REST. 
+mongoose helped make a schema for the database collection and connect it to the server. Once again, Express's excellent 
+documentation helped set up the registration system. express-validator, jsonwebtoken and bcryptjs - these libraries we 
+used for data validation and encryption. Don't worry, nobody will know your secrets)). As you can see, the encrypted 
+password is stored in the database and even we cannot find out
+
+![mongodb account](client/src/assets/readme/mongodbAccount.png)
+
+It remains only to add that with the help of jest and supertest we covered all requests to Mongodb tests.
+
+### Episode 4. Client
+
+Let's go more fun) I wanted to get some kind of UI and see something other than the code. But it's not that simple. 
+The server was using localhost: 5000 and the client was localhost: 5000 and needed to somehow get them to work together. 
+And of course libraries came to the rescue again. concurrently from the server and setting up the proxy from the 
+client and you're done! By this time, the design was ready:
+
+![figma](client/src/assets/readme/figma.png)
+
+[Link to Figma](https://www.figma.com/file/pqHW72fHEJr5O7Q4lG5uQK/Logo?node-id=0%3A1)
+
+Now, of course, a lot is different. But we hope that it only got better)
+
+And the work began to boil. By that time, everyone already knew their roles. The beauty of the application was 
+supported by materialize-css. The logic is redux and react-redux. Well, so that it was a full-fledged SPA - react, 
+react-dom, react-router-dom.
+
+### Episode 5. Finishing touch
+
+The application received an interesting appearance, musical accompaniment and attracted the user to register. 
+By the way, in addition to registration, authentication is available (configured with react-google-login). 
+After registration, an updated version of the game and custom settings are available. The MVC pattern helped to implement 
+them, where logic is redux and visualization is react.
+
+### Episode 6. The Game
+
+And last but not least - the Game! React has already been. So the engine for the game needed exactly the one that was 
+ready to interact with the react - phaser. We chose him and did not regret it! There were some nuances in adapting the 
+application. After all, in addition to it, we also worked with materialize-css. We have to look for the optimal solution. 
+Our react is on hooks. We chose them instead of class components. And it was hooks that helped us with solving many 
+problems associated with integration.
+
+### Episode 7. Thanks
+
+This application is a good experience for us - team development is a completely different level. Here you are not alone)
+We hope our application will seem interesting to you and you will not regret the time spent on it, or maybe our experience 
+will help you in the future. Good luck and thanks for reading to the end)
