@@ -11,7 +11,6 @@ import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
 import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
-import dinoImage from "./assets/images/green_dino.png";
 import music from "./assets/audio/music.mp3";
 import laughSound from "./assets/audio/laugh.mp3";
 import jumpSound from "./assets/audio/jumpSound.mp3";
@@ -38,7 +37,6 @@ class PreloadGame extends Phaser.Scene {
     this.load.image("platform", platform);
     this.load.image("background", background);
     this.load.image("logo", logo);
-    this.load.image("dinoImage", dinoImage);
     this.load.image("button", button);
     this.load.image("buttonPressed", buttonPressed);
     this.load.image("backButton", backButton);
