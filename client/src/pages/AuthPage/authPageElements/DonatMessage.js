@@ -49,7 +49,7 @@ const DonatMessage = ({ active, setActive }) => {
           </div>
           <NavLink
             className="shadow"
-            to="/settings"
+            to=""
             style={active ? { display: "block" } : { display: "none" }}
             onClick={() => {
               setActive(false);
