@@ -3,6 +3,8 @@ const gameOptions = {
   platformSpeedRange: [300, 300],
   // mountain speed, in pixels per second
   mountainSpeed: 50,
+  // mountain speed, in pixels per second
+  cloudsSpeed: 50,
   // spawn range, how far should be the rightmost platform from the right edge
   // before next platform spawns, in pixels
   spawnRange: [80, 300],

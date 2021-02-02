@@ -9,10 +9,13 @@ import coin from "./assets/images/coinSprite.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
+import clouds from "./assets/images/Level2/clouds.png";
 import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
 import music from "./assets/audio/music.mp3";
+import musicLevel2 from "./assets/audio/musicLevel2.mp3";
 import laughSound from "./assets/audio/laugh.mp3";
+import gameOverSound from "./assets/audio/gameOverSound.ogg";
 import jumpSound from "./assets/audio/jumpSound.mp3";
 import clickSound from "./assets/audio/clickSound.ogg";
 import button from "./assets/images/button.png";
@@ -30,9 +33,11 @@ class PreloadGame extends Phaser.Scene {
     this.load.audio("coinSound", coinSound);
     this.load.audio("dinoRoaringSound", dinoRoaringSound);
     this.load.audio("music", music);
+    this.load.audio("musicLevel2", musicLevel2);
     this.load.audio("laughSound", laughSound);
     this.load.audio("jumpSound", jumpSound);
     this.load.audio("clickSound", clickSound);
+    this.load.audio("gameOverSound", gameOverSound);
 
     this.load.image("platform", platform);
     this.load.image("background", background);
@@ -74,6 +79,12 @@ class PreloadGame extends Phaser.Scene {
     this.load.spritesheet("mountain", mountain, {
       frameWidth: 512,
       frameHeight: 512,
+    });
+
+    // clouds are a sprite sheet made by 512x512 pixels
+    this.load.spritesheet("clouds", clouds, {
+      frameWidth: 242,
+      frameHeight: 128,
     });
   }
 
