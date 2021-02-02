@@ -201,7 +201,7 @@ class PlayGame extends Phaser.Scene {
 
     this.timerEvents.push(
       this.time.addEvent({
-        delay: 10000,
+        delay: 5000,
         loop: false,
       })
     );
@@ -466,8 +466,9 @@ class PlayGame extends Phaser.Scene {
     );
 
     if (this.passingPercentage === 100) {
+      localStorage.setItem("isGameFinish", "false");
       localStorage.setItem("currentScore", this.score);
-      this.scene.start("Level2");
+      this.scene.start("Legend");
       this.mymusic.stop();
     }
     //-------------------------------------------------------------------------------------------------------

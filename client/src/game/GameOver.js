@@ -50,14 +50,14 @@ class SettingsMenu extends Phaser.Scene {
     };
 
     this.add.text(
-      300,
+      290,
       150,
       `Your score: ${localStorage.getItem("currentScore", this.score) || 0}`,
       scoreStyle
     );
 
     this.add.text(
-      300,
+      290,
       200,
       `High Score: ${localStorage.getItem("recordScore") || 0}`,
       scoreStyle

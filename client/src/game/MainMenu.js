@@ -6,7 +6,7 @@ class MainMenu extends Phaser.Scene {
   }
 
   create() {
-    // localStorage.setItem("legend", "beforeLevel1");
+    localStorage.setItem("isGameFinish", "false");
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
 
     const backgroundImage = this.add.image(400, 300, "background");

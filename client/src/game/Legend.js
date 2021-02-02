@@ -7,12 +7,12 @@ class SettingsMenu extends Phaser.Scene {
 
   create() {
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
-    this.gameOverSound = this.sound.add("gameOverSound", { volume: 1.0 });
-    this.gameOverSound.play();
+    this.victory = this.sound.add("victory", { volume: 1.0 });
+    this.victory.play();
 
-    const gameOverStyle = {
+    const congratulationStyle = {
       fontFamily: "Arial",
-      fontSize: 100,
+      fontSize: 80,
       color: "#ffffff",
       fontStyle: "bold",
       padding: 16,
@@ -25,10 +25,15 @@ class SettingsMenu extends Phaser.Scene {
       },
     };
 
-    const gameOverText = this.add.text(200, -100, `Game Over`, gameOverStyle);
+    const congratulationText = this.add.text(
+      100,
+      -100,
+      `Congratulations!!!`,
+      congratulationStyle
+    );
 
     this.tweens.add({
-      targets: gameOverText,
+      targets: congratulationText,
       y: 20,
       ease: "bounce.out",
       duration: 1200,
@@ -50,32 +55,30 @@ class SettingsMenu extends Phaser.Scene {
     };
 
     this.add.text(
-      300,
+      280,
       150,
       `Your score: ${localStorage.getItem("currentScore", this.score) || 0}`,
       scoreStyle
     );
 
     this.add.text(
-      300,
+      280,
       200,
       `High Score: ${localStorage.getItem("recordScore") || 0}`,
       scoreStyle
     );
 
-    // this.tweens.add({
-    //   targets: settingsLegend,
-    //   y: 150,
-    //   ease: "bounce.out",
-    //   duration: 1200,
-    // });
-
     const button = this.add.image(475, 320, "button").setInteractive();
     button.scale = 0.2;
-    const buttonText = this.add.text(0, 0, "Main menu", {
-      fontSize: "28px",
-      color: "#000000",
-    });
+    const buttonText = this.add.text(
+      0,
+      0,
+      localStorage.getItem("isGameFinish") === "true" ? "MainMenu" : "Level 2",
+      {
+        fontSize: "28px",
+        color: "#000000",
+      }
+    );
     Phaser.Display.Align.In.Center(buttonText, button);
 
     button
@@ -85,7 +88,11 @@ class SettingsMenu extends Phaser.Scene {
       })
       .on("pointerup", () => {
         button.setTexture("button");
-        this.scene.start("MainMenu");
+        if (localStorage.getItem("isGameFinish") === "true") {
+          this.scene.start("MainMenu");
+        } else {
+          this.scene.start("Level2");
+        }
       });
   }
 }

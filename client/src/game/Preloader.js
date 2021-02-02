@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-// import mainMenu from "./mainMenu";
 import platform from "./assets/images/platform.png";
 import dino from "./assets/images/dino.png";
 import dinoJump from "./assets/images/dinoJump.png";
@@ -9,11 +8,12 @@ import coin from "./assets/images/coinSprite.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
-import clouds from "./assets/images/Level2/clouds.png";
+import clouds from "./assets/images/clouds.png";
 import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
 import music from "./assets/audio/music.mp3";
 import musicLevel2 from "./assets/audio/musicLevel2.mp3";
+import victory from "./assets/audio/victory.ogg";
 import laughSound from "./assets/audio/laugh.mp3";
 import gameOverSound from "./assets/audio/gameOverSound.ogg";
 import jumpSound from "./assets/audio/jumpSound.mp3";
@@ -38,6 +38,7 @@ class PreloadGame extends Phaser.Scene {
     this.load.audio("jumpSound", jumpSound);
     this.load.audio("clickSound", clickSound);
     this.load.audio("gameOverSound", gameOverSound);
+    this.load.audio("victory", victory);
 
     this.load.image("platform", platform);
     this.load.image("background", background);
