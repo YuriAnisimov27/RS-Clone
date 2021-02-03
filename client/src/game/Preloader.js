@@ -1,18 +1,23 @@
 import Phaser from "phaser";
-// import mainMenu from "./mainMenu";
 import platform from "./assets/images/platform.png";
 import dino from "./assets/images/dino.png";
+import pterodactyl from "./assets/images/pterodactyl.png";
 import dinoJump from "./assets/images/dinoJump.png";
+import dinoBurn from "./assets/images/dinoBurn.png";
 import dinoFall from "./assets/images/dinoFall.png";
 import dinoRoaringSound from "./assets/audio/dinoRoaringSound.mp3";
 import coin from "./assets/images/coinSprite.png";
 import coinSound from "./assets/audio/p-ping.mp3";
 import fire from "./assets/images/fire.png";
 import mountain from "./assets/images/mountain.png";
+import clouds from "./assets/images/clouds.png";
 import background from "./assets/images/background.png";
 import logo from "./assets/images/jurassicworldlogo.png";
 import music from "./assets/audio/music.mp3";
+import musicLevel2 from "./assets/audio/musicLevel2.mp3";
+import victory from "./assets/audio/victory.ogg";
 import laughSound from "./assets/audio/laugh.mp3";
+import gameOverSound from "./assets/audio/gameOverSound.ogg";
 import jumpSound from "./assets/audio/jumpSound.mp3";
 import clickSound from "./assets/audio/clickSound.ogg";
 import button from "./assets/images/button.png";
@@ -30,9 +35,12 @@ class PreloadGame extends Phaser.Scene {
     this.load.audio("coinSound", coinSound);
     this.load.audio("dinoRoaringSound", dinoRoaringSound);
     this.load.audio("music", music);
+    this.load.audio("musicLevel2", musicLevel2);
     this.load.audio("laughSound", laughSound);
     this.load.audio("jumpSound", jumpSound);
     this.load.audio("clickSound", clickSound);
+    this.load.audio("gameOverSound", gameOverSound);
+    this.load.audio("victory", victory);
 
     this.load.image("platform", platform);
     this.load.image("background", background);
@@ -48,9 +56,19 @@ class PreloadGame extends Phaser.Scene {
       frameHeight: 93,
     });
 
+    this.load.spritesheet("pterodactyl", pterodactyl, {
+      frameWidth: 130,
+      frameHeight: 100,
+    });
+
     this.load.spritesheet("jump", dinoJump, {
       frameWidth: 100,
       frameHeight: 93,
+    });
+
+    this.load.spritesheet("burn", dinoBurn, {
+      frameWidth: 110,
+      frameHeight: 102,
     });
 
     this.load.spritesheet("fall", dinoFall, {
@@ -75,6 +93,12 @@ class PreloadGame extends Phaser.Scene {
       frameWidth: 512,
       frameHeight: 512,
     });
+
+    // clouds are a sprite sheet made by 512x512 pixels
+    this.load.spritesheet("clouds", clouds, {
+      frameWidth: 242,
+      frameHeight: 128,
+    });
   }
 
   create() {
@@ -90,12 +114,32 @@ class PreloadGame extends Phaser.Scene {
     });
 
     this.anims.create({
+      key: "fly",
+      frames: this.anims.generateFrameNumbers("pterodactyl", {
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 16,
+      repeat: -1,
+    });
+
+    this.anims.create({
       key: "jump",
       frames: this.anims.generateFrameNumbers("jump", {
         start: 0,
         end: 12,
       }),
       frameRate: 20,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: "burn",
+      frames: this.anims.generateFrameNumbers("burn", {
+        start: 0,
+        end: 5,
+      }),
+      frameRate: 10,
       repeat: 0,
     });
 
@@ -123,7 +167,7 @@ class PreloadGame extends Phaser.Scene {
 
     // setting fire animation
     this.anims.create({
-      key: "burn",
+      key: "fire",
       frames: this.anims.generateFrameNumbers("fire", {
         start: 0,
         end: 3,

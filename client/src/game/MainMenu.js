@@ -6,6 +6,7 @@ class MainMenu extends Phaser.Scene {
   }
 
   create() {
+    localStorage.setItem("isGameFinish", "false");
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
 
     const backgroundImage = this.add.image(400, 300, "background");
@@ -72,7 +73,7 @@ class MainMenu extends Phaser.Scene {
         this.clickSound.play();
       })
       .on("pointerup", () => {
-        this.scene.start("PlayGame");
+        this.scene.start("Level1");
       });
 
     // const dinoImage = this.add.image(700, 250, "dinoImage");

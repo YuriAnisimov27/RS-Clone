@@ -5,21 +5,17 @@ import gameConfig from "./GameConfig";
 // PlayGame scene
 class PlayGame extends Phaser.Scene {
   constructor() {
-    super("PlayGame");
+    super("Level2");
   }
 
   init() {
     // game variables
-    this.score = 0;
+    this.score = +localStorage.getItem("currentScore");
     this.recordScore = localStorage.getItem("recordScore") || 0;
-    // this.speed= 1.5;
-    // this.dragon_move = 1;
-    // this.score_text;
-    // this.lives_text;
   }
 
   create() {
-    this.mymusic = this.sound.add("music", { volume: 0.5 });
+    this.mymusic = this.sound.add("musicLevel2", { volume: 0.5 });
     this.jumpSound = this.sound.add("jumpSound", { volume: 0.5 });
     this.laughSound = this.sound.add("laughSound", { volume: 1.0 });
     this.coinSound = this.sound.add("coinSound", { volume: 0.5 });
@@ -31,27 +27,27 @@ class PlayGame extends Phaser.Scene {
     // add score text & game text to screen
     this.game = document.querySelector("canvas");
     this.scoreText = this.add.text(
-      gameConfig.width - 250,
+      gameConfig.width - 200,
       30,
       `score: ${this.score}`,
       {
-        fontSize: "32px",
-        fill: "#000000",
+        fontSize: "24px",
+        fill: "#fff",
       }
     );
 
     this.recordScoreText = this.add.text(
-      gameConfig.width - 250,
+      gameConfig.width - 200,
       60,
       `record: ${this.recordScore}`,
       {
-        fontSize: "32px",
-        fill: "#000",
+        fontSize: "24px",
+        fill: "#fff",
       }
     );
 
-    // group with all active mountains.
-    this.mountainGroup = this.add.group();
+    // group with all active Clouds.
+    this.cloudsGroup = this.add.group();
 
     // group with all active platforms.
     this.platformGroup = this.add.group({
@@ -85,24 +81,24 @@ class PlayGame extends Phaser.Scene {
       },
     });
 
-    // group with all active firecamps.
-    this.fireGroup = this.add.group({
-      // once a firecamp is removed, it's added to the pool
-      removeCallback: (fire) => {
-        fire.scene.firePool.add(fire);
+    // group with all active pterodactyl.
+    this.pterodactylGroup = this.add.group({
+      // once a pterodactyl is removed, it's added to the pool
+      removeCallback: (pterodactyl) => {
+        pterodactyl.scene.pterodactylPool.add(pterodactyl);
       },
     });
 
-    // fire pool
-    this.firePool = this.add.group({
-      // once a fire is removed from the pool, it's added to the active fire group
-      removeCallback: (fire) => {
-        fire.scene.fireGroup.add(fire);
+    // pterodactyl pool
+    this.pterodactylPool = this.add.group({
+      // once a pterodactyl is removed from the pool, it's added to the active pterodactyl group
+      removeCallback: (pterodactyl) => {
+        pterodactyl.scene.pterodactylGroup.add(pterodactyl);
       },
     });
 
-    // adding a mountain
-    this.addMountains();
+    // adding a Clouds
+    this.addClouds();
 
     // keeping track of added platforms
     this.addedPlatforms = 0;
@@ -125,6 +121,9 @@ class PlayGame extends Phaser.Scene {
     );
     this.player.setGravityY(GameOptions.playerGravity);
     this.player.setDepth(2);
+
+    // adding a Pterodactyl
+    this.addPterodactyl();
 
     // the player is not dying
     this.dying = false;
@@ -177,10 +176,10 @@ class PlayGame extends Phaser.Scene {
       this
     );
 
-    // setting collisions between the player and the fire group
+    // setting collisions between the player and the pterodactyl group
     this.physics.add.overlap(
       this.player,
-      this.fireGroup,
+      this.pterodactylGroup,
       () => {
         this.dying = true;
         this.player.anims.stop();
@@ -198,35 +197,92 @@ class PlayGame extends Phaser.Scene {
 
     // checking for input
     this.input.on("pointerdown", this.jump, this);
+
+    // game progress ----------------------------------------------------------------------------------------
+    this.text = this.add.text(20, 20, " ", { fontSize: "20px", fill: "#fff" });
+    this.timerEvents = [];
+
+    this.timerEvents.push(
+      this.time.addEvent({
+        delay: 60000,
+        loop: false,
+      })
+    );
+
+    this.progressLine = this.add.graphics({ x: 10, y: 10 });
+    this.fullGameLine = this.add.graphics({ x: 10, y: 10 });
+
+    this.levelText = this.add.text(20, 50, `Level 2`, {
+      fontSize: "24px",
+      fill: "#fff",
+    });
+    //-------------------------------------------------------------------------------------------------------
   }
 
-  // adding mountains
-  addMountains() {
-    const rightmostMountain = this.getRightmostMountain();
-    if (rightmostMountain < gameConfig.width * 2) {
-      const mountain = this.physics.add.sprite(
-        rightmostMountain + Phaser.Math.Between(100, 350),
-        gameConfig.height + Phaser.Math.Between(150, 400),
-        "mountain"
+  // adding Clouds
+  addClouds() {
+    const rightmostClouds = this.getRightmostClouds();
+    if (rightmostClouds < gameConfig.width * 2) {
+      const clouds = this.physics.add.sprite(
+        rightmostClouds + Phaser.Math.Between(100, 300),
+        gameConfig.height - Phaser.Math.Between(100, 300),
+        "clouds"
       );
-      mountain.setOrigin(0.5, 1);
-      mountain.body.setVelocityX(GameOptions.mountainSpeed * -1);
-      this.mountainGroup.add(mountain);
+      clouds.setOrigin(0.1, 0.1);
+      clouds.body.setVelocityX(GameOptions.cloudsSpeed * -1);
+      this.cloudsGroup.add(clouds);
       if (Phaser.Math.Between(0, 1)) {
-        mountain.setDepth(1);
+        clouds.setDepth(1);
       }
-      mountain.setFrame(Phaser.Math.Between(0, 3));
-      this.addMountains();
+      clouds.setFrame(Phaser.Math.Between(0, 7));
+      this.addClouds();
     }
   }
 
-  // getting rightmost mountain x position
-  getRightmostMountain() {
-    let rightmostMountain = -200;
-    this.mountainGroup.getChildren().forEach((mountain) => {
-      rightmostMountain = Math.max(rightmostMountain, mountain.x);
+  // getting rightmost Clouds x position
+  getRightmostClouds() {
+    let rightmostClouds = -200;
+    this.cloudsGroup.getChildren().forEach((clouds) => {
+      rightmostClouds = Math.max(rightmostClouds, clouds.x);
     });
-    return rightmostMountain;
+    return rightmostClouds;
+  }
+
+  // adding Pterodactyl
+  addPterodactyl() {
+    // const ds = ass;
+    const rightmostPterodactyl = this.getRightmostPterodactyl();
+    if (rightmostPterodactyl < gameConfig.width * 2) {
+      const pterodactyl = this.physics.add.sprite(
+        rightmostPterodactyl + Phaser.Math.Between(1000, 1500),
+        gameConfig.height - Phaser.Math.Between(50, 350),
+        "Pterodactyl"
+      );
+      pterodactyl.setOrigin(0.1, 0.1);
+      pterodactyl.body.setVelocityX(GameOptions.pterodactylSpeed * -1);
+      this.tweens.add({
+        targets: pterodactyl,
+        y: 280,
+        duration: 4000,
+        ease: "bounce.out",
+      });
+      // if (Phaser.Math.Between(0, 1)) {
+      pterodactyl.setDepth(3);
+      pterodactyl.setSize(5, 2, true);
+      // }
+      pterodactyl.anims.play("fly");
+      // this.addPterodactyl(ass);
+      this.pterodactylGroup.add(pterodactyl);
+    }
+  }
+
+  // getting rightmost Pterodactyl x position
+  getRightmostPterodactyl() {
+    let rightmostPterodactyl = -200;
+    this.pterodactylGroup.getChildren().forEach((pterodactyl) => {
+      rightmostPterodactyl = Math.max(rightmostPterodactyl, pterodactyl.x);
+    });
+    return rightmostPterodactyl;
   }
 
   // the core of the script: platform are added from the pool or created on the fly
@@ -281,32 +337,6 @@ class PlayGame extends Phaser.Scene {
           this.coinGroup.add(coin);
         }
       }
-
-      // is there a fire over the platform?
-      if (Phaser.Math.Between(1, 100) <= GameOptions.firePercent) {
-        if (this.firePool.getLength()) {
-          const fire = this.firePool.getFirst();
-          fire.x =
-            posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth);
-          fire.y = posY - 46;
-          fire.alpha = 1;
-          fire.active = true;
-          fire.visible = true;
-          this.firePool.remove(fire);
-        } else {
-          const fire = this.physics.add.sprite(
-            posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth),
-            posY - 46,
-            "fire"
-          );
-          fire.setImmovable(true);
-          fire.setVelocityX(platform.body.velocity.x);
-          fire.setSize(8, 2, true);
-          fire.anims.play("burn");
-          fire.setDepth(2);
-          this.fireGroup.add(fire);
-        }
-      }
     }
   }
 
@@ -335,11 +365,12 @@ class PlayGame extends Phaser.Scene {
   update() {
     // game over
     if (this.player.y > gameConfig.height) {
-      this.scene.start("MainMenu");
       this.mymusic.stop();
       if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
         this.laughSound.play();
       }
+      localStorage.setItem("currentScore", this.score);
+      this.scene.start("GameOver");
     }
 
     this.player.x = GameOptions.playerStartPosition;
@@ -368,24 +399,36 @@ class PlayGame extends Phaser.Scene {
       }
     }, this);
 
-    // recycling fire
-    this.fireGroup.getChildren().forEach((fire) => {
-      if (fire.x < -fire.displayWidth / 2) {
-        this.fireGroup.killAndHide(fire);
-        this.fireGroup.remove(fire);
+    // recycling Pterodactyl
+    this.pterodactylGroup.getChildren().forEach((hill) => {
+      const ass = this.player.y;
+      const pterodactyl = hill;
+      if (pterodactyl.x < -pterodactyl.displayWidth) {
+        const rightmostPterodactyl = this.getRightmostPterodactyl();
+        pterodactyl.x = rightmostPterodactyl + Phaser.Math.Between(1000, 1500);
+        pterodactyl.y = gameConfig.height - Phaser.Math.Between(50, 350);
+        pterodactyl.anims.play("fly");
+        pterodactyl.setSize(5, 2, true);
+        pterodactyl.setDepth(3);
+        this.tweens.add({
+          targets: pterodactyl,
+          y: ass,
+          duration: 4000,
+          ease: "bounce.out",
+        });
       }
     }, this);
 
-    // recycling mountains
-    this.mountainGroup.getChildren().forEach((hill) => {
-      const mountain = hill;
-      if (mountain.x < -mountain.displayWidth) {
-        const rightmostMountain = this.getRightmostMountain();
-        mountain.x = rightmostMountain + Phaser.Math.Between(100, 350);
-        mountain.y = gameConfig.height + Phaser.Math.Between(150, 400);
-        mountain.setFrame(Phaser.Math.Between(0, 3));
+    // recycling Clouds
+    this.cloudsGroup.getChildren().forEach((hill) => {
+      const clouds = hill;
+      if (clouds.x < -clouds.displayWidth) {
+        const rightmostClouds = this.getRightmostClouds();
+        clouds.x = rightmostClouds + Phaser.Math.Between(100, 300);
+        clouds.y = gameConfig.height - Phaser.Math.Between(100, 300);
+        clouds.setFrame(Phaser.Math.Between(0, 7));
         if (Phaser.Math.Between(0, 1)) {
-          mountain.setDepth(1);
+          clouds.setDepth(1);
         }
       }
     }, this);
@@ -418,6 +461,43 @@ class PlayGame extends Phaser.Scene {
         nextPlatformHeight
       );
     }
+
+    // game progress-----------------------------------------------------------------------------------------
+    const output = [];
+
+    this.progressLine.clear();
+    this.fullGameLine.clear();
+
+    this.passingPercentage = Math.round(
+      this.timerEvents[0].getProgress().toString().substr(0, 4) * 100
+    );
+
+    output.push(`progress: ${this.passingPercentage}%`);
+    this.text.setText(output);
+
+    this.fullGameLine.fillStyle("0xFFFFFF", 1);
+    this.fullGameLine.fillRect(
+      925 * this.timerEvents[0].getProgress(),
+      0,
+      925 - 925 * this.timerEvents[0].getProgress(),
+      8
+    );
+
+    this.progressLine.fillStyle("0x06799F", 1);
+    this.progressLine.fillRect(
+      0,
+      0,
+      925 * this.timerEvents[0].getProgress(),
+      8
+    );
+
+    if (this.passingPercentage === 100) {
+      localStorage.setItem("currentScore", this.score);
+      localStorage.setItem("isGameFinish", true);
+      this.scene.start("Legend");
+      this.mymusic.stop();
+    }
+    //-------------------------------------------------------------------------------------------------------
   }
 }
 
