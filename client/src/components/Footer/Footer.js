@@ -25,7 +25,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 target="_blank"
                 className="materials__link youtube"
-                href="/"
+                href="https://youtu.be/_Q-SJj0Qn3Y"
               >
                 YOUTUBE
               </a>
@@ -35,7 +35,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 target="_blank"
                 className="materials__link medium"
-                href="/"
+                href="https://lexamart1708.medium.com/dino-project-history-of-creation-2235b903f08f"
               >
                 MEDIUM
               </a>
