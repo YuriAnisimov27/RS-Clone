@@ -64,7 +64,47 @@ if (storage(`customTextColor`)) {
       button.style.setProperty("color", newColor, "important")
     })
   }
+}
 
+if (storage("footerSize") && storage("navSize")) {
+  window.onload = function () {
+    const allLinks = document.querySelectorAll("a");
+    allLinks.forEach((item) => {
+
+      if (!item.classList.contains("nav-link")) {
+        item.style.fontSize = `${storage("footerSize")}px`;
+      } else {
+        item.style.fontSize = `${storage("navSize")}px`;
+      }
+
+      if (storage(`customTextColor`)) {
+        const newColor = storage(`customTextColor`);
+
+        document.body.style.color = newColor;
+
+        document.querySelectorAll(`p`).forEach(item => {
+          const p = item;
+          p.style.color = newColor;
+        })
+
+        document.querySelectorAll(`.input-name`).forEach(item => {
+          const p = item;
+          p.style.color = newColor;
+          p.style.setProperty("color", newColor, "important")
+        })
+
+        document.querySelectorAll("a").forEach((item) => {
+          item.style.setProperty("color", newColor, "important")
+        });
+
+        document.querySelectorAll(`button`).forEach(item => {
+          const button = item;
+          button.style.setProperty("color", newColor, "important")
+        })
+      }
+
+    });
+  };
 }
 
 const arrayOfBackgrounds = [img1, img2, img3, img4, img5, img6, img7, img8];

@@ -12,6 +12,16 @@ import defaultBackground from "../../../assets/UI/background.svg";
 
 let currentFontSizeFooter = 14;
 let currentFontSizeNav = 24;
+
+
+if (storage("footerSize")) {
+  currentFontSizeFooter = storage("footerSize");
+}
+
+if (storage("navSize")) {
+  currentFontSizeNav = storage("navSize");
+}
+
 export const decreaseTextSizeHandler = () => {
   const allLinks = document.querySelectorAll("a");
   if (currentFontSizeFooter > 9) {
@@ -69,11 +79,6 @@ export const backgroundOnChangeHandler = (e) => {
   document.body.style.backgroundColor = newColor;
   const settingsBack = document.querySelector('.settings-container');
   settingsBack.style.background = newColor;
-  const dropDownElements = document.querySelectorAll(`.dropdown-li`);
-  dropDownElements.forEach(item => {
-    item.style.backgroundColor = newColor;
-  })
-
   storage("customBackgroundColor", newColor);
   localStorage.setItem("customBackgroundImg", null);
 };
