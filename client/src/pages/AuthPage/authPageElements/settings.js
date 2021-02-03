@@ -152,8 +152,27 @@ export const resetStyles = () => {
 
   document.body.style.backgroundImage = `url(${defaultBackground})`;
 
-  // storage("customTextColor", null);
-  // storage("customBackgroundColor", null);
+  document.querySelectorAll(`.input-name`).forEach(item => {
+    const p = item;
+    p.style.setProperty("color", "#000000", "important")
+  })
+
+  document.querySelectorAll("a").forEach((item) => {
+    item.style.setProperty("color", "#000000", "important")
+  });
+
+  document.querySelectorAll(`button`).forEach(item => {
+    const button = item;
+    button.style.setProperty("color", "#000000", "important")
+  })
+
+  document.querySelectorAll(`.settings-message`).forEach(item => {
+    const messageContainer = item;
+    messageContainer.querySelectorAll('p').forEach(p => {
+      p.style.setProperty("color", "white", "important")
+    })
+
+  })
 
   localStorage.setItem("customTextColor", null);
   localStorage.setItem("customBackgroundColor", null);
