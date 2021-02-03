@@ -184,7 +184,7 @@ class PlayGame extends Phaser.Scene {
           this.dinoRoaringSound.play();
         }
         // this.player.setFrame(2);
-        this.player.anims.play("fall");
+        this.player.anims.play("burn");
         this.player.body.setVelocityY(-50);
         this.physics.world.removeCollider(this.platformCollider);
       },
@@ -201,7 +201,7 @@ class PlayGame extends Phaser.Scene {
 
     this.timerEvents.push(
       this.time.addEvent({
-        delay: 5000,
+        delay: 60000,
         loop: false,
       })
     );
@@ -318,7 +318,7 @@ class PlayGame extends Phaser.Scene {
           fire.setImmovable(true);
           fire.setVelocityX(platform.body.velocity.x);
           fire.setSize(8, 2, true);
-          fire.anims.play("burn");
+          fire.anims.play("fire");
           fire.setDepth(2);
           this.fireGroup.add(fire);
         }

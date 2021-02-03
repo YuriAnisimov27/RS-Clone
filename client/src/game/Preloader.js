@@ -1,7 +1,9 @@
 import Phaser from "phaser";
 import platform from "./assets/images/platform.png";
 import dino from "./assets/images/dino.png";
+import pterodactyl from "./assets/images/pterodactyl.png";
 import dinoJump from "./assets/images/dinoJump.png";
+import dinoBurn from "./assets/images/dinoBurn.png";
 import dinoFall from "./assets/images/dinoFall.png";
 import dinoRoaringSound from "./assets/audio/dinoRoaringSound.mp3";
 import coin from "./assets/images/coinSprite.png";
@@ -54,9 +56,19 @@ class PreloadGame extends Phaser.Scene {
       frameHeight: 93,
     });
 
+    this.load.spritesheet("pterodactyl", pterodactyl, {
+      frameWidth: 130,
+      frameHeight: 100,
+    });
+
     this.load.spritesheet("jump", dinoJump, {
       frameWidth: 100,
       frameHeight: 93,
+    });
+
+    this.load.spritesheet("burn", dinoBurn, {
+      frameWidth: 110,
+      frameHeight: 102,
     });
 
     this.load.spritesheet("fall", dinoFall, {
@@ -102,12 +114,32 @@ class PreloadGame extends Phaser.Scene {
     });
 
     this.anims.create({
+      key: "fly",
+      frames: this.anims.generateFrameNumbers("pterodactyl", {
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 16,
+      repeat: -1,
+    });
+
+    this.anims.create({
       key: "jump",
       frames: this.anims.generateFrameNumbers("jump", {
         start: 0,
         end: 12,
       }),
       frameRate: 20,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: "burn",
+      frames: this.anims.generateFrameNumbers("burn", {
+        start: 0,
+        end: 5,
+      }),
+      frameRate: 10,
       repeat: 0,
     });
 
@@ -135,7 +167,7 @@ class PreloadGame extends Phaser.Scene {
 
     // setting fire animation
     this.anims.create({
-      key: "burn",
+      key: "fire",
       frames: this.anims.generateFrameNumbers("fire", {
         start: 0,
         end: 3,

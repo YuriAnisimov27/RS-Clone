@@ -97,8 +97,27 @@ class PlayGame extends Phaser.Scene {
       },
     });
 
+    // group with all active pterodactyl.
+    this.pterodactylGroup = this.add.group({
+      // once a pterodactyl is removed, it's added to the pool
+      removeCallback: (pterodactyl) => {
+        pterodactyl.scene.pterodactylPool.add(pterodactyl);
+      },
+    });
+
+    // pterodactyl pool
+    this.pterodactylPool = this.add.group({
+      // once a pterodactyl is removed from the pool, it's added to the active pterodactyl group
+      removeCallback: (pterodactyl) => {
+        pterodactyl.scene.pterodactylGroup.add(pterodactyl);
+      },
+    });
+
     // adding a Clouds
     this.addClouds();
+
+    // adding a Pterodactyl
+    this.addPterodactyl();
 
     // keeping track of added platforms
     this.addedPlatforms = 0;
@@ -184,6 +203,25 @@ class PlayGame extends Phaser.Scene {
           this.dinoRoaringSound.play();
         }
         // this.player.setFrame(2);
+        this.player.anims.play("burn");
+        this.player.body.setVelocityY(-50);
+        this.physics.world.removeCollider(this.platformCollider);
+      },
+      null,
+      this
+    );
+
+    // setting collisions between the player and the pterodactyl group
+    this.physics.add.overlap(
+      this.player,
+      this.pterodactylGroup,
+      () => {
+        this.dying = true;
+        this.player.anims.stop();
+        if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
+          this.dinoRoaringSound.play();
+        }
+        // this.player.setFrame(2);
         this.player.anims.play("fall");
         this.player.body.setVelocityY(-50);
         this.physics.world.removeCollider(this.platformCollider);
@@ -201,7 +239,7 @@ class PlayGame extends Phaser.Scene {
 
     this.timerEvents.push(
       this.time.addEvent({
-        delay: 5000,
+        delay: 60000,
         loop: false,
       })
     );
@@ -243,6 +281,36 @@ class PlayGame extends Phaser.Scene {
       rightmostClouds = Math.max(rightmostClouds, clouds.x);
     });
     return rightmostClouds;
+  }
+
+  // adding Pterodactyl
+  addPterodactyl() {
+    const rightmostPterodactyl = this.getRightmostPterodactyl();
+    if (rightmostPterodactyl < gameConfig.width * 2) {
+      const pterodactyl = this.physics.add.sprite(
+        rightmostPterodactyl + Phaser.Math.Between(1000, 2000),
+        gameConfig.height - Phaser.Math.Between(50, 350),
+        "Pterodactyl"
+      );
+      pterodactyl.setOrigin(0.1, 0.1);
+      pterodactyl.body.setVelocityX(GameOptions.pterodactylSpeed * -1);
+      this.pterodactylGroup.add(pterodactyl);
+      // if (Phaser.Math.Between(0, 1)) {
+      pterodactyl.setDepth(3);
+      pterodactyl.setSize(10, 5, true);
+      // }
+      pterodactyl.anims.play("fly");
+      this.addPterodactyl();
+    }
+  }
+
+  // getting rightmost Pterodactyl x position
+  getRightmostPterodactyl() {
+    let rightmostPterodactyl = -200;
+    this.pterodactylGroup.getChildren().forEach((pterodactyl) => {
+      rightmostPterodactyl = Math.max(rightmostPterodactyl, pterodactyl.x);
+    });
+    return rightmostPterodactyl;
   }
 
   // the core of the script: platform are added from the pool or created on the fly
@@ -318,7 +386,7 @@ class PlayGame extends Phaser.Scene {
           fire.setImmovable(true);
           fire.setVelocityX(platform.body.velocity.x);
           fire.setSize(8, 2, true);
-          fire.anims.play("burn");
+          fire.anims.play("fire");
           fire.setDepth(2);
           this.fireGroup.add(fire);
         }
@@ -390,6 +458,19 @@ class PlayGame extends Phaser.Scene {
       if (fire.x < -fire.displayWidth / 2) {
         this.fireGroup.killAndHide(fire);
         this.fireGroup.remove(fire);
+      }
+    }, this);
+
+    // recycling Pterodactyl
+    this.pterodactylGroup.getChildren().forEach((hill) => {
+      const pterodactyl = hill;
+      if (pterodactyl.x < -pterodactyl.displayWidth) {
+        const rightmostPterodactyl = this.getRightmostPterodactyl();
+        pterodactyl.x = rightmostPterodactyl + Phaser.Math.Between(1000, 2000);
+        pterodactyl.y = gameConfig.height - Phaser.Math.Between(50, 350);
+        pterodactyl.anims.play("fly");
+        pterodactyl.setSize(10, 5, true);
+        pterodactyl.setDepth(3);
       }
     }, this);
 
