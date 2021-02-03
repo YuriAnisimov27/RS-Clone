@@ -6,7 +6,7 @@ const gameOptions = {
   // clouds speed, in pixels per second
   cloudsSpeed: 50,
   // pterodactyl speed, in pixels per second
-  pterodactylSpeed: 500,
+  pterodactylSpeed: 600,
   // spawn range, how far should be the rightmost platform from the right edge
   // before next platform spawns, in pixels
   spawnRange: [80, 300],
