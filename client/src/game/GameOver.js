@@ -8,7 +8,9 @@ class SettingsMenu extends Phaser.Scene {
   create() {
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
     this.gameOverSound = this.sound.add("gameOverSound", { volume: 1.0 });
-    this.gameOverSound.play();
+    if (JSON.parse(localStorage.getItem("gameSettings")).music) {
+      this.gameOverSound.play();
+    }
 
     const gameOverStyle = {
       fontFamily: "Arial",
@@ -62,13 +64,6 @@ class SettingsMenu extends Phaser.Scene {
       `High Score: ${localStorage.getItem("recordScore") || 0}`,
       scoreStyle
     );
-
-    // this.tweens.add({
-    //   targets: settingsLegend,
-    //   y: 150,
-    //   ease: "bounce.out",
-    //   duration: 1200,
-    // });
 
     const button = this.add.image(475, 320, "button").setInteractive();
     button.scale = 0.2;

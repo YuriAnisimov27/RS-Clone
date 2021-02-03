@@ -81,22 +81,6 @@ class PlayGame extends Phaser.Scene {
       },
     });
 
-    // group with all active firecamps.
-    // this.fireGroup = this.add.group({
-    //   // once a firecamp is removed, it's added to the pool
-    //   removeCallback: (fire) => {
-    //     fire.scene.firePool.add(fire);
-    //   },
-    // });
-
-    // fire pool
-    // this.firePool = this.add.group({
-    //   // once a fire is removed from the pool, it's added to the active fire group
-    //   removeCallback: (fire) => {
-    //     fire.scene.fireGroup.add(fire);
-    //   },
-    // });
-
     // group with all active pterodactyl.
     this.pterodactylGroup = this.add.group({
       // once a pterodactyl is removed, it's added to the pool
@@ -192,25 +176,6 @@ class PlayGame extends Phaser.Scene {
       this
     );
 
-    // setting collisions between the player and the fire group
-    // this.physics.add.overlap(
-    //   this.player,
-    //   this.fireGroup,
-    //   () => {
-    //     this.dying = true;
-    //     this.player.anims.stop();
-    //     if (JSON.parse(localStorage.getItem("gameSettings")).sfx) {
-    //       this.dinoRoaringSound.play();
-    //     }
-    //     // this.player.setFrame(2);
-    //     this.player.anims.play("burn");
-    //     this.player.body.setVelocityY(-50);
-    //     this.physics.world.removeCollider(this.platformCollider);
-    //   },
-    //   null,
-    //   this
-    // );
-
     // setting collisions between the player and the pterodactyl group
     this.physics.add.overlap(
       this.player,
@@ -301,13 +266,13 @@ class PlayGame extends Phaser.Scene {
         duration: 4000,
         ease: "bounce.out",
       });
-      this.pterodactylGroup.add(pterodactyl);
       // if (Phaser.Math.Between(0, 1)) {
       pterodactyl.setDepth(3);
       pterodactyl.setSize(5, 2, true);
       // }
       pterodactyl.anims.play("fly");
       // this.addPterodactyl(ass);
+      this.pterodactylGroup.add(pterodactyl);
     }
   }
 
@@ -372,32 +337,6 @@ class PlayGame extends Phaser.Scene {
           this.coinGroup.add(coin);
         }
       }
-
-      // is there a fire over the platform?
-      // if (Phaser.Math.Between(1, 100) <= GameOptions.firePercent) {
-      //   if (this.firePool.getLength()) {
-      //     const fire = this.firePool.getFirst();
-      //     fire.x =
-      //       posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth);
-      //     fire.y = posY - 46;
-      //     fire.alpha = 1;
-      //     fire.active = true;
-      //     fire.visible = true;
-      //     this.firePool.remove(fire);
-      //   } else {
-      //     const fire = this.physics.add.sprite(
-      //       posX - platformWidth / 2 + Phaser.Math.Between(1, platformWidth),
-      //       posY - 46,
-      //       "fire"
-      //     );
-      //     fire.setImmovable(true);
-      //     fire.setVelocityX(platform.body.velocity.x);
-      //     fire.setSize(8, 2, true);
-      //     fire.anims.play("fire");
-      //     fire.setDepth(2);
-      //     this.fireGroup.add(fire);
-      //   }
-      // }
     }
   }
 
@@ -460,14 +399,6 @@ class PlayGame extends Phaser.Scene {
       }
     }, this);
 
-    // recycling fire
-    // this.fireGroup.getChildren().forEach((fire) => {
-    //   if (fire.x < -fire.displayWidth / 2) {
-    //     this.fireGroup.killAndHide(fire);
-    //     this.fireGroup.remove(fire);
-    //   }
-    // }, this);
-
     // recycling Pterodactyl
     this.pterodactylGroup.getChildren().forEach((hill) => {
       const ass = this.player.y;
@@ -485,16 +416,8 @@ class PlayGame extends Phaser.Scene {
           duration: 4000,
           ease: "bounce.out",
         });
-        this.addPterodactyl(ass);
       }
     }, this);
-
-    // this.tweens.add({
-    //   targets: this.pterodactylGroup,
-    //   y: this.player.y,
-    //   duration: 4000,
-    //   ease: "bounce.out",
-    // });
 
     // recycling Clouds
     this.cloudsGroup.getChildren().forEach((hill) => {
