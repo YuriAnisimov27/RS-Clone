@@ -8,7 +8,11 @@ const Footer = () => (
     {(context) => (
       <footer className="footer container">
         <div className="rs-logo">
-          <a href="https://rs.school/">
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://rs.school/"
+          >
             <img className="rs-img" src={rslogo} alt="rslogo" />
           </a>
         </div>
@@ -17,12 +21,22 @@ const Footer = () => (
           <hr />
           <ul className="materials-ul">
             <li className="material-ul__li">
-              <a className="materials__link youtube" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="materials__link youtube"
+                href="https://youtu.be/_Q-SJj0Qn3Y"
+              >
                 YOUTUBE
               </a>
             </li>
             <li className="material-ul__li">
-              <a className="materials__link medium" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="materials__link medium"
+                href="https://lexamart1708.medium.com/dino-project-history-of-creation-2235b903f08f"
+              >
                 MEDIUM
               </a>
             </li>
@@ -33,22 +47,42 @@ const Footer = () => (
           <hr />
           <ul className="developers-ul">
             <li className="developers-ul__li">
-              <a className="developers__link" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="developers__link"
+                href="https://github.com/YuriAnisimov27"
+              >
                 {context.state.footerAnisimov}
               </a>
             </li>
             <li className="developers-ul__li">
-              <a className="developers__link" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="developers__link"
+                href="https://github.com/KovbenyaAlexander"
+              >
                 {context.state.footerKovbenya}
               </a>
             </li>
             <li className="developers-ul__li">
-              <a className="developers__link" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="developers__link"
+                href="https://github.com/LexaMart"
+              >
                 {context.state.footerMartinkevich}
               </a>
             </li>
             <li className="developers-ul__li">
-              <a className="developers__link" href="/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="developers__link"
+                href="https://github.com/FireYourGuns"
+              >
                 {context.state.footerChazov}
               </a>
             </li>

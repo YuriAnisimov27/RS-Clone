@@ -6,6 +6,7 @@
 header h1 {
   margin: 20px;
   width: 100%;
+  font-size: 3rem;
 }
 
 .logo {
@@ -57,9 +58,10 @@ header h1 {
     transform: scale(1) translateZ(0)
   }
 }
-@media (max-width: 710px) {
+
+@media (max-width: 900px) {
   .game-name {
-    font-size: 3.2rem;
+    font-size: 2rem;
   }
 }
 

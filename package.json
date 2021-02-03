@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "NODE_ENV= jest --detectOpenHandles",
+    "test:win": "jest --detectOpenHandles",
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",

@@ -1,7 +1,7 @@
 # Google Dinosaur
 
 Useful links:<br/>
-[Deployed app](https://protected-garden-00472.herokuapp.com/#!) <br/>
+[Deployed app](https://rs-clone-dino-race-client.herokuapp.com/) <br/>
 [Dependencies](https://docs.google.com/spreadsheets/d/1EW4S75RduHSZUBiBKbPH_Bdpbufl5vGMeJ3wcevVn-0/edit#gid=0) <br/>
 [App architecture](https://app.diagrams.net/#G1NL3jbCWAwSI8U9Nmwk4KDkVEqR8xNAFl) <br/>
 
@@ -28,6 +28,7 @@ install dependencies:
 <li>npm run client - run client</li>
 <li>npm run dev - run both</li>
 <li>npm run test - run tests</li>
+<li>npm run test:win - alternative test run option</li>
 </ul>
 
 <hr/>
@@ -69,13 +70,8 @@ install dependencies:
 
 #### Dependencies:
 
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
     "materialize-css": "^1.0.0-rc.2",
-    "mongoose": "^5.11.11",
+    "phaser": "^3.17.0",
     "react": "^17.0.1",
     "react-chrome-dino": "^0.1.3",
     "react-dom": "^17.0.1",
@@ -83,10 +79,8 @@ install dependencies:
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "react-test-renderer": "^17.0.1",
     "redux": "^4.0.5",
-    "web-vitals": "^0.2.4",
-    "phaser": "^3.17.0"
+    "web-vitals": "^0.2.4"
 
 #### DevDependencies:
 
@@ -100,7 +94,6 @@ install dependencies:
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "image-webpack-loader": "^7.0.1",
-    "jest": "^26.6.3",
     "prettier": "^2.2.1"
 
 

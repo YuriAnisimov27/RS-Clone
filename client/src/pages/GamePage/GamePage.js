@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import Phaser from "phaser";
 import "./GamePage.css";
 import Boot from "../../game/Boot";
-import PlayGame from "../../game/PlayGame";
+import Level1 from "../../game/Level1";
+import Level2 from "../../game/Level2";
 import PreloadGame from "../../game/Preloader";
 import MainMenu from "../../game/MainMenu";
+import SettingsMenu from "../../game/SettingsMenu";
+import GameOver from "../../game/GameOver";
+import Legend from "../../game/Legend";
 
 const GamePage = () => {
   useEffect(() => {
@@ -14,7 +18,16 @@ const GamePage = () => {
       width: 950,
       height: 400,
       parent: "game-wrapper",
-      scene: [Boot, PreloadGame, MainMenu, PlayGame],
+      scene: [
+        Boot,
+        PreloadGame,
+        MainMenu,
+        SettingsMenu,
+        Level1,
+        Level2,
+        GameOver,
+        Legend,
+      ],
       // mode: Phaser.Scale.FIT,
       backgroundColor: 0x87ceeb,
 

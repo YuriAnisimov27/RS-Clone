@@ -12,6 +12,16 @@ import defaultBackground from "../../../assets/UI/background.svg";
 
 let currentFontSizeFooter = 14;
 let currentFontSizeNav = 24;
+
+
+if (storage("footerSize")) {
+  currentFontSizeFooter = storage("footerSize");
+}
+
+if (storage("navSize")) {
+  currentFontSizeNav = storage("navSize");
+}
+
 export const decreaseTextSizeHandler = () => {
   const allLinks = document.querySelectorAll("a");
   if (currentFontSizeFooter > 9) {
@@ -69,23 +79,34 @@ export const backgroundOnChangeHandler = (e) => {
   document.body.style.backgroundColor = newColor;
   const settingsBack = document.querySelector('.settings-container');
   settingsBack.style.background = newColor;
-  const dropDownElements = document.querySelectorAll(`.dropdown-li`);
-  dropDownElements.forEach(item => {
-    item.style.backgroundColor = newColor;
-  })
-
   storage("customBackgroundColor", newColor);
   localStorage.setItem("customBackgroundImg", null);
 };
 
 export const textColorOnChangeHandler = (e) => {
-  const allLinks = document.querySelectorAll("a");
   const colorPicker = e.target;
   const newColor = colorPicker.value;
   document.body.style.color = newColor;
-  allLinks.forEach((item) => {
-    item.style.color = newColor;
+
+  document.querySelectorAll(`p`).forEach(item => {
+    const p = item;
+    p.style.color = newColor;
+  })
+
+  document.querySelectorAll(`.input-name`).forEach(item => {
+    const p = item;
+    p.style.color = newColor;
+    p.style.setProperty("color", newColor, "important")
+  })
+
+  document.querySelectorAll("a").forEach((item) => {
+    item.style.setProperty("color", newColor, "important")
   });
+
+  document.querySelectorAll(`button`).forEach(item => {
+    const button = item;
+    button.style.setProperty("color", newColor, "important")
+  })
   storage("customTextColor", newColor);
 };
 
@@ -136,8 +157,27 @@ export const resetStyles = () => {
 
   document.body.style.backgroundImage = `url(${defaultBackground})`;
 
-  // storage("customTextColor", null);
-  // storage("customBackgroundColor", null);
+  document.querySelectorAll(`.input-name`).forEach(item => {
+    const p = item;
+    p.style.setProperty("color", "#000000", "important")
+  })
+
+  document.querySelectorAll("a").forEach((item) => {
+    item.style.setProperty("color", "#000000", "important")
+  });
+
+  document.querySelectorAll(`button`).forEach(item => {
+    const button = item;
+    button.style.setProperty("color", "#000000", "important")
+  })
+
+  document.querySelectorAll(`.settings-message`).forEach(item => {
+    const messageContainer = item;
+    messageContainer.querySelectorAll('p').forEach(p => {
+      p.style.setProperty("color", "white", "important")
+    })
+
+  })
 
   localStorage.setItem("customTextColor", null);
   localStorage.setItem("customBackgroundColor", null);
