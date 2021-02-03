@@ -1,7 +1,7 @@
 # Google Dinosaur
 
 Useful links:<br/>
-[Deployed app](#) <br/>
+[Deployed app](https://rs-clone-dino-race-client.herokuapp.com/)) <br/>
 [Dependencies](https://docs.google.com/spreadsheets/d/1EW4S75RduHSZUBiBKbPH_Bdpbufl5vGMeJ3wcevVn-0/edit#gid=0) <br/>
 [App architecture](https://app.diagrams.net/#G1NL3jbCWAwSI8U9Nmwk4KDkVEqR8xNAFl) <br/>
 
