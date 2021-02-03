@@ -3,9 +3,22 @@ import Phaser from "phaser";
 class MainMenu extends Phaser.Scene {
   constructor() {
     super("MainMenu");
+
+    this.defaultSettings = {
+      music: true,
+      sfx: true,
+    };
   }
 
   create() {
+    this.gameSettings = JSON.parse(localStorage.getItem("gameSettings"));
+    if (this.gameSettings === null || this.gameSettings.length <= 0) {
+      localStorage.setItem(
+        "gameSettings",
+        JSON.stringify(this.defaultSettings)
+      );
+      this.gameSettings = this.defaultSettings;
+    }
     localStorage.setItem("isGameFinish", "false");
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
 

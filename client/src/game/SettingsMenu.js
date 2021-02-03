@@ -3,24 +3,12 @@ import Phaser from "phaser";
 class SettingsMenu extends Phaser.Scene {
   constructor() {
     super("SettingsMenu");
-
-    this.defaultSettings = {
-      music: true,
-      sfx: true,
-    };
   }
 
   create() {
     this.clickSound = this.sound.add("clickSound", { volume: 1.0 });
 
     this.gameSettings = JSON.parse(localStorage.getItem("gameSettings"));
-    if (this.gameSettings === null || this.gameSettings.length <= 0) {
-      localStorage.setItem(
-        "gameSettings",
-        JSON.stringify(this.defaultSettings)
-      );
-      this.gameSettings = this.defaultSettings;
-    }
 
     const settingsLegend = this.add.text(900, 40, "Settings", {
       fontSize: "56px",
