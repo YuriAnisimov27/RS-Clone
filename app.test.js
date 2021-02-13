@@ -71,7 +71,7 @@ describe('test registration user', () => {
     request(app)
       .post('/api/auth/register')
       .send({
-        email: 'qwe@qwe.qwe',
+        email: 'kovbenya.alexander1@gmail.com',
         password: 'password',
       })
       .expect(400)
